@@ -4,7 +4,6 @@
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_JPraMEP8EemcNpzfMAtnAg" name="BusMetropolis">
-    <packagedElement xmi:type="uml:Actor" xmi:id="_r9ddUEP7EemcNpzfMAtnAg" name="Bus"/>
     <packagedElement xmi:type="uml:Actor" xmi:id="_vTZeYEP7EemcNpzfMAtnAg" name="Driver"/>
     <packagedElement xmi:type="uml:Actor" xmi:id="_ZncsIEP3EemcNpzfMAtnAg" name="Human Controller"/>
     <packagedElement xmi:type="uml:Package" xmi:id="_XNP6kEP3EemcNpzfMAtnAg" name="BusInfo" visibility="package" URI="">
@@ -40,13 +39,21 @@
         <include xmi:type="uml:Include" xmi:id="_oMo2EEQGEemRLZrCcFcXRA" addition="_yPq3sEP6EemcNpzfMAtnAg"/>
         <include xmi:type="uml:Include" xmi:id="_pu56EEQGEemRLZrCcFcXRA" addition="_IpCGYEP7EemcNpzfMAtnAg"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_Ey8IIEQHEemRLZrCcFcXRA" name="Set@Bus">
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_Ey8IIEQHEemRLZrCcFcXRA" name="Get@BusState">
         <include xmi:type="uml:Include" xmi:id="_eljKkEQHEemRLZrCcFcXRA" addition="_2ipasEP4EemcNpzfMAtnAg"/>
         <include xmi:type="uml:Include" xmi:id="_futyEEQHEemRLZrCcFcXRA" addition="_IpCGYEP7EemcNpzfMAtnAg"/>
+        <include xmi:type="uml:Include" xmi:id="_z7MDsEQNEemRLZrCcFcXRA" addition="_FnNg4EQLEemRLZrCcFcXRA"/>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Actor" xmi:id="_NhxycEQFEemRLZrCcFcXRA" name="BusStopDisplay"/>
-    <packagedElement xmi:type="uml:Package" xmi:id="_vgd-IEQIEemRLZrCcFcXRA" name="@Bus"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_vgd-IEQIEemRLZrCcFcXRA" name="@Bus">
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_WrRUQEQKEemRLZrCcFcXRA" name="StartJourney"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_nfdqMEQKEemRLZrCcFcXRA" name="EndJourney"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_1GVvkEQKEemRLZrCcFcXRA" name="RequestJourneyCancelation"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_FnNg4EQLEemRLZrCcFcXRA" name="SetBusState"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_45PukEQMEemRLZrCcFcXRA" name="Contact HC"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_ORHrEEQNEemRLZrCcFcXRA" name="SetRoute"/>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_Rinj8EQAEemRLZrCcFcXRA" memberEnd="_Ri6e4EQAEemRLZrCcFcXRA _Ri-JQEQAEemRLZrCcFcXRA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ri3bkEQAEemRLZrCcFcXRA" source="org.eclipse.papyrus">
@@ -110,12 +117,5 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_6YZRUkQFEemRLZrCcFcXRA" name="busstop" type="_NhxycEQFEemRLZrCcFcXRA" association="_6YYDMEQFEemRLZrCcFcXRA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_6YZ4YEQFEemRLZrCcFcXRA" name="displaycomingbusses" type="_rIYD4EQFEemRLZrCcFcXRA" association="_6YYDMEQFEemRLZrCcFcXRA"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_LPcRgEQHEemRLZrCcFcXRA" memberEnd="_LPeGsEQHEemRLZrCcFcXRA _LPeGsUQHEemRLZrCcFcXRA">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LPc4kEQHEemRLZrCcFcXRA" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LPdfoEQHEemRLZrCcFcXRA" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_LPeGsEQHEemRLZrCcFcXRA" name="setbusstate" type="_Ey8IIEQHEemRLZrCcFcXRA" association="_LPcRgEQHEemRLZrCcFcXRA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_LPeGsUQHEemRLZrCcFcXRA" name="bus" type="_r9ddUEP7EemcNpzfMAtnAg" association="_LPcRgEQHEemRLZrCcFcXRA"/>
   </packagedElement>
 </uml:Model>
