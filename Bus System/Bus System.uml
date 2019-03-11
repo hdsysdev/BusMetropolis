@@ -20,22 +20,33 @@
       </packagedElement>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_mWKTEEP6EemcNpzfMAtnAg" name="AssignBusToRoute">
         <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_C99q4EQEEemRLZrCcFcXRA" name="ExtensionPoint1"/>
+        <include xmi:type="uml:Include" xmi:id="_xdlnkEQHEemRLZrCcFcXRA" addition="_MFDAoEQDEemRLZrCcFcXRA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_yPq3sEP6EemcNpzfMAtnAg" name="ViewJourneysOnRoute"/>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_DENL4EP7EemcNpzfMAtnAg" name="CancelJourney"/>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_IpCGYEP7EemcNpzfMAtnAg" name="GetBusState"/>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_UvBjoEQCEemRLZrCcFcXRA" name="SetInService">
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_UvBjoEQCEemRLZrCcFcXRA" name="SetInOrOutOfService">
         <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_Oo7SoEQDEemRLZrCcFcXRA" name="ExtensionPoint1"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_1NyVAEQCEemRLZrCcFcXRA" name="SetOutOfService">
-        <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_Pk2IUEQDEemRLZrCcFcXRA" name="ExtensionPoint1"/>
+        <include xmi:type="uml:Include" xmi:id="_wfj5EEQHEemRLZrCcFcXRA" addition="_MFDAoEQDEemRLZrCcFcXRA"/>
       </packagedElement>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_MFDAoEQDEemRLZrCcFcXRA" name="ModifyBus">
-        <extend xmi:type="uml:Extend" xmi:id="_Oo5dcEQDEemRLZrCcFcXRA" extendedCase="_UvBjoEQCEemRLZrCcFcXRA" extensionLocation="_Oo7SoEQDEemRLZrCcFcXRA"/>
-        <extend xmi:type="uml:Extend" xmi:id="_Pk1hQEQDEemRLZrCcFcXRA" extendedCase="_1NyVAEQCEemRLZrCcFcXRA" extensionLocation="_Pk2IUEQDEemRLZrCcFcXRA"/>
-        <extend xmi:type="uml:Extend" xmi:id="_C99D0EQEEemRLZrCcFcXRA" extendedCase="_mWKTEEP6EemcNpzfMAtnAg" extensionLocation="_C99q4EQEEemRLZrCcFcXRA"/>
+        <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_02TXMEQEEemRLZrCcFcXRA" name="ExtensionPoint1"/>
+        <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_2lZ9UEQEEemRLZrCcFcXRA" name="ExtensionPoint2"/>
+        <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_4TPYIEQEEemRLZrCcFcXRA" name="ExtensionPoint3"/>
+        <include xmi:type="uml:Include" xmi:id="_4G420EQHEemRLZrCcFcXRA" addition="_Ey8IIEQHEemRLZrCcFcXRA"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_rIYD4EQFEemRLZrCcFcXRA" name="DisplayComingBusses">
+        <include xmi:type="uml:Include" xmi:id="_mJwYUEQGEemRLZrCcFcXRA" addition="_2ipasEP4EemcNpzfMAtnAg"/>
+        <include xmi:type="uml:Include" xmi:id="_oMo2EEQGEemRLZrCcFcXRA" addition="_yPq3sEP6EemcNpzfMAtnAg"/>
+        <include xmi:type="uml:Include" xmi:id="_pu56EEQGEemRLZrCcFcXRA" addition="_IpCGYEP7EemcNpzfMAtnAg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_Ey8IIEQHEemRLZrCcFcXRA" name="Set@Bus">
+        <include xmi:type="uml:Include" xmi:id="_eljKkEQHEemRLZrCcFcXRA" addition="_2ipasEP4EemcNpzfMAtnAg"/>
+        <include xmi:type="uml:Include" xmi:id="_futyEEQHEemRLZrCcFcXRA" addition="_IpCGYEP7EemcNpzfMAtnAg"/>
       </packagedElement>
     </packagedElement>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_NhxycEQFEemRLZrCcFcXRA" name="BusStopDisplay"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_vgd-IEQIEemRLZrCcFcXRA" name="@Bus"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_Rinj8EQAEemRLZrCcFcXRA" memberEnd="_Ri6e4EQAEemRLZrCcFcXRA _Ri-JQEQAEemRLZrCcFcXRA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ri3bkEQAEemRLZrCcFcXRA" source="org.eclipse.papyrus">
@@ -92,5 +103,19 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_Sysu8UQEEemRLZrCcFcXRA" name="human controller" type="_ZncsIEP3EemcNpzfMAtnAg" association="_SysH4EQEEemRLZrCcFcXRA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_Sysu8kQEEemRLZrCcFcXRA" name="aassigndrivertobus" type="_QQ4eAEP6EemcNpzfMAtnAg" association="_SysH4EQEEemRLZrCcFcXRA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6YYDMEQFEemRLZrCcFcXRA" memberEnd="_6YZRUkQFEemRLZrCcFcXRA _6YZ4YEQFEemRLZrCcFcXRA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6YZRUEQFEemRLZrCcFcXRA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6YZRUUQFEemRLZrCcFcXRA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6YZRUkQFEemRLZrCcFcXRA" name="busstop" type="_NhxycEQFEemRLZrCcFcXRA" association="_6YYDMEQFEemRLZrCcFcXRA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6YZ4YEQFEemRLZrCcFcXRA" name="displaycomingbusses" type="_rIYD4EQFEemRLZrCcFcXRA" association="_6YYDMEQFEemRLZrCcFcXRA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_LPcRgEQHEemRLZrCcFcXRA" memberEnd="_LPeGsEQHEemRLZrCcFcXRA _LPeGsUQHEemRLZrCcFcXRA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LPc4kEQHEemRLZrCcFcXRA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LPdfoEQHEemRLZrCcFcXRA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_LPeGsEQHEemRLZrCcFcXRA" name="setbusstate" type="_Ey8IIEQHEemRLZrCcFcXRA" association="_LPcRgEQHEemRLZrCcFcXRA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_LPeGsUQHEemRLZrCcFcXRA" name="bus" type="_r9ddUEP7EemcNpzfMAtnAg" association="_LPcRgEQHEemRLZrCcFcXRA"/>
   </packagedElement>
 </uml:Model>
