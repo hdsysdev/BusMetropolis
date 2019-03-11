@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_WlS8EEC9EemKWaMinClF1g" name="Bus System">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_W6a3gEC9EemKWaMinClF1g">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_JPraMEP8EemcNpzfMAtnAg" name="BusMetropolis">
+    <packagedElement xmi:type="uml:Actor" xmi:id="_r9ddUEP7EemcNpzfMAtnAg" name="Bus"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_vTZeYEP7EemcNpzfMAtnAg" name="Driver"/>
+    <packagedElement xmi:type="uml:Actor" xmi:id="_ZncsIEP3EemcNpzfMAtnAg" name="Human Controller"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_XNP6kEP3EemcNpzfMAtnAg" name="BusInfo" visibility="package" URI="">
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_2ipasEP4EemcNpzfMAtnAg" name="ViewTimetableOfRoute"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_v5CM8EP5EemcNpzfMAtnAg" name="AddNewBus"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_0BkvoEP5EemcNpzfMAtnAg" name="AddNewDriver"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_QQ4eAEP6EemcNpzfMAtnAg" name="ReassignDriver"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_mWKTEEP6EemcNpzfMAtnAg" name="ReassignBusRoute"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_yPq3sEP6EemcNpzfMAtnAg" name="ViewJourneysOfRoute"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_DENL4EP7EemcNpzfMAtnAg" name="CancelJourney"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_IpCGYEP7EemcNpzfMAtnAg" name="GetBusState"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
