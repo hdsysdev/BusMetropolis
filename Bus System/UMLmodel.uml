@@ -47,6 +47,13 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_EL-ekFa6EemSVslCTflCGw" name="addNewBus"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_F0eGYFa6EemSVslCTflCGw" name="modifyBus"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_KEUyAFa6EemSVslCTflCGw" name="viewJourneysOnRoute"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ps0rkFa6EemSVslCTflCGw" name="viewRouteTimetable"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_YgqfwFa6EemSVslCTflCGw" name="getBusState"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eBYWUFa6EemSVslCTflCGw" name="cancelJourney"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_gJ7-QFa6EemSVslCTflCGw" name="assignDriverToBus"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_iibfoFa6EemSVslCTflCGw" name="addNewDriver"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_m1ZJoFa6EemSVslCTflCGw" name="setInOrOutOfService"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_ror5gFa6EemSVslCTflCGw" name="assignBusToRoute"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_6NyT8Fa1EemSVslCTflCGw" name="Driver">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_7xMncFa1EemSVslCTflCGw" name="name">
