@@ -80,6 +80,7 @@
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_HxJD4Fa5EemSVslCTflCGw" name="bus" type="_mkNl8FatEemySszvGVR5KQ" association="_HxHOsFa5EemSVslCTflCGw"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_TtBVIFa7EemSVslCTflCGw" name="BusStop"/>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Sv3m0FavEemNR8njb2inAw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Sv7RMFavEemNR8njb2inAw" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
