@@ -4,12 +4,9 @@
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_JPraMEP8EemcNpzfMAtnAg" name="BusMetropolis">
-    <ownedRule xmi:type="uml:Constraint" xmi:id="_M7d78ESrEem7I4Q09TrMiA" name="Constraint11" visibility="public">
-      <specification xmi:type="uml:OpaqueExpression" xmi:id="_M7fxIESrEem7I4Q09TrMiA" name="constraintSpec">
-        <language>OCL</language>
-        <body>if passenger.hasMoney == true</body>
-      </specification>
-    </ownedRule>
+    <ownedComment xmi:type="uml:Comment" xmi:id="__EYSgES5Eem7I4Q09TrMiA" annotatedElement="_9fZ4wES5Eem7I4Q09TrMiA">
+      <body>{if not enough money on card}</body>
+    </ownedComment>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_yPq3sEP6EemcNpzfMAtnAg" name="ViewJourneysOnRoute"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_rIYD4EQFEemRLZrCcFcXRA" name="DisplayComingBusses">
       <include xmi:type="uml:Include" xmi:id="_mJwYUEQGEemRLZrCcFcXRA" addition="_2ipasEP4EemcNpzfMAtnAg"/>
@@ -46,19 +43,30 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_0BkvoEP5EemcNpzfMAtnAg" name="AddNewDriver">
       <include xmi:type="uml:Include" xmi:id="_QJ12UEQEEemRLZrCcFcXRA" addition="_QQ4eAEP6EemcNpzfMAtnAg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_FnNg4EQLEemRLZrCcFcXRA" name="SetBusState"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_rF2sYESqEem7I4Q09TrMiA" name="DenyPassage">
-      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_ufmPYESqEem7I4Q09TrMiA" name="ExtensionPoint1"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_FnNg4EQLEemRLZrCcFcXRA" name="SetBusState">
+      <include xmi:type="uml:Include" xmi:id="_XocMQES8Eem7I4Q09TrMiA" addition="_Ey8IIEQHEemRLZrCcFcXRA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_WrRUQEQKEemRLZrCcFcXRA" name="StartJourney"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_rF2sYESqEem7I4Q09TrMiA" name="DenyPassage">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_ZpF8wES5Eem7I4Q09TrMiA" name="ExtensionPoint1"/>
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_9fcVAES5Eem7I4Q09TrMiA" name="ExtensionPoint2"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_WrRUQEQKEemRLZrCcFcXRA" name="StartJourney">
+      <include xmi:type="uml:Include" xmi:id="_arIhMES8Eem7I4Q09TrMiA" addition="_FnNg4EQLEemRLZrCcFcXRA"/>
+      <include xmi:type="uml:Include" xmi:id="_cZL-cES8Eem7I4Q09TrMiA" addition="_ORHrEEQNEemRLZrCcFcXRA"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_nfdqMEQKEemRLZrCcFcXRA" name="EndJourney"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_1GVvkEQKEemRLZrCcFcXRA" name="RequestJourneyCancelation">
-      <include xmi:type="uml:Include" xmi:id="_pS2scESkEem7I4Q09TrMiA" addition="_45PukEQMEemRLZrCcFcXRA"/>
+      <include xmi:type="uml:Include" xmi:id="_Vu4UgES6Eem7I4Q09TrMiA" addition="_45PukEQMEemRLZrCcFcXRA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_45PukEQMEemRLZrCcFcXRA" name="Contact HC"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_ORHrEEQNEemRLZrCcFcXRA" name="SetRoute"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_kCnvoESpEem7I4Q09TrMiA" name="SwipeExitReader"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_hpq7QESpEem7I4Q09TrMiA" name="SwipeEnteranceReader"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_kCnvoESpEem7I4Q09TrMiA" name="SwipeExitReader">
+      <include xmi:type="uml:Include" xmi:id="_N850gEcAEem7I4Q09TrMiA" addition="_FP95kEcAEem7I4Q09TrMiA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_hpq7QESpEem7I4Q09TrMiA" name="SwipeEnteranceReader">
+      <extend xmi:type="uml:Extend" xmi:id="_9fZ4wES5Eem7I4Q09TrMiA" extendedCase="_rF2sYESqEem7I4Q09TrMiA" extensionLocation="_9fcVAES5Eem7I4Q09TrMiA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_FP95kEcAEem7I4Q09TrMiA" name="ProcessPayment"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_Rinj8EQAEemRLZrCcFcXRA" memberEnd="_Ri6e4EQAEemRLZrCcFcXRA _Ri-JQEQAEemRLZrCcFcXRA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ri3bkEQAEemRLZrCcFcXRA" source="org.eclipse.papyrus">
@@ -127,4 +135,53 @@
   <packagedElement xmi:type="uml:Actor" xmi:id="_NhxycEQFEemRLZrCcFcXRA" name="BusStopDisplay"/>
   <packagedElement xmi:type="uml:Actor" xmi:id="_IMsxoESpEem7I4Q09TrMiA" name="Passenger"/>
   <packagedElement xmi:type="uml:Actor" xmi:id="_vTZeYEP7EemcNpzfMAtnAg" name="Driver"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="__k_vcES9Eem7I4Q09TrMiA" memberEnd="__lF2EES9Eem7I4Q09TrMiA __lHEMES9Eem7I4Q09TrMiA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__lDZ0ES9Eem7I4Q09TrMiA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__lEA4ES9Eem7I4Q09TrMiA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__lF2EES9Eem7I4Q09TrMiA" name="swipeenterancereader" type="_hpq7QESpEem7I4Q09TrMiA" association="__k_vcES9Eem7I4Q09TrMiA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__lHEMES9Eem7I4Q09TrMiA" name="passenger" type="_IMsxoESpEem7I4Q09TrMiA" association="__k_vcES9Eem7I4Q09TrMiA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_AnoRIES-Eem7I4Q09TrMiA" memberEnd="_AnpfQES-Eem7I4Q09TrMiA _AnpfQUS-Eem7I4Q09TrMiA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ano4MES-Eem7I4Q09TrMiA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ano4MUS-Eem7I4Q09TrMiA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_AnpfQES-Eem7I4Q09TrMiA" name="passenger" type="_IMsxoESpEem7I4Q09TrMiA" association="_AnoRIES-Eem7I4Q09TrMiA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_AnpfQUS-Eem7I4Q09TrMiA" name="swipeexitreader" type="_kCnvoESpEem7I4Q09TrMiA" association="_AnoRIES-Eem7I4Q09TrMiA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_uvytsEb-Eem7I4Q09TrMiA" memberEnd="_uv3mMEb-Eem7I4Q09TrMiA _uv4NQEb-Eem7I4Q09TrMiA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uv1xAEb-Eem7I4Q09TrMiA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_uv2YEEb-Eem7I4Q09TrMiA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_uv3mMEb-Eem7I4Q09TrMiA" name="driver" type="_vTZeYEP7EemcNpzfMAtnAg" association="_uvytsEb-Eem7I4Q09TrMiA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_uv4NQEb-Eem7I4Q09TrMiA" name="startjourney" type="_WrRUQEQKEemRLZrCcFcXRA" association="_uvytsEb-Eem7I4Q09TrMiA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_v3_r4Eb-Eem7I4Q09TrMiA" memberEnd="_v4BhEUb-Eem7I4Q09TrMiA _v4CIIEb-Eem7I4Q09TrMiA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_v4A6AEb-Eem7I4Q09TrMiA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_v4BhEEb-Eem7I4Q09TrMiA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_v4BhEUb-Eem7I4Q09TrMiA" name="driver" type="_vTZeYEP7EemcNpzfMAtnAg" association="_v3_r4Eb-Eem7I4Q09TrMiA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_v4CIIEb-Eem7I4Q09TrMiA" name="endjourney" type="_nfdqMEQKEemRLZrCcFcXRA" association="_v3_r4Eb-Eem7I4Q09TrMiA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_wxrs8Eb-Eem7I4Q09TrMiA" memberEnd="_wxtiIEb-Eem7I4Q09TrMiA _wxtiIUb-Eem7I4Q09TrMiA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wxs7EEb-Eem7I4Q09TrMiA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wxs7EUb-Eem7I4Q09TrMiA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_wxtiIEb-Eem7I4Q09TrMiA" name="driver" type="_vTZeYEP7EemcNpzfMAtnAg" association="_wxrs8Eb-Eem7I4Q09TrMiA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_wxtiIUb-Eem7I4Q09TrMiA" name="requestjourneycancelation" type="_1GVvkEQKEemRLZrCcFcXRA" association="_wxrs8Eb-Eem7I4Q09TrMiA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_xu14wEb-Eem7I4Q09TrMiA" memberEnd="_xu3G4Eb-Eem7I4Q09TrMiA _xu3G4Ub-Eem7I4Q09TrMiA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xu2f0Eb-Eem7I4Q09TrMiA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xu2f0Ub-Eem7I4Q09TrMiA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_xu3G4Eb-Eem7I4Q09TrMiA" name="driver" type="_vTZeYEP7EemcNpzfMAtnAg" association="_xu14wEb-Eem7I4Q09TrMiA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_xu3G4Ub-Eem7I4Q09TrMiA" name="contact hc" type="_45PukEQMEemRLZrCcFcXRA" association="_xu14wEb-Eem7I4Q09TrMiA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_BTKFwEcAEem7I4Q09TrMiA" memberEnd="_BTLT4kcAEem7I4Q09TrMiA _BTL68EcAEem7I4Q09TrMiA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BTLT4EcAEem7I4Q09TrMiA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_BTLT4UcAEem7I4Q09TrMiA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_BTLT4kcAEem7I4Q09TrMiA" name="denypassage" type="_rF2sYESqEem7I4Q09TrMiA" association="_BTKFwEcAEem7I4Q09TrMiA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_BTL68EcAEem7I4Q09TrMiA" name="driver" type="_vTZeYEP7EemcNpzfMAtnAg" association="_BTKFwEcAEem7I4Q09TrMiA"/>
+  </packagedElement>
 </uml:Model>
