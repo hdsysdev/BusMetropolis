@@ -11,10 +11,9 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_Iqj0oFa4EemSVslCTflCGw" name="inService">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_n9HRkFa4EemSVslCTflCGw" name="fullCapacity">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_n9HRkFa4EemSVslCTflCGw" name="capacity">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_HxH1wla5EemSVslCTflCGw" name="driver" type="_6NyT8Fa1EemSVslCTflCGw" association="_HxHOsFa5EemSVslCTflCGw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_YnsKQFa5EemSVslCTflCGw" name="doingJourney">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
@@ -23,6 +22,10 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_KJUtIFukEemk2YvRB_WKbA" name="numberPlate">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ox1JsFuzEemk2YvRB_WKbA" name="model">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_sKnbslu5Eemk2YvRB_WKbA" name="route" type="_oVPh4FaxEemNR8njb2inAw" association="_sKmNkFu5Eemk2YvRB_WKbA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_EY_dUFauEemySszvGVR5KQ" name="Journey">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_LjT8sFazEemSVslCTflCGw" name="journeyID">
@@ -54,17 +57,82 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_VhkgIla0EemSVslCTflCGw" name="route" type="_oVPh4FaxEemNR8njb2inAw" association="_VhjSAFa0EemSVslCTflCGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_u_ugEFa1EemSVslCTflCGw" name="BusInfo">
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_EL-ekFa6EemSVslCTflCGw" name="addNewBus"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_F0eGYFa6EemSVslCTflCGw" name="modifyBus"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_KEUyAFa6EemSVslCTflCGw" name="viewJourneysOnRoute"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ps0rkFa6EemSVslCTflCGw" name="viewRouteTimetable"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_YgqfwFa6EemSVslCTflCGw" name="getBusState"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_eBYWUFa6EemSVslCTflCGw" name="cancelJourney"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_gJ7-QFa6EemSVslCTflCGw" name="assignDriverToBus"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_iibfoFa6EemSVslCTflCGw" name="addNewDriver"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_m1ZJoFa6EemSVslCTflCGw" name="setInOrOutOfService"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_ror5gFa6EemSVslCTflCGw" name="assignBusToRoute"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_9TUTwFuSEemk2YvRB_WKbA" name="get@BusState"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EL-ekFa6EemSVslCTflCGw" name="addNewBus" visibility="public">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Riq7cFuzEemk2YvRB_WKbA" name="numberPlate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_e8wiAFuzEemk2YvRB_WKbA" name="capacity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_v1SlYFuzEemk2YvRB_WKbA" name="model">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_2iyYIFuzEemk2YvRB_WKbA" name="inService">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_KEUyAFa6EemSVslCTflCGw" name="viewJourneysOnRoute" visibility="public">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_t36ZEFu7Eemk2YvRB_WKbA" name="routeID" visibility="public" type="_5jddMFa4EemSVslCTflCGw" effect="create"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_34EPYFu7Eemk2YvRB_WKbA" name="journeys" type="_EY_dUFauEemySszvGVR5KQ" direction="return">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GEvekFu-Eemk2YvRB_WKbA" value="*"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ps0rkFa6EemSVslCTflCGw" name="viewRouteTimetable">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_WUk_sFu9Eemk2YvRB_WKbA" name="routeID" type="_5jddMFa4EemSVslCTflCGw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_aYYzYFu9Eemk2YvRB_WKbA" name="timetable" type="_vtErEFaxEemNR8njb2inAw" direction="return"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wNl6MFu_Eemk2YvRB_WKbA" name="direction" type="_jZF-sFa2EemSVslCTflCGw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_YgqfwFa6EemSVslCTflCGw" name="getBusState">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_URn0AFu-Eemk2YvRB_WKbA" name="busID" type="_SyGXQFa2EemSVslCTflCGw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_BM-B4Fu_Eemk2YvRB_WKbA" name="busState" type="_mkNl8FatEemySszvGVR5KQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eBYWUFa6EemSVslCTflCGw" name="cancelJourney">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_aCei4Fu_Eemk2YvRB_WKbA" name="journeyID" effect="delete">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_gJ7-QFa6EemSVslCTflCGw" name="assignDriverToBus">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_8C_wAFvBEemk2YvRB_WKbA" name="driverID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_CIqtwFvCEemk2YvRB_WKbA" name="busID">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_iibfoFa6EemSVslCTflCGw" name="addNewDriver">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_LywNcFvCEemk2YvRB_WKbA" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_PqVjAFvCEemk2YvRB_WKbA" name="phoneNumber" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_bCxa4FvCEemk2YvRB_WKbA" name="address" type="_e6aXcFa3EemSVslCTflCGw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_m1ZJoFa6EemSVslCTflCGw" name="setInOrOutOfService">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_w6-yYFvEEemk2YvRB_WKbA" name="busID" type="_SyGXQFa2EemSVslCTflCGw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Y-nsFvEEemk2YvRB_WKbA" name="inService">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_ror5gFa6EemSVslCTflCGw" name="assignBusToRoute">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_65HPcFvEEemk2YvRB_WKbA" name="busID" type="_SyGXQFa2EemSVslCTflCGw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_-iJLoFvEEemk2YvRB_WKbA" name="routeID" type="_5jddMFa4EemSVslCTflCGw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GMuhcFu0Eemk2YvRB_WKbA" name="modifyBus" visibility="public">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_dc0wkFvEEemk2YvRB_WKbA" name="busID" type="_SyGXQFa2EemSVslCTflCGw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GMuhdFu0Eemk2YvRB_WKbA" name="inService">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GMuhcVu0Eemk2YvRB_WKbA" name="numberPlate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GMuhclu0Eemk2YvRB_WKbA" name="capacity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GMuhc1u0Eemk2YvRB_WKbA" name="model">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_6NyT8Fa1EemSVslCTflCGw" name="Driver">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_7xMncFa1EemSVslCTflCGw" name="name">
@@ -74,7 +142,7 @@
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_F9xJIFa2EemSVslCTflCGw" name="phoneNumber">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_MWj3MFa2EemSVslCTflCGw" name="address" visibility="public" type="_e6aXcFa3EemSVslCTflCGw"/>
   </packagedElement>
@@ -95,11 +163,12 @@
     </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_5jddMFa4EemSVslCTflCGw" name="RouteID"/>
-  <packagedElement xmi:type="uml:Association" xmi:id="_HxHOsFa5EemSVslCTflCGw" memberEnd="_HxH1wla5EemSVslCTflCGw _HxJD4Fa5EemSVslCTflCGw">
+  <packagedElement xmi:type="uml:Association" xmi:id="_HxHOsFa5EemSVslCTflCGw" memberEnd="_HxH1wla5EemSVslCTflCGw _HxJD4Fa5EemSVslCTflCGw" navigableOwnedEnd="_HxH1wla5EemSVslCTflCGw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HxH1wFa5EemSVslCTflCGw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HxH1wVa5EemSVslCTflCGw" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_HxJD4Fa5EemSVslCTflCGw" name="bus" type="_mkNl8FatEemySszvGVR5KQ" association="_HxHOsFa5EemSVslCTflCGw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_HxH1wla5EemSVslCTflCGw" name="driver" type="_6NyT8Fa1EemSVslCTflCGw" association="_HxHOsFa5EemSVslCTflCGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_TtBVIFa7EemSVslCTflCGw" name="BusStop">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_f2yYwFucEemk2YvRB_WKbA" name="stopID">
@@ -144,7 +213,7 @@
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_wm1fcFulEemk2YvRB_WKbA" memberEnd="_wm2GglulEemk2YvRB_WKbA _wm3UoFulEemk2YvRB_WKbA">
+  <packagedElement xmi:type="uml:Association" xmi:id="_wm1fcFulEemk2YvRB_WKbA" memberEnd="_wm2GglulEemk2YvRB_WKbA _wm3UoFulEemk2YvRB_WKbA" navigableOwnedEnd="_wm3UoFulEemk2YvRB_WKbA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wm2GgFulEemk2YvRB_WKbA" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wm2GgVulEemk2YvRB_WKbA" key="nature" value="UML_Nature"/>
     </eAnnotations>
@@ -153,7 +222,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hQkqoFumEemk2YvRB_WKbA" value="*"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_aPyIcFumEemk2YvRB_WKbA" memberEnd="_aPz9oFumEemk2YvRB_WKbA _aP0ksFumEemk2YvRB_WKbA">
+  <packagedElement xmi:type="uml:Association" xmi:id="_aPyIcFumEemk2YvRB_WKbA" memberEnd="_aPz9oFumEemk2YvRB_WKbA _aP0ksFumEemk2YvRB_WKbA" navigableOwnedEnd="_aP0ksFumEemk2YvRB_WKbA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aPzWkFumEemk2YvRB_WKbA" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aPzWkVumEemk2YvRB_WKbA" key="nature" value="UML_Nature"/>
     </eAnnotations>
@@ -161,6 +230,30 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_aP0ksFumEemk2YvRB_WKbA" name="route" type="_oVPh4FaxEemNR8njb2inAw" aggregation="composite" association="_aPyIcFumEemk2YvRB_WKbA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ghfXEFumEemk2YvRB_WKbA" value="*"/>
     </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pBrPcFumEemk2YvRB_WKbA" memberEnd="_pBtEoVumEemk2YvRB_WKbA _pBzyUFumEemk2YvRB_WKbA" navigableOwnedEnd="_pBzyUFumEemk2YvRB_WKbA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pBsdkFumEemk2YvRB_WKbA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pBtEoFumEemk2YvRB_WKbA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pBtEoVumEemk2YvRB_WKbA" name="businfo" type="_u_ugEFa1EemSVslCTflCGw" association="_pBrPcFumEemk2YvRB_WKbA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pBzyUFumEemk2YvRB_WKbA" name="journey" type="_EY_dUFauEemySszvGVR5KQ" aggregation="composite" association="_pBrPcFumEemk2YvRB_WKbA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qzfLUFumEemk2YvRB_WKbA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_-VQh0FumEemk2YvRB_WKbA" memberEnd="_-VRv8lumEemk2YvRB_WKbA _-VSXAFumEemk2YvRB_WKbA" navigableOwnedEnd="_-VSXAFumEemk2YvRB_WKbA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-VRv8FumEemk2YvRB_WKbA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-VRv8VumEemk2YvRB_WKbA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_-VRv8lumEemk2YvRB_WKbA" name="businfo" type="_u_ugEFa1EemSVslCTflCGw" association="_-VQh0FumEemk2YvRB_WKbA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_-VSXAFumEemk2YvRB_WKbA" name="driver" type="_6NyT8Fa1EemSVslCTflCGw" aggregation="composite" association="_-VQh0FumEemk2YvRB_WKbA">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__unhcFumEemk2YvRB_WKbA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_sKmNkFu5Eemk2YvRB_WKbA" memberEnd="_sKnbslu5Eemk2YvRB_WKbA _sKop0Fu5Eemk2YvRB_WKbA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sKnbsFu5Eemk2YvRB_WKbA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sKnbsVu5Eemk2YvRB_WKbA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_sKop0Fu5Eemk2YvRB_WKbA" name="bus" type="_mkNl8FatEemySszvGVR5KQ" association="_sKmNkFu5Eemk2YvRB_WKbA"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Sv3m0FavEemNR8njb2inAw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Sv7RMFavEemNR8njb2inAw" source="http://www.eclipse.org/uml2/2.0.0/UML">
