@@ -114,7 +114,7 @@
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_ror5gFa6EemSVslCTflCGw" name="assignBusToRoute">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_ror5gFa6EemSVslCTflCGw" name="assignBusToRoute" visibility="public">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_65HPcFvEEemk2YvRB_WKbA" name="busID" type="_SyGXQFa2EemSVslCTflCGw"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_-iJLoFvEEemk2YvRB_WKbA" name="routeID" type="_5jddMFa4EemSVslCTflCGw"/>
     </ownedOperation>
