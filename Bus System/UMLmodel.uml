@@ -43,6 +43,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedAttribute xmi:type="uml:Property" xmi:id="_LjT8sFazEemSVslCTflCGw" name="journeyID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_K6Q-oFxkEem6d9fg-lep9A" name="direction" type="_jZF-sFa2EemSVslCTflCGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_oVPh4FaxEemNR8njb2inAw" name="Route">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_URzW0FazEemSVslCTflCGw" name="routeID" type="_5jddMFa4EemSVslCTflCGw"/>
@@ -50,7 +51,6 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedAttribute xmi:type="uml:Property" xmi:id="_mXepIFudEemk2YvRB_WKbA" name="busstop" type="_TtBVIFa7EemSVslCTflCGw" association="_mXZJkFudEemk2YvRB_WKbA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mXfQMVudEemk2YvRB_WKbA" value="*"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_fCtMQFujEemk2YvRB_WKbA" name="direction" type="_jZF-sFa2EemSVslCTflCGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_vtErEFaxEemNR8njb2inAw" name="Timetable"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_1XPGoFazEemSVslCTflCGw" memberEnd="_1XXCcFazEemSVslCTflCGw _1XYQkVazEemSVslCTflCGw">
@@ -69,6 +69,9 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedEnd xmi:type="uml:Property" xmi:id="_VhkgIla0EemSVslCTflCGw" name="route" type="_oVPh4FaxEemNR8njb2inAw" association="_VhjSAFa0EemSVslCTflCGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_u_ugEFa1EemSVslCTflCGw" name="BusInfo">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_hILAsFxjEem6d9fg-lep9A" name="bus" type="_mkNl8FatEemySszvGVR5KQ" aggregation="composite" association="_hH-zcFxjEem6d9fg-lep9A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hILnwVxjEem6d9fg-lep9A" value="*"/>
+    </ownedAttribute>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_EL-ekFa6EemSVslCTflCGw" name="addNewBus" visibility="public">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Riq7cFuzEemk2YvRB_WKbA" name="numberPlate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -334,6 +337,12 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <message xmi:type="uml:Message" xmi:id="_e4hiAFxSEem6d9fg-lep9A" name="addNewDriver(name, phoneNumber, address)" receiveEvent="_e4iJEVxSEem6d9fg-lep9A" sendEvent="_e4iJEFxSEem6d9fg-lep9A"/>
     <message xmi:type="uml:Message" xmi:id="_q3SaEFxSEem6d9fg-lep9A" name="setInOrOutOfService(busID, inService)" receiveEvent="_q3ToMFxSEem6d9fg-lep9A" sendEvent="_q3TBIFxSEem6d9fg-lep9A"/>
     <message xmi:type="uml:Message" xmi:id="_3OtCsFxSEem6d9fg-lep9A" name="assignBusToRoute(busID, routeID)" receiveEvent="_3OuQ0FxSEem6d9fg-lep9A" sendEvent="_3OtpwFxSEem6d9fg-lep9A"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_hH-zcFxjEem6d9fg-lep9A" memberEnd="_hILAsFxjEem6d9fg-lep9A _hILnwlxjEem6d9fg-lep9A">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hIHWUFxjEem6d9fg-lep9A" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hIH9YFxjEem6d9fg-lep9A" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_hILnwlxjEem6d9fg-lep9A" name="businfo" type="_u_ugEFa1EemSVslCTflCGw" association="_hH-zcFxjEem6d9fg-lep9A"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Sv3m0FavEemNR8njb2inAw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Sv7RMFavEemNR8njb2inAw" source="http://www.eclipse.org/uml2/2.0.0/UML">
