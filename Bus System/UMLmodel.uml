@@ -7,10 +7,10 @@ inv: For time: hours &lt; 24 &amp;&amp; minutes &lt; 60&#xD;
 &#xD;
 &lt;&lt;invariant>>&#xD;
 context: Date &#xD;
-inv: For date: day >= 1 &amp;&amp; month &lt;=12&#xD;
-		&amp;&amp; month in {4, 6, 9, 11} => day &lt;= 31&#xD;
-		&amp;&amp; month in {1, 3, 5, 7, 8, 10, 12} => day &lt;= 30&#xD;
-		&amp;&amp; month = 2 =></body>
+inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
+		&amp;&amp; month in {1, 3, 5, 7, 8, 10, 12} ==> day &lt;= 31&#xD;
+		&amp;&amp; month in {4, 6, 9, 11} ==> day &lt;= 30&#xD;
+		&amp;&amp; month = 2 ==> if (year%4 = 0 &amp;&amp; (not(year%100 = 0) or year%400=0)) then day &lt;= 29 else day &lt;= 28 </body>
   </ownedComment>
   <packageImport xmi:type="uml:PackageImport" xmi:id="_VXgwwFaqEemySszvGVR5KQ">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
