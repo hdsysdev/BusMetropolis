@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_VLkmgFaqEemySszvGVR5KQ" name="UMLmodel">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_VVX7IFwuEem55eyWCJH6zg">
+    <body>&lt;&lt;invariant>>&#xD;
+context: time&#xD;
+inv: For time: hours &lt; 24 &amp;&amp; minutes &lt; 60&#xD;
+&#xD;
+&lt;&lt;invariant>>&#xD;
+context: Date &#xD;
+inv: For date: day >= 1 &amp;&amp; month &lt;=12&#xD;
+		&amp;&amp; month in {4, 6, 9, 11} => day &lt;= 31&#xD;
+		&amp;&amp; month in {1, 3, 5, 7, 8, 10, 12} => day &lt;= 30&#xD;
+		&amp;&amp; month = 2 =></body>
+  </ownedComment>
   <packageImport xmi:type="uml:PackageImport" xmi:id="_VXgwwFaqEemySszvGVR5KQ">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
@@ -163,7 +175,7 @@
     </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_5jddMFa4EemSVslCTflCGw" name="RouteID"/>
-  <packagedElement xmi:type="uml:Association" xmi:id="_HxHOsFa5EemSVslCTflCGw" memberEnd="_HxH1wla5EemSVslCTflCGw _HxJD4Fa5EemSVslCTflCGw" navigableOwnedEnd="_HxH1wla5EemSVslCTflCGw">
+  <packagedElement xmi:type="uml:Association" xmi:id="_HxHOsFa5EemSVslCTflCGw" memberEnd="_HxH1wla5EemSVslCTflCGw _HxJD4Fa5EemSVslCTflCGw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HxH1wFa5EemSVslCTflCGw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HxH1wVa5EemSVslCTflCGw" key="nature" value="UML_Nature"/>
     </eAnnotations>
@@ -183,15 +195,6 @@
     <ownedEnd xmi:type="uml:Property" xmi:id="_mXf3QFudEemk2YvRB_WKbA" name="route" type="_oVPh4FaxEemNR8njb2inAw" association="_mXZJkFudEemk2YvRB_WKbA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_1LBV8FudEemk2YvRB_WKbA" name="Time">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_ann6UFueEemk2YvRB_WKbA" name="day">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_dYKIQFueEemk2YvRB_WKbA" name="month">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_8ANPoFueEemk2YvRB_WKbA" name="year">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
-    </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_MIXmAFufEemk2YvRB_WKbA" name="hours">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
@@ -201,6 +204,7 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_ineQUFufEemk2YvRB_WKbA" name="seconds">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_V4I0gFwvEem55eyWCJH6zg" name="date" type="_ULJz4FujEemk2YvRB_WKbA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_ULJz4FujEemk2YvRB_WKbA" name="Date">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_VbzjcFujEemk2YvRB_WKbA" name="year">
