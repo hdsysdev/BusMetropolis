@@ -19,11 +19,10 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedAttribute xmi:type="uml:Property" xmi:id="_POcugFavEemNR8njb2inAw" name="busID" visibility="public">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_1XXCcFazEemSVslCTflCGw" name="journey" type="_EY_dUFauEemySszvGVR5KQ" association="_1XPGoFazEemSVslCTflCGw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_Iqj0oFa4EemSVslCTflCGw" name="inService">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_n9HRkFa4EemSVslCTflCGw" name="capacity">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_n9HRkFa4EemSVslCTflCGw" name="standingCapacity">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_YnsKQFa5EemSVslCTflCGw" name="doingJourney">
@@ -38,6 +37,12 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_sKnbslu5Eemk2YvRB_WKbA" name="route" type="_oVPh4FaxEemNR8njb2inAw" association="_sKmNkFu5Eemk2YvRB_WKbA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_9pVPsF62Eem5dP6HQMZsYw" name="seatingCapacity">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UhrgcF63Eem5dP6HQMZsYw" name="year">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_EY_dUFauEemySszvGVR5KQ" name="Journey">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_LjT8sFazEemSVslCTflCGw" name="journeyID">
@@ -51,41 +56,31 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedAttribute xmi:type="uml:Property" xmi:id="_mXepIFudEemk2YvRB_WKbA" name="busstop" type="_TtBVIFa7EemSVslCTflCGw" association="_mXZJkFudEemk2YvRB_WKbA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mXfQMVudEemk2YvRB_WKbA" value="*"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_4VYuAF6vEem5dP6HQMZsYw" name="routeNumber">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_vtErEFaxEemNR8njb2inAw" name="Timetable"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_1XPGoFazEemSVslCTflCGw" memberEnd="_1XXCcFazEemSVslCTflCGw _1XYQkVazEemSVslCTflCGw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1XT_IFazEemSVslCTflCGw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1XUmMFazEemSVslCTflCGw" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_1XYQkVazEemSVslCTflCGw" name="bus" type="_mkNl8FatEemySszvGVR5KQ" association="_1XPGoFazEemSVslCTflCGw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1XYQkVazEemSVslCTflCGw" name="HasBus" type="_mkNl8FatEemySszvGVR5KQ" association="_1XPGoFazEemSVslCTflCGw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_1XXCcFazEemSVslCTflCGw" name="journey" type="_EY_dUFauEemySszvGVR5KQ" association="_1XPGoFazEemSVslCTflCGw"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_VhjSAFa0EemSVslCTflCGw" memberEnd="_VhkgIla0EemSVslCTflCGw _VhluQFa0EemSVslCTflCGw" navigableOwnedEnd="_VhkgIla0EemSVslCTflCGw">
+  <packagedElement xmi:type="uml:Association" xmi:id="_VhjSAFa0EemSVslCTflCGw" memberEnd="_VhkgIla0EemSVslCTflCGw _VhluQFa0EemSVslCTflCGw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VhkgIFa0EemSVslCTflCGw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VhkgIVa0EemSVslCTflCGw" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_VhluQFa0EemSVslCTflCGw" name="journey" type="_EY_dUFauEemySszvGVR5KQ" association="_VhjSAFa0EemSVslCTflCGw">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VhluQFa0EemSVslCTflCGw" name="HasJourneys" type="_EY_dUFauEemySszvGVR5KQ" association="_VhjSAFa0EemSVslCTflCGw">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hgVYMFa0EemSVslCTflCGw" value="*"/>
     </ownedEnd>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_VhkgIla0EemSVslCTflCGw" name="route" type="_oVPh4FaxEemNR8njb2inAw" association="_VhjSAFa0EemSVslCTflCGw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VhkgIla0EemSVslCTflCGw" name="HasRoute" type="_oVPh4FaxEemNR8njb2inAw" association="_VhjSAFa0EemSVslCTflCGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_u_ugEFa1EemSVslCTflCGw" name="BusInfo">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_hILAsFxjEem6d9fg-lep9A" name="bus" type="_mkNl8FatEemySszvGVR5KQ" aggregation="composite" association="_hH-zcFxjEem6d9fg-lep9A">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hILnwVxjEem6d9fg-lep9A" value="*"/>
     </ownedAttribute>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_EL-ekFa6EemSVslCTflCGw" name="addNewBus" visibility="public">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Riq7cFuzEemk2YvRB_WKbA" name="numberPlate">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_e8wiAFuzEemk2YvRB_WKbA" name="capacity">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_v1SlYFuzEemk2YvRB_WKbA" name="model">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_2iyYIFuzEemk2YvRB_WKbA" name="inService">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-      </ownedParameter>
-    </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_KEUyAFa6EemSVslCTflCGw" name="viewJourneysOnRoute" visibility="public">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_t36ZEFu7Eemk2YvRB_WKbA" name="routeID" visibility="public" type="_5jddMFa4EemSVslCTflCGw" effect="create"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_34EPYFu7Eemk2YvRB_WKbA" name="journeys" type="_EY_dUFauEemySszvGVR5KQ" direction="return">
@@ -95,7 +90,6 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedOperation xmi:type="uml:Operation" xmi:id="_Ps0rkFa6EemSVslCTflCGw" name="viewRouteTimetable">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_WUk_sFu9Eemk2YvRB_WKbA" name="routeID" type="_5jddMFa4EemSVslCTflCGw"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_aYYzYFu9Eemk2YvRB_WKbA" name="timetable" type="_vtErEFaxEemNR8njb2inAw" direction="return"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_wNl6MFu_Eemk2YvRB_WKbA" name="direction" type="_jZF-sFa2EemSVslCTflCGw"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_YgqfwFa6EemSVslCTflCGw" name="getBusState">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_URn0AFu-Eemk2YvRB_WKbA" name="busID" type="_SyGXQFa2EemSVslCTflCGw"/>
@@ -106,13 +100,11 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_gJ7-QFa6EemSVslCTflCGw" name="assignDriverToBus">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_gJ7-QFa6EemSVslCTflCGw" name="assignDriverToBus" visibility="public">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_8C_wAFvBEemk2YvRB_WKbA" name="driverID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_CIqtwFvCEemk2YvRB_WKbA" name="busID">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_CIqtwFvCEemk2YvRB_WKbA" name="busID" type="_SyGXQFa2EemSVslCTflCGw"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_iibfoFa6EemSVslCTflCGw" name="addNewDriver">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_LywNcFvCEemk2YvRB_WKbA" name="name">
@@ -141,11 +133,37 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_GMuhcVu0Eemk2YvRB_WKbA" name="numberPlate">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedParameter>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GMuhclu0Eemk2YvRB_WKbA" name="capacity">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GMuhclu0Eemk2YvRB_WKbA" name="seatingCapacity">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_GMuhc1u0Eemk2YvRB_WKbA" name="model">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_I_IqUF63Eem5dP6HQMZsYw" name="standingCapacity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_adU_gF63Eem5dP6HQMZsYw" name="year">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_twkx0F63Eem5dP6HQMZsYw" name="addNewBus" visibility="public">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_twlY4l63Eem5dP6HQMZsYw" name="numberPlate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_twlY4163Eem5dP6HQMZsYw" name="seatingCapacity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_twlY5V63Eem5dP6HQMZsYw" name="standingCapacity">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_twlY4V63Eem5dP6HQMZsYw" name="inService">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_twlY5F63Eem5dP6HQMZsYw" name="model">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_twlY5l63Eem5dP6HQMZsYw" name="year">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
   </packagedElement>
@@ -154,7 +172,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_7xW_gFa1EemSVslCTflCGw" name="driverID" aggregation="composite">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_F9xJIFa2EemSVslCTflCGw" name="phoneNumber">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -182,8 +200,8 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HxH1wFa5EemSVslCTflCGw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HxH1wVa5EemSVslCTflCGw" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_HxJD4Fa5EemSVslCTflCGw" name="bus" type="_mkNl8FatEemySszvGVR5KQ" association="_HxHOsFa5EemSVslCTflCGw"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_HxH1wla5EemSVslCTflCGw" name="driver" type="_6NyT8Fa1EemSVslCTflCGw" association="_HxHOsFa5EemSVslCTflCGw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_HxJD4Fa5EemSVslCTflCGw" name="HasBus" type="_mkNl8FatEemySszvGVR5KQ" association="_HxHOsFa5EemSVslCTflCGw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_HxH1wla5EemSVslCTflCGw" name="HasDriver" type="_6NyT8Fa1EemSVslCTflCGw" association="_HxHOsFa5EemSVslCTflCGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_TtBVIFa7EemSVslCTflCGw" name="BusStop">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_f2yYwFucEemk2YvRB_WKbA" name="stopID">
@@ -233,7 +251,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aPzWkFumEemk2YvRB_WKbA" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aPzWkVumEemk2YvRB_WKbA" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_aPz9oFumEemk2YvRB_WKbA" name="businfo" type="_u_ugEFa1EemSVslCTflCGw" association="_aPyIcFumEemk2YvRB_WKbA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_aPz9oFumEemk2YvRB_WKbA" name="HasRoutes" type="_u_ugEFa1EemSVslCTflCGw" association="_aPyIcFumEemk2YvRB_WKbA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_aP0ksFumEemk2YvRB_WKbA" name="route" type="_oVPh4FaxEemNR8njb2inAw" aggregation="composite" association="_aPyIcFumEemk2YvRB_WKbA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ghfXEFumEemk2YvRB_WKbA" value="*"/>
     </ownedEnd>
@@ -242,7 +260,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pBsdkFumEemk2YvRB_WKbA" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pBtEoFumEemk2YvRB_WKbA" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_pBtEoVumEemk2YvRB_WKbA" name="businfo" type="_u_ugEFa1EemSVslCTflCGw" association="_pBrPcFumEemk2YvRB_WKbA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pBtEoVumEemk2YvRB_WKbA" name="HasJourneys" type="_u_ugEFa1EemSVslCTflCGw" association="_pBrPcFumEemk2YvRB_WKbA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_pBzyUFumEemk2YvRB_WKbA" name="journey" type="_EY_dUFauEemySszvGVR5KQ" aggregation="composite" association="_pBrPcFumEemk2YvRB_WKbA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qzfLUFumEemk2YvRB_WKbA" value="*"/>
     </ownedEnd>
@@ -251,7 +269,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-VRv8FumEemk2YvRB_WKbA" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-VRv8VumEemk2YvRB_WKbA" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_-VRv8lumEemk2YvRB_WKbA" name="businfo" type="_u_ugEFa1EemSVslCTflCGw" association="_-VQh0FumEemk2YvRB_WKbA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_-VRv8lumEemk2YvRB_WKbA" name="HasDrivers" type="_u_ugEFa1EemSVslCTflCGw" association="_-VQh0FumEemk2YvRB_WKbA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_-VSXAFumEemk2YvRB_WKbA" name="driver" type="_6NyT8Fa1EemSVslCTflCGw" aggregation="composite" association="_-VQh0FumEemk2YvRB_WKbA">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__unhcFumEemk2YvRB_WKbA" value="*"/>
     </ownedEnd>
@@ -263,16 +281,14 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedEnd xmi:type="uml:Property" xmi:id="_sKop0Fu5Eemk2YvRB_WKbA" name="bus" type="_mkNl8FatEemySszvGVR5KQ" association="_sKmNkFu5Eemk2YvRB_WKbA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_BbdoEFxHEemC-f7ut_Dd_A" name="SystemOps">
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_AIE4IFxIEemC-f7ut_Dd_A" name=":Human Controller (Actor)" coveredBy="_-eFmEFxIEemC-f7ut_Dd_A _SUwrAFxIEemC-f7ut_Dd_A _SUvc4FxIEemC-f7ut_Dd_A _zA-NEFxJEemC-f7ut_Dd_A _HfrToFxPEem6d9fg-lep9A _GcCsYFxPEem6d9fg-lep9A _Gb8lwFxPEem6d9fg-lep9A _Owo_0FxPEem6d9fg-lep9A _KJoxwVxKEemC-f7ut_Dd_A _KJoKsFxKEemC-f7ut_Dd_A _W_oagVxPEem6d9fg-lep9A _VQsMcFxPEem6d9fg-lep9A _VQq-UFxPEem6d9fg-lep9A _Kgw0IFxREem6d9fg-lep9A _6EU24FxQEem6d9fg-lep9A _6ETBsFxQEem6d9fg-lep9A _VOCPIFxREem6d9fg-lep9A _UBN2sVxREem6d9fg-lep9A _UBMokFxREem6d9fg-lep9A __uP3UFxREem6d9fg-lep9A _9-Cd8VxREem6d9fg-lep9A _9-BP0FxREem6d9fg-lep9A _e4iJEFxSEem6d9fg-lep9A _LrdQMVxSEem6d9fg-lep9A _LrcCEFxSEem6d9fg-lep9A _q3TBIFxSEem6d9fg-lep9A _ptan8FxSEem6d9fg-lep9A _ptZZ0FxSEem6d9fg-lep9A _3OtpwFxSEem6d9fg-lep9A _0CQU0VxSEem6d9fg-lep9A _0CPtwFxSEem6d9fg-lep9A"/>
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_DeQw0FxIEemC-f7ut_Dd_A" name=":BusInfo" coveredBy="_-eGNIFxIEemC-f7ut_Dd_A _RHF-AVxIEemC-f7ut_Dd_A _RHFW8FxIEemC-f7ut_Dd_A _zA-0IFxJEemC-f7ut_Dd_A _HfshwFxPEem6d9fg-lep9A _G0JDUVxPEem6d9fg-lep9A _G0H1MFxPEem6d9fg-lep9A _Owpm4FxPEem6d9fg-lep9A _KqpNEVxKEemC-f7ut_Dd_A _KqomAFxKEemC-f7ut_Dd_A _W_pooFxPEem6d9fg-lep9A _WNiPMFxPEem6d9fg-lep9A _WNhBEFxPEem6d9fg-lep9A _KgxbMFxREem6d9fg-lep9A _6pxtUVxQEem6d9fg-lep9A _6pwfMFxQEem6d9fg-lep9A _VOCPIVxREem6d9fg-lep9A _UkdtsFxREem6d9fg-lep9A _UkcfkFxREem6d9fg-lep9A __uQeYFxREem6d9fg-lep9A _-ncAQVxREem6d9fg-lep9A _-nbZMFxREem6d9fg-lep9A _e4iJEVxSEem6d9fg-lep9A _VYk1wFxSEem6d9fg-lep9A _VYjnoFxSEem6d9fg-lep9A _q3ToMFxSEem6d9fg-lep9A _qHoewFxSEem6d9fg-lep9A _qHnQoFxSEem6d9fg-lep9A _3OuQ0FxSEem6d9fg-lep9A _2kqnMVxSEem6d9fg-lep9A _2kqAIFxSEem6d9fg-lep9A"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_AIE4IFxIEemC-f7ut_Dd_A" name=":Human Controller (Actor)" coveredBy="_-eFmEFxIEemC-f7ut_Dd_A _SUwrAFxIEemC-f7ut_Dd_A _SUvc4FxIEemC-f7ut_Dd_A _HfrToFxPEem6d9fg-lep9A _GcCsYFxPEem6d9fg-lep9A _Gb8lwFxPEem6d9fg-lep9A _Owo_0FxPEem6d9fg-lep9A _KJoxwVxKEemC-f7ut_Dd_A _KJoKsFxKEemC-f7ut_Dd_A _W_oagVxPEem6d9fg-lep9A _VQsMcFxPEem6d9fg-lep9A _VQq-UFxPEem6d9fg-lep9A _Kgw0IFxREem6d9fg-lep9A _6EU24FxQEem6d9fg-lep9A _6ETBsFxQEem6d9fg-lep9A _VOCPIFxREem6d9fg-lep9A _UBN2sVxREem6d9fg-lep9A _UBMokFxREem6d9fg-lep9A __uP3UFxREem6d9fg-lep9A _9-Cd8VxREem6d9fg-lep9A _9-BP0FxREem6d9fg-lep9A _e4iJEFxSEem6d9fg-lep9A _LrdQMVxSEem6d9fg-lep9A _LrcCEFxSEem6d9fg-lep9A _q3TBIFxSEem6d9fg-lep9A _ptan8FxSEem6d9fg-lep9A _ptZZ0FxSEem6d9fg-lep9A _3OtpwFxSEem6d9fg-lep9A _0CQU0VxSEem6d9fg-lep9A _0CPtwFxSEem6d9fg-lep9A _zA-NEFxJEemC-f7ut_Dd_A"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_DeQw0FxIEemC-f7ut_Dd_A" name=":BusInfo" coveredBy="_-eGNIFxIEemC-f7ut_Dd_A _RHF-AVxIEemC-f7ut_Dd_A _RHFW8FxIEemC-f7ut_Dd_A _HfshwFxPEem6d9fg-lep9A _G0JDUVxPEem6d9fg-lep9A _G0H1MFxPEem6d9fg-lep9A _Owpm4FxPEem6d9fg-lep9A _KqpNEVxKEemC-f7ut_Dd_A _KqomAFxKEemC-f7ut_Dd_A _W_pooFxPEem6d9fg-lep9A _WNiPMFxPEem6d9fg-lep9A _WNhBEFxPEem6d9fg-lep9A _KgxbMFxREem6d9fg-lep9A _6pxtUVxQEem6d9fg-lep9A _6pwfMFxQEem6d9fg-lep9A _VOCPIVxREem6d9fg-lep9A _UkdtsFxREem6d9fg-lep9A _UkcfkFxREem6d9fg-lep9A __uQeYFxREem6d9fg-lep9A _-ncAQVxREem6d9fg-lep9A _-nbZMFxREem6d9fg-lep9A _e4iJEVxSEem6d9fg-lep9A _VYk1wFxSEem6d9fg-lep9A _VYjnoFxSEem6d9fg-lep9A _q3ToMFxSEem6d9fg-lep9A _qHoewFxSEem6d9fg-lep9A _qHnQoFxSEem6d9fg-lep9A _3OuQ0FxSEem6d9fg-lep9A _2kqnMVxSEem6d9fg-lep9A _2kqAIFxSEem6d9fg-lep9A _zA-0IFxJEemC-f7ut_Dd_A"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-eFmEFxIEemC-f7ut_Dd_A" name="Message9SendEvent" covered="_AIE4IFxIEemC-f7ut_Dd_A" message="_-eDw4FxIEemC-f7ut_Dd_A"/>
     <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_SUvc4FxIEemC-f7ut_Dd_A" name="ActionExecutionSpecification6" covered="_AIE4IFxIEemC-f7ut_Dd_A" finish="_SUwrAFxIEemC-f7ut_Dd_A" start="_-eFmEFxIEemC-f7ut_Dd_A"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-eGNIFxIEemC-f7ut_Dd_A" name="Message9ReceiveEvent" covered="_DeQw0FxIEemC-f7ut_Dd_A" message="_-eDw4FxIEemC-f7ut_Dd_A"/>
     <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_RHFW8FxIEemC-f7ut_Dd_A" name="ActionExecutionSpecification6" covered="_DeQw0FxIEemC-f7ut_Dd_A" finish="_RHF-AVxIEemC-f7ut_Dd_A" start="_-eGNIFxIEemC-f7ut_Dd_A"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_SUwrAFxIEemC-f7ut_Dd_A" name="ActionExecutionSpecification6Finish" covered="_AIE4IFxIEemC-f7ut_Dd_A" execution="_SUvc4FxIEemC-f7ut_Dd_A"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_RHF-AVxIEemC-f7ut_Dd_A" name="ActionExecutionSpecification6Finish" covered="_DeQw0FxIEemC-f7ut_Dd_A" execution="_RHFW8FxIEemC-f7ut_Dd_A"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zA-NEFxJEemC-f7ut_Dd_A" name="Message16SendEvent" covered="_AIE4IFxIEemC-f7ut_Dd_A"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zA-0IFxJEemC-f7ut_Dd_A" name="Message16ReceiveEvent" covered="_DeQw0FxIEemC-f7ut_Dd_A"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_HfrToFxPEem6d9fg-lep9A" name="Message24SendEvent" covered="_AIE4IFxIEemC-f7ut_Dd_A" message="_HfhioFxPEem6d9fg-lep9A"/>
     <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_Gb8lwFxPEem6d9fg-lep9A" name="ActionExecutionSpecification18" covered="_AIE4IFxIEemC-f7ut_Dd_A" finish="_GcCsYFxPEem6d9fg-lep9A" start="_HfrToFxPEem6d9fg-lep9A"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_HfshwFxPEem6d9fg-lep9A" name="Message24ReceiveEvent" covered="_DeQw0FxIEemC-f7ut_Dd_A" message="_HfhioFxPEem6d9fg-lep9A"/>
@@ -327,10 +343,12 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_2kqAIFxSEem6d9fg-lep9A" name="ActionExecutionSpecification71" covered="_DeQw0FxIEemC-f7ut_Dd_A" finish="_2kqnMVxSEem6d9fg-lep9A" start="_3OuQ0FxSEem6d9fg-lep9A"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_0CQU0VxSEem6d9fg-lep9A" name="ActionExecutionSpecification68Finish" covered="_AIE4IFxIEemC-f7ut_Dd_A" execution="_0CPtwFxSEem6d9fg-lep9A"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_2kqnMVxSEem6d9fg-lep9A" name="ActionExecutionSpecification71Finish" covered="_DeQw0FxIEemC-f7ut_Dd_A" execution="_2kqAIFxSEem6d9fg-lep9A"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zA-NEFxJEemC-f7ut_Dd_A" name="Message16SendEvent" covered="_AIE4IFxIEemC-f7ut_Dd_A"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_zA-0IFxJEemC-f7ut_Dd_A" name="Message16ReceiveEvent" covered="_DeQw0FxIEemC-f7ut_Dd_A"/>
     <message xmi:type="uml:Message" xmi:id="_-eDw4FxIEemC-f7ut_Dd_A" name="addNewBus(numberPlate, capacity, model, isService)" receiveEvent="_-eGNIFxIEemC-f7ut_Dd_A" sendEvent="_-eFmEFxIEemC-f7ut_Dd_A"/>
     <message xmi:type="uml:Message" xmi:id="_HfhioFxPEem6d9fg-lep9A" name="modifyBus(busID, inService, numberPlate, capacity, model)" receiveEvent="_HfshwFxPEem6d9fg-lep9A" sendEvent="_HfrToFxPEem6d9fg-lep9A"/>
     <message xmi:type="uml:Message" xmi:id="_OwoYwFxPEem6d9fg-lep9A" name="viewJourneysOnRoute(routeID)" receiveEvent="_Owpm4FxPEem6d9fg-lep9A" sendEvent="_Owo_0FxPEem6d9fg-lep9A"/>
-    <message xmi:type="uml:Message" xmi:id="_W_oagFxPEem6d9fg-lep9A" name="viewRouteTimetable(routeID)" receiveEvent="_W_pooFxPEem6d9fg-lep9A" sendEvent="_W_oagVxPEem6d9fg-lep9A"/>
+    <message xmi:type="uml:Message" xmi:id="_W_oagFxPEem6d9fg-lep9A" name="viewRouteTimetable(routeNumber, direction)" receiveEvent="_W_pooFxPEem6d9fg-lep9A" sendEvent="_W_oagVxPEem6d9fg-lep9A"/>
     <message xmi:type="uml:Message" xmi:id="_KgtJwFxREem6d9fg-lep9A" name="getBusState(busID)" receiveEvent="_KgxbMFxREem6d9fg-lep9A" sendEvent="_Kgw0IFxREem6d9fg-lep9A"/>
     <message xmi:type="uml:Message" xmi:id="_VOBoEFxREem6d9fg-lep9A" name="cancelJourney(journeyID)" receiveEvent="_VOCPIVxREem6d9fg-lep9A" sendEvent="_VOCPIFxREem6d9fg-lep9A"/>
     <message xmi:type="uml:Message" xmi:id="__uPQQFxREem6d9fg-lep9A" name="assignDriverToBus(driverID, busID)" receiveEvent="__uQeYFxREem6d9fg-lep9A" sendEvent="__uP3UFxREem6d9fg-lep9A"/>
@@ -342,7 +360,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hIHWUFxjEem6d9fg-lep9A" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hIH9YFxjEem6d9fg-lep9A" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_hILnwlxjEem6d9fg-lep9A" name="businfo" type="_u_ugEFa1EemSVslCTflCGw" association="_hH-zcFxjEem6d9fg-lep9A"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_hILnwlxjEem6d9fg-lep9A" name="HasBuses" type="_u_ugEFa1EemSVslCTflCGw" association="_hH-zcFxjEem6d9fg-lep9A"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Sv3m0FavEemNR8njb2inAw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Sv7RMFavEemNR8njb2inAw" source="http://www.eclipse.org/uml2/2.0.0/UML">
