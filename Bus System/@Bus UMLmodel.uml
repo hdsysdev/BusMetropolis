@@ -34,7 +34,9 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_644egGsxEemV0MvgIcGYGw" name="contactHC"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_zm684GtqEemV0MvgIcGYGw" name="uploadJourneys"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_vLseoGsxEemV0MvgIcGYGw" name="Passenger"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vLseoGsxEemV0MvgIcGYGw" name="Passenger">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_6tbaomtsEemV0MvgIcGYGw" name="travelcard" type="_xw0t0GsxEemV0MvgIcGYGw" aggregation="composite" association="_6tZlcGtsEemV0MvgIcGYGw"/>
+  </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_xw0t0GsxEemV0MvgIcGYGw" name="TravelCard">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_05E4MGsxEemV0MvgIcGYGw" name="balance">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
@@ -119,5 +121,11 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_74RIAWtqEemV0MvgIcGYGw" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_74RvEmtqEemV0MvgIcGYGw" name="passengerjourney" type="_n26CYGsxEemV0MvgIcGYGw" association="_74Qg8GtqEemV0MvgIcGYGw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_6tZlcGtsEemV0MvgIcGYGw" name="HasTravelCard" memberEnd="_6tbaomtsEemV0MvgIcGYGw _6ttugGtsEemV0MvgIcGYGw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6tbaoGtsEemV0MvgIcGYGw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6tbaoWtsEemV0MvgIcGYGw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6ttugGtsEemV0MvgIcGYGw" name="passenger" type="_vLseoGsxEemV0MvgIcGYGw" association="_6tZlcGtsEemV0MvgIcGYGw"/>
   </packagedElement>
 </uml:Model>
