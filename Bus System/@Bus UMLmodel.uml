@@ -3,7 +3,7 @@
   <packageImport xmi:type="uml:PackageImport" xmi:id="_iTF0gGsxEemV0MvgIcGYGw">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
-  <packagedElement xmi:type="uml:Class" xmi:id="_n26CYGsxEemV0MvgIcGYGw" name="Journey">
+  <packagedElement xmi:type="uml:Class" xmi:id="_n26CYGsxEemV0MvgIcGYGw" name="PassengerJourney">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_n26CYWsxEemV0MvgIcGYGw" name="journeyID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
@@ -13,6 +13,9 @@
     <ownedAttribute xmi:type="uml:Property" xmi:id="_v6qdcGsxEemV0MvgIcGYGw" name="enteranceStop" type="_Xasx0Gs1EemV0MvgIcGYGw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_UaSYAGs5EemV0MvgIcGYGw" name="exitStop" type="_Xasx0Gs1EemV0MvgIcGYGw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_rhmO0mtaEemV0MvgIcGYGw" name="travelcard" type="_xw0t0GsxEemV0MvgIcGYGw" association="_rhkZoGtaEemV0MvgIcGYGw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_74RIAmtqEemV0MvgIcGYGw" name="busstop" type="_Xasx0Gs1EemV0MvgIcGYGw" association="_74Qg8GtqEemV0MvgIcGYGw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_74RvEWtqEemV0MvgIcGYGw" value="*"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_qb35gGsxEemV0MvgIcGYGw" name="@Bus" visibility="public">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_-_mcQmsxEemV0MvgIcGYGw" name="journey" type="_n26CYGsxEemV0MvgIcGYGw" aggregation="composite" association="_-_l1MGsxEemV0MvgIcGYGw">
@@ -29,6 +32,7 @@
     <ownedOperation xmi:type="uml:Operation" xmi:id="_rP5-gGsxEemV0MvgIcGYGw" name="endCurrentJourney"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_641bMGsxEemV0MvgIcGYGw" name="requestJourneyCancelation"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_644egGsxEemV0MvgIcGYGw" name="contactHC"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zm684GtqEemV0MvgIcGYGw" name="uploadJourneys"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_vLseoGsxEemV0MvgIcGYGw" name="Passenger"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_xw0t0GsxEemV0MvgIcGYGw" name="TravelCard">
@@ -72,8 +76,8 @@
     </ownedAttribute>
     <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_3z6C4Gs3EemV0MvgIcGYGw" client="_tgDC4Gs2EemV0MvgIcGYGw" supplier="_cw8L0Gs3EemV0MvgIcGYGw" contract="_cw8L0Gs3EemV0MvgIcGYGw"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_DLfmMGs4EemV0MvgIcGYGw" name="checkBalance"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_BK15EGtkEemV0MvgIcGYGw" name="cardValidLight"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_HghowGtkEemV0MvgIcGYGw" name="cardInvalidLight"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_BK15EGtkEemV0MvgIcGYGw" name="cardValidAlert"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_HghowGtkEemV0MvgIcGYGw" name="cardInvalidAlert"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_nj3CYGtkEemV0MvgIcGYGw" name="readCard"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_cw8L0Gs3EemV0MvgIcGYGw" name="Reader">
@@ -101,6 +105,19 @@
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_rhmO0GtaEemV0MvgIcGYGw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rhmO0WtaEemV0MvgIcGYGw" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_rhnc8WtaEemV0MvgIcGYGw" name="journey" type="_n26CYGsxEemV0MvgIcGYGw" association="_rhkZoGtaEemV0MvgIcGYGw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_rhnc8WtaEemV0MvgIcGYGw" name="passengerJourney" type="_n26CYGsxEemV0MvgIcGYGw" association="_rhkZoGtaEemV0MvgIcGYGw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ebv_oGtqEemV0MvgIcGYGw" name="CommunicatesWith" memberEnd="_ebzC8GtqEemV0MvgIcGYGw _eb0REWtqEemV0MvgIcGYGw" navigableOwnedEnd="_ebzC8GtqEemV0MvgIcGYGw _eb0REWtqEemV0MvgIcGYGw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ebx00GtqEemV0MvgIcGYGw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ebyb4GtqEemV0MvgIcGYGw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_eb0REWtqEemV0MvgIcGYGw" name="@bus" type="_qb35gGsxEemV0MvgIcGYGw" association="_ebv_oGtqEemV0MvgIcGYGw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ebzC8GtqEemV0MvgIcGYGw" name="busstop" type="_Xasx0Gs1EemV0MvgIcGYGw" association="_ebv_oGtqEemV0MvgIcGYGw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_74Qg8GtqEemV0MvgIcGYGw" name="HasTwoStops" memberEnd="_74RIAmtqEemV0MvgIcGYGw _74RvEmtqEemV0MvgIcGYGw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_74RIAGtqEemV0MvgIcGYGw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_74RIAWtqEemV0MvgIcGYGw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_74RvEmtqEemV0MvgIcGYGw" name="passengerjourney" type="_n26CYGsxEemV0MvgIcGYGw" association="_74Qg8GtqEemV0MvgIcGYGw"/>
   </packagedElement>
 </uml:Model>
