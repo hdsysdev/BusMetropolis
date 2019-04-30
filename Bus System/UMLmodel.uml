@@ -361,28 +361,6 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_Ejam8V75Eem5dP6HQMZsYw" name="bus" type="_mkNl8FatEemySszvGVR5KQ" association="_EfqIUF75Eem5dP6HQMZsYw"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_mkv7IGsqEemV0MvgIcGYGw" name="@Bus">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_2Ian4GsrEemV0MvgIcGYGw" name="journey" type="_tUmo4GsrEemV0MvgIcGYGw" association="_2ISFAGsrEemV0MvgIcGYGw">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2IdrMGsrEemV0MvgIcGYGw"/>
-    </ownedAttribute>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_wetp4GsqEemV0MvgIcGYGw" name="startJourney">
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_dEHc8GsrEemV0MvgIcGYGw" name="routeID" type="__NrYsGsqEemV0MvgIcGYGw"/>
-    </ownedOperation>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_mcTUUGsrEemV0MvgIcGYGw" name="endCurrentJourney"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_Fa0a8GssEemV0MvgIcGYGw" name="cancelCurrentJourney"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:DataType" xmi:id="__NrYsGsqEemV0MvgIcGYGw" name="RouteID"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_tUmo4GsrEemV0MvgIcGYGw" name="Journey">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_wrg6UGsrEemV0MvgIcGYGw" name="journeyID">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
-    </ownedAttribute>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_2ISFAGsrEemV0MvgIcGYGw" name="LocalyStores" memberEnd="_2Ian4GsrEemV0MvgIcGYGw _2IoDQGsrEemV0MvgIcGYGw">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2IYysGsrEemV0MvgIcGYGw" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2IZZwGsrEemV0MvgIcGYGw" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_2IoDQGsrEemV0MvgIcGYGw" name="@bus" type="_mkv7IGsqEemV0MvgIcGYGw" association="_2ISFAGsrEemV0MvgIcGYGw"/>
-  </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Sv3m0FavEemNR8njb2inAw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Sv7RMFavEemNR8njb2inAw" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
