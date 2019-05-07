@@ -26,6 +26,9 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedAttribute xmi:type="uml:Property" xmi:id="_UaSYAGs5EemV0MvgIcGYGw" name="exitStop" type="_Xasx0Gs1EemV0MvgIcGYGw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_z4i1AHAjEemJuqAk695rCA" name="journeyStartTime" type="_o2RpIHAdEemJuqAk695rCA"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_6BX0cHAjEemJuqAk695rCA" name="journeyEndTime" type="_o2RpIHAdEemJuqAk695rCA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_eTfkcHCtEemXa_bQx4CbEA" name="scannedOnExit">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_qb35gGsxEemV0MvgIcGYGw" name="@Bus System" visibility="public">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_-_mcQmsxEemV0MvgIcGYGw" name="passangerJourney" type="_n26CYGsxEemV0MvgIcGYGw" aggregation="composite" association="_-_l1MGsxEemV0MvgIcGYGw">
@@ -36,7 +39,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4-ss8Gs1EemV0MvgIcGYGw"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4-ss8Ws1EemV0MvgIcGYGw" value="1"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_lt-XQHAkEemJuqAk695rCA" name="journey" type="_h6LyAHAjEemJuqAk695rCA" association="_lt8iEHAkEemJuqAk695rCA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_lt-XQHAkEemJuqAk695rCA" name="journey" type="_h6LyAHAjEemJuqAk695rCA" aggregation="composite" association="_lt8iEHAkEemJuqAk695rCA"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_rP4JUGsxEemV0MvgIcGYGw" name="startJourney">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_rP4JUWsxEemV0MvgIcGYGw" name="routeID" type="_4x6K8GsxEemV0MvgIcGYGw"/>
     </ownedOperation>
@@ -45,11 +48,13 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_641bMGsxEemV0MvgIcGYGw" name="requestJourneyCancelation"/>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_644egGsxEemV0MvgIcGYGw" name="contactHC"/>
-    <ownedOperation xmi:type="uml:Operation" xmi:id="_zm684GtqEemV0MvgIcGYGw" name="uploadDataToBusStop">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_zm684GtqEemV0MvgIcGYGw" name="uploadDataToBusStop" visibility="package">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ox9WMHAeEemJuqAk695rCA" name="busStop" type="_Xasx0Gs1EemV0MvgIcGYGw"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6bO0HAlEemJuqAk695rCA" name="busIdentifier" type="_9vuHwHAeEemJuqAk695rCA"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_f6bO0HAlEemJuqAk695rCA" name="busState" type="_qb35gGsxEemV0MvgIcGYGw"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_jAkgYHAlEemJuqAk695rCA" name="currentRoute" type="_4x6K8GsxEemV0MvgIcGYGw"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_mskRAHAlEemJuqAk695rCA" name="currentTime" type="_o2RpIHAdEemJuqAk695rCA"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_oIWjAHCoEemXa_bQx4CbEA" name="storedJourneys" type="_n26CYGsxEemV0MvgIcGYGw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_zQnCIHCuEemXa_bQx4CbEA" direction="return"/>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="__pBdoHAcEemJuqAk695rCA" name="readCard" visibility="public">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="__pBdoXAcEemJuqAk695rCA" name="travelCard" type="_xw0t0GsxEemV0MvgIcGYGw"/>
@@ -61,6 +66,9 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedOperation xmi:type="uml:Operation" xmi:id="_CKkNUHAdEemJuqAk695rCA" name="displayFee">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_CKkNUXAdEemJuqAk695rCA" name="card" type="_xw0t0GsxEemV0MvgIcGYGw"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_CKkNUnAdEemJuqAk695rCA" name="journey" type="_n26CYGsxEemV0MvgIcGYGw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_pEcJEHCuEemXa_bQx4CbEA" name="fee" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      </ownedParameter>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_ESMoMHAdEemJuqAk695rCA" name="checkBalance">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_ESMoMXAdEemJuqAk695rCA" name="travelCard" type="_xw0t0GsxEemV0MvgIcGYGw"/>
@@ -81,8 +89,6 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedAttribute xmi:type="uml:Property" xmi:id="_KYTgQHAcEemJuqAk695rCA" name="passengerID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_hdyGsHAfEemJuqAk695rCA" name="scanCardEntry" type="_xw0t0GsxEemV0MvgIcGYGw"/>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_niVDEHAfEemJuqAk695rCA" name="scanCardExit" type="_xw0t0GsxEemV0MvgIcGYGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_xw0t0GsxEemV0MvgIcGYGw" name="TravelCard">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_05E4MGsxEemV0MvgIcGYGw" name="balance">
@@ -91,7 +97,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <ownedAttribute xmi:type="uml:Property" xmi:id="_05FfQGsxEemV0MvgIcGYGw" name="cardID">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_z5SOInAeEemJuqAk695rCA" name="passengerjourney" type="_n26CYGsxEemV0MvgIcGYGw" association="_z5RAAHAeEemJuqAk695rCA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_z5SOInAeEemJuqAk695rCA" name="passengerjourney" type="_n26CYGsxEemV0MvgIcGYGw" aggregation="composite" association="_z5RAAHAeEemJuqAk695rCA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_4x6K8GsxEemV0MvgIcGYGw" name="RouteID"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_5wTs4GsxEemV0MvgIcGYGw" name="Driver">
@@ -121,6 +127,8 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_3bXFMHAHEemJuqAk695rCA" name="passengerJourneyArray" type="_n26CYGsxEemV0MvgIcGYGw">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DMw2sHAIEemJuqAk695rCA" value="*"/>
       </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_pjdZoHCpEemXa_bQx4CbEA" name="busState" type="_tM2I4HCuEemXa_bQx4CbEA"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_6t2CAHCpEemXa_bQx4CbEA" name="currentDateTime" type="_aZNtMHAeEemJuqAk695rCA"/>
     </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_4-re0Gs1EemV0MvgIcGYGw" name="HasDriver" memberEnd="_4-sF4ms1EemV0MvgIcGYGw _4-ss8ms1EemV0MvgIcGYGw">
@@ -134,16 +142,14 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ebyb4GtqEemV0MvgIcGYGw" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_eb0REWtqEemV0MvgIcGYGw" name="@bus" type="_qb35gGsxEemV0MvgIcGYGw" association="_ebv_oGtqEemV0MvgIcGYGw"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_ebzC8GtqEemV0MvgIcGYGw" name="busstop" type="_Xasx0Gs1EemV0MvgIcGYGw" association="_ebv_oGtqEemV0MvgIcGYGw">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1-gYwHAfEemJuqAk695rCA" value="*"/>
-    </ownedEnd>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ebzC8GtqEemV0MvgIcGYGw" name="busstop" type="_Xasx0Gs1EemV0MvgIcGYGw" association="_ebv_oGtqEemV0MvgIcGYGw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_SJ1GYHAdEemJuqAk695rCA" name="HasCard" memberEnd="_SJ27kXAdEemJuqAk695rCA _SJ4JsHAdEemJuqAk695rCA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SJ2UgHAdEemJuqAk695rCA" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SJ27kHAdEemJuqAk695rCA" key="nature" value="UML_Nature"/>
     </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_SJ4JsHAdEemJuqAk695rCA" name="passenger" type="_vLseoGsxEemV0MvgIcGYGw" association="_SJ1GYHAdEemJuqAk695rCA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_SJ27kXAdEemJuqAk695rCA" name="travelcard" type="_xw0t0GsxEemV0MvgIcGYGw" aggregation="composite" association="_SJ1GYHAdEemJuqAk695rCA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_SJ4JsHAdEemJuqAk695rCA" name="passenger" type="_vLseoGsxEemV0MvgIcGYGw" aggregation="composite" association="_SJ1GYHAdEemJuqAk695rCA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_SJ27kXAdEemJuqAk695rCA" name="travelcard" type="_xw0t0GsxEemV0MvgIcGYGw" association="_SJ1GYHAdEemJuqAk695rCA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_o2RpIHAdEemJuqAk695rCA" name="Time">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_qK4EkHAdEemJuqAk695rCA" name="minutes">
@@ -233,8 +239,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_ZbzbAHAkEemJuqAk695rCA" name="journeyEndStop" type="_Xasx0Gs1EemV0MvgIcGYGw"/>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_02XSsXAkEemJuqAk695rCA" name="bus" type="_9vuHwHAeEemJuqAk695rCA" association="_02VdgHAkEemJuqAk695rCA"/>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_PtHSsHAlEemJuqAk695rCA" name="journeyOnGoin">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_PtHSsHAlEemJuqAk695rCA" name="journeyOnGoing">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
     </ownedAttribute>
   </packagedElement>
@@ -249,6 +254,7 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_02XSsHAkEemJuqAk695rCA" key="nature" value="UML_Nature"/>
     </eAnnotations>
     <ownedEnd xmi:type="uml:Property" xmi:id="_02Yg0nAkEemJuqAk695rCA" name="journey" type="_h6LyAHAjEemJuqAk695rCA" association="_02VdgHAkEemJuqAk695rCA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_02XSsXAkEemJuqAk695rCA" name="bus" type="_9vuHwHAeEemJuqAk695rCA" association="_02VdgHAkEemJuqAk695rCA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_040CYHAnEemJuqAk695rCA" name="@Bus Driver Ops">
     <lifeline xmi:type="uml:Lifeline" xmi:id="_LYPc0HAoEemJuqAk695rCA" name="Driver" coveredBy="_NJgwsHApEemJuqAk695rCA _aK5jYHApEemJuqAk695rCA _VOKjoHApEemJuqAk695rCA _VOIucHApEemJuqAk695rCA _-knucHApEemJuqAk695rCA _YPwsYHApEemJuqAk695rCA _YPu3MHApEemJuqAk695rCA _HO0ecHAqEemJuqAk695rCA _FecF8XAqEemJuqAk695rCA _Fea30HAqEemJuqAk695rCA _bPWNgHAqEemJuqAk695rCA _k3fzgHAqEemJuqAk695rCA _3N48AHAqEemJuqAk695rCA _6vpykHAqEemJuqAk695rCA _UuDOQHArEemJuqAk695rCA _PnfusHAsEem6qokvML9fZQ _7FWD0HAsEem6qokvML9fZQ _ZVuHgXAsEem6qokvML9fZQ _ZVqdIHAsEem6qokvML9fZQ _NynJUHAvEemWs5utam4WUQ _NymiQHAvEemWs5utam4WUQ _NynJUXAvEemWs5utam4WUQ _hPRoQHAtEem6qokvML9fZQ _HN9GUHArEemJuqAk695rCA _wuuyIHAoEemJuqAk695rCA _ql2dcHAqEemJuqAk695rCA _MnelMHAqEemJuqAk695rCA"/>
@@ -352,4 +358,5 @@ inv: Fore date: day>= 1 &amp;&amp; month >= 1 &amp;&amp; month &lt;=12 &#xD;
     <message xmi:type="uml:Message" xmi:id="_zRY38HAvEemWs5utam4WUQ" name="uploadDataToBusStop(busStop, busIdentifier, currentRoute, currentTime)" receiveEvent="_zRatIHAvEemWs5utam4WUQ" sendEvent="_zRaGEHAvEemWs5utam4WUQ"/>
     <message xmi:type="uml:Message" xmi:id="__MYDQHAvEemWs5utam4WUQ" name="deleteStoredJourneys(allStoredJourneys)" messageSort="reply" receiveEvent="__MYqUHAvEemWs5utam4WUQ" sendEvent="__MYDQXAvEemWs5utam4WUQ"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:DataType" xmi:id="_tM2I4HCuEemXa_bQx4CbEA" name="@BusState"/>
 </uml:Model>
