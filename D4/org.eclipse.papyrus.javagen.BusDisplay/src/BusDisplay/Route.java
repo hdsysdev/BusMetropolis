@@ -6,7 +6,9 @@ package BusDisplay;
 
 /************************************************************/
 
+import java.lang.reflect.Array;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 /**
  * 
@@ -24,13 +26,13 @@ public class Route {
 	/**
 	 * 
 	 */
-	public String origin;
+	public String origin = "";
 	/**
 	 * 
 	 */
-	public LocalTime schedule;
+	public ArrayList<LocalTime> schedule;
 
-	public Route(Integer routeNo, String destination, String origin, LocalTime schedule) {
+	public Route(Integer routeNo, String destination, String origin, ArrayList<LocalTime> schedule) {
 		this.routeNo = routeNo;
 		this.destination = destination;
 		this.origin = origin;
