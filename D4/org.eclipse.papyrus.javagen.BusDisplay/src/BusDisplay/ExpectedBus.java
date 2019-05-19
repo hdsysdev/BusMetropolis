@@ -2,14 +2,17 @@ package BusDisplay;
 
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * 
  */
-public class ExpectedBus implements Comparable<ExpectedBus> {
-	/**
-	 * 
-	 */
+public class ExpectedBus extends Observable implements Comparable<ExpectedBus> {
+
+    private ArrayList<Observer> observers = new ArrayList<>();
+
 	public int routeNo;
 	/**
 	 * 
@@ -41,8 +44,35 @@ public class ExpectedBus implements Comparable<ExpectedBus> {
 		this.time = time;
 	}
 
-	@Override
+    public void setStatus(BusStatus status) {
+        this.status = status;
+        notifyObservers();
+    }
+
+    public void setDelay(int delay) {
+        this.delay = delay;
+        notifyObservers();
+    }
+
+    @Override
 	public int compareTo(ExpectedBus bus) {
 		return this.time.compareTo(bus.time);
 	}
+
+    @Override
+    public synchronized void addObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public synchronized void deleteObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for(Observer o: observers){
+            o.update(this, null);
+        }
+    }
 };
