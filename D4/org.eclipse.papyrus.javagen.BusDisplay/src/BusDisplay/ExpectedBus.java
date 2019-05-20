@@ -42,6 +42,7 @@ public class ExpectedBus extends Observable implements Comparable<ExpectedBus> {
 		this.destination = destination;
 		this.journeyNo = journeyNo;
 		this.time = time;
+        //Add observer to newly created bus
 		observers.add(o);
 	}
 

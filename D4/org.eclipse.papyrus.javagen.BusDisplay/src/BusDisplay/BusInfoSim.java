@@ -10,35 +10,24 @@ import java.util.concurrent.TimeUnit;
 
 public class BusInfoSim {
 
-    static void printAllFieldsFromObj(Object object){
-        for (Field field : object.getClass().getDeclaredFields()) {
-            field.setAccessible(true);
-            try {
-                System.out.printf("%s: %s%n", field.getName(), field.get(object));
-            }
-            catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     public static void main(String[] args) {
         BusStopDisplay display = null;
         try {
             display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
+                        .create("..\\stop_info.csv",
+                                "..\\routes.csv",
+                                "..\\timetable.csv");
         } catch (IOException e) {
-            System.out.println("One or more of the entered file names is incorrect.");
+            e.printStackTrace();
         }
+
 
         //Set display's time to 6am before all upcoming buses
         System.out.println("This is the state of the display at 6am with all bus times in the future: ");
         display.display(LocalTime.of(6, 00));
-
+        System.out.println(Arrays.toString(display.display));
         simulate(display);
-
+        System.out.println(display.getTimeOfNextBus(3, LocalTime.of(6, 0)));
         //Testing set bus status, set delay and observer design pattern using parsed bus objects in expectedBuses array
         System.out.println("\nThis is a test for the observer design checking that the object is updated in the observer");
         System.out.println("Bus info before updating bus status: " + Arrays.toString(display.display[0]));
@@ -77,7 +66,6 @@ public class BusInfoSim {
                 e.printStackTrace();
             }
         }
-
     }
 
     public static void simulate(BusStopDisplay display){

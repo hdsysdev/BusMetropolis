@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f31ee002-1fa3-4d42-80f6-af95b4427fb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/.idea/libraries/org_apache_commons_commons_lang3_3_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/.idea/libraries/org_junit_jupiter_junit_jupiter_5_4_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/BusStopDisplayTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/.idea/libraries/org_apache_commons_commons_lang3_3_9.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/bin/BusDisplay/BusInfoSim.class" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/bin/BusDisplay/BusInfoSim.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/bin/BusDisplay/BusStopDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/bin/BusDisplay/BusStopDisplay.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/bin/BusDisplay/ExpectedBus.class" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/bin/BusDisplay/ExpectedBus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/lib/commons-lang3-3.9.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/org.eclipse.papyrus.javagen.BusDisplay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/org.eclipse.papyrus.javagen.BusDisplay.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/BusInfoSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/BusInfoSim.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/BusStopDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/BusStopDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/ExpectedBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/ExpectedBus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/RoutesAndStopInfoParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../D4/org.eclipse.papyrus.javagen.BusDisplay/src/BusDisplay/RoutesAndStopInfoParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />

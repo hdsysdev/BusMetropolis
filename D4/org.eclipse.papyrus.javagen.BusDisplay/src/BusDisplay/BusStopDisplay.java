@@ -20,15 +20,15 @@ public class BusStopDisplay implements Observer {
 	public BusStopDisplay create(String stopInfo, String rsInfo, String ttInfo) throws IOException {
 	    BusStopDisplay busStopDisplay = new BusStopDisplay();
 
-		busStopDisplay.id = RoutesAndStopInfoParser.parseBusInfo(stopInfo).getKey();
-		busStopDisplay.name = RoutesAndStopInfoParser.parseBusInfo(stopInfo).getValue();
+        busStopDisplay.id = RoutesAndStopInfoParser.parseBusInfo(stopInfo).getKey();
+        busStopDisplay.name = RoutesAndStopInfoParser.parseBusInfo(stopInfo).getValue();
 
         busStopDisplay.callingRoutes = RoutesAndStopInfoParser.parseRoutes(rsInfo, ttInfo);
         busStopDisplay.addScheduledToExpected();
 
+
         return busStopDisplay;
 	}
-
 
 	//Adds scheduled buses from each route calling at the bus stop to the expected buses list sorting them in ascending time
 	public void addScheduledToExpected (){
@@ -44,8 +44,6 @@ public class BusStopDisplay implements Observer {
 						r.schedule.indexOf(t) + 1,
 						t, this);
 
-				//Add observer to newly created bus
-				//currentBus.addObserver(this);
 				expectedBusList.add(currentBus);
 			}
 		}
@@ -76,11 +74,10 @@ public class BusStopDisplay implements Observer {
 	 *Gets time of the next scheduled bus after the passed time for the route with the passed route number
 	 */
 	public LocalTime getTimeOfNextBus(Integer routeNo, LocalTime time) {
-		LocalTime nextBusTime = LocalTime.now();
+		LocalTime nextBusTime = time;
 		for (Route r: getCallingRoutes()){
 			if(r.routeNo.equals(routeNo)){
-				LocalTime finalNextBusTime = nextBusTime;
-				nextBusTime = r.schedule.stream().filter(x -> finalNextBusTime.isAfter(time)).findFirst().get();
+				nextBusTime = r.schedule.stream().filter(x -> x.isAfter(time)).findFirst().get();
 			}
 		}
 		return nextBusTime;
