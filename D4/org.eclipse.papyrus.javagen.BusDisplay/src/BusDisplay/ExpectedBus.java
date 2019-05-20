@@ -35,13 +35,14 @@ public class ExpectedBus extends Observable implements Comparable<ExpectedBus> {
 	 */
 	public LocalTime time;
 
-	public ExpectedBus(int routeNo, BusStatus status, int delay, String destination, int journeyNo, LocalTime time) {
+	public ExpectedBus(int routeNo, BusStatus status, int delay, String destination, int journeyNo, LocalTime time, Observer o) {
 		this.routeNo = routeNo;
 		this.status = status;
 		this.delay = delay;
 		this.destination = destination;
 		this.journeyNo = journeyNo;
 		this.time = time;
+		observers.add(o);
 	}
 
     public void setStatus(BusStatus status) {

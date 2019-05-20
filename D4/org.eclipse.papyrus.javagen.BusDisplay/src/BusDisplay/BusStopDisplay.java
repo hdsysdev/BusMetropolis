@@ -36,13 +36,18 @@ public class BusStopDisplay implements Observer {
 		List<Route> callingRoutes = getCallingRoutes();
 
 		for(Route r: callingRoutes){
-			for(LocalTime t: r.schedule)
-				expectedBusList.add(new ExpectedBus(r.routeNo,
+			for(LocalTime t: r.schedule) {
+				ExpectedBus currentBus = new ExpectedBus(r.routeNo,
 						BusStatus.onTime,
 						0,
 						r.destination,
 						r.schedule.indexOf(t) + 1,
-						t));
+						t, this);
+
+				//Add observer to newly created bus
+				//currentBus.addObserver(this);
+				expectedBusList.add(currentBus);
+			}
 		}
 
 		Collections.sort(expectedBusList);
@@ -115,9 +120,11 @@ public class BusStopDisplay implements Observer {
 		}
 	}
 
-
+	//Update function replaces
     @Override
     public void update(Observable o, Object arg) {
-	    expectedBuses.set(expectedBuses.indexOf(o), (ExpectedBus) o);
+	    //expectedBuses.set(expectedBuses.indexOf(o), (ExpectedBus) o);
+	    expectedBuses.get(expectedBuses.indexOf(o)).delay = ((ExpectedBus) o).delay;
+		expectedBuses.get(expectedBuses.indexOf(o)).status = ((ExpectedBus) o).status;
     }
 }
