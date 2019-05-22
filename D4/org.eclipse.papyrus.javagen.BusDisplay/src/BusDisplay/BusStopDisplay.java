@@ -52,9 +52,9 @@ public class BusStopDisplay implements Observer {
 		this.expectedBuses = expectedBusList;
 	}
 
-
+	//Returning new array list with the same objects as the old one because the old one is still modifiable
 	public List<Route> getCallingRoutes() {
-		return Collections.unmodifiableList(this.callingRoutes);
+		return Collections.unmodifiableList(new ArrayList<>(this.callingRoutes));
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class BusStopDisplay implements Observer {
 				departureTimes = r.schedule;
 			}
 		}
-		return Collections.unmodifiableList(departureTimes);
+		return Collections.unmodifiableList(new ArrayList<>(departureTimes));
 	}
 
 	/**
