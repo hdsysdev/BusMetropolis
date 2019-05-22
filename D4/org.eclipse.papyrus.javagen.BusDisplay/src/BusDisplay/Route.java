@@ -55,4 +55,4 @@ public class Route {
 				&& this.origin.equals(((Route) obj).origin)
 				&& this.schedule.equals(((Route) obj).schedule);
 	}
-};
+}

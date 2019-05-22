@@ -77,4 +77,4 @@ public class ExpectedBus extends Observable implements Comparable<ExpectedBus> {
             o.update(this, null);
         }
     }
-};
+}

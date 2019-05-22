@@ -11,15 +11,10 @@ import java.util.concurrent.TimeUnit;
 public class BusInfoSim {
 
     public static void main(String[] args) {
-        BusStopDisplay display = null;
-        try {
-            display = new BusStopDisplay()
-                        .create("..\\stop_info.csv",
-                                "..\\routes.csv",
-                                "..\\timetable.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BusStopDisplay display = new BusStopDisplay()
+                    .create("stop_info.csv",
+                            "routes.csv",
+                            "timetable.csv");
 
 
         //Set display's time to 6am before all upcoming buses
@@ -72,6 +67,7 @@ public class BusInfoSim {
         System.out.println();
         //Print display array like it would be shown on the display screen at the stop
         for (String[] row: display.display){
+            System.out.print("| ");
             for (String cell: row){
                 System.out.print(cell + " | ");
             }

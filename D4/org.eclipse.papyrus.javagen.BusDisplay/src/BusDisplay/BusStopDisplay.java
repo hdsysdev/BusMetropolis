@@ -1,13 +1,9 @@
 package BusDisplay;
 
-import java.io.IOException;
 import java.time.LocalTime;
 import java.util.*;
 import java.lang.String;
 
-/**
- * 
- */
 public class BusStopDisplay implements Observer {
 	public ArrayList<ExpectedBus> expectedBuses;
 	public ArrayList<Route> callingRoutes;
@@ -17,11 +13,11 @@ public class BusStopDisplay implements Observer {
 
 //	create is the constructor for the BusStopDisplay, it creates an example state of the system so it involves
 //	creating routes and their timetables and involves parsing the given configuration files
-	public BusStopDisplay create(String stopInfo, String rsInfo, String ttInfo) throws IOException {
+	public BusStopDisplay create(String stopInfo, String rsInfo, String ttInfo) {
 	    BusStopDisplay busStopDisplay = new BusStopDisplay();
 
-        busStopDisplay.id = RoutesAndStopInfoParser.parseBusInfo(stopInfo).getKey();
-        busStopDisplay.name = RoutesAndStopInfoParser.parseBusInfo(stopInfo).getValue();
+        busStopDisplay.id = RoutesAndStopInfoParser.parseStopInfo(stopInfo)[0];
+        busStopDisplay.name = RoutesAndStopInfoParser.parseStopInfo(stopInfo)[1];
 
         busStopDisplay.callingRoutes = RoutesAndStopInfoParser.parseRoutes(rsInfo, ttInfo);
         busStopDisplay.addScheduledToExpected();
@@ -53,14 +49,14 @@ public class BusStopDisplay implements Observer {
 	}
 
 	//Returning new array list with the same objects as the old one because the old one is still modifiable
-	public List<Route> getCallingRoutes() {
+	List<Route> getCallingRoutes() {
 		return Collections.unmodifiableList(new ArrayList<>(this.callingRoutes));
 	}
 
 	/**
 	 *Gets departure times for the route with the routeNo passed as a parameter and returns them as unmodifiable list
 	 */
-	public List<LocalTime> getDepartureTimes(Integer routeNo) {
+	List<LocalTime> getDepartureTimes(Integer routeNo) {
 		List<LocalTime> departureTimes = new ArrayList<>();
 		for(Route r: getCallingRoutes()) {
 			if (r.routeNo.equals(routeNo)){
@@ -73,7 +69,7 @@ public class BusStopDisplay implements Observer {
 	/**
 	 *Gets time of the next scheduled bus after the passed time for the route with the passed route number
 	 */
-	public LocalTime getTimeOfNextBus(Integer routeNo, LocalTime time) {
+	LocalTime getTimeOfNextBus(Integer routeNo, LocalTime time) {
 		LocalTime nextBusTime = time;
 		for (Route r: getCallingRoutes()){
 			if(r.routeNo.equals(routeNo)){

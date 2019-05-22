@@ -22,21 +22,16 @@ public class BusStopDisplayTest {
 
     @Test
     public void createWithBadPaths() {
-        assertThrows(IOException.class,
+        assertThrows(NullPointerException.class,
                 () -> new BusStopDisplay().create("bad.path", "bad.path", "bad.path"));
     }
 
     @Test
     void createWithCorrectPaths()  {
-        BusStopDisplay display = null;
-        try {
-            display = new BusStopDisplay()
-                        .create("..\\stop_info.csv",
-                                "..\\routes.csv",
-                                "..\\timetable.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BusStopDisplay display = new BusStopDisplay()
+                    .create("stop_info.csv",
+                            "routes.csv",
+                            "timetable.csv");
         assertNotNull(display);
     }
 
@@ -56,7 +51,7 @@ public class BusStopDisplayTest {
         BusStopDisplay display = new BusStopDisplay();
 
 
-        display.callingRoutes = RoutesAndStopInfoParser.parseRoutes("../routes.csv", "../timetable.csv");
+        display.callingRoutes = RoutesAndStopInfoParser.parseRoutes("routes.csv", "timetable.csv");
         assertNotNull(display.callingRoutes);
 
         assertNull(display.expectedBuses);
@@ -68,30 +63,20 @@ public class BusStopDisplayTest {
 
     @Test
     public void getCallingRoutes() {
-        BusStopDisplay display = null;
-        try {
-            display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BusStopDisplay display = new BusStopDisplay()
+                .create("stop_info.csv",
+                        "routes.csv",
+                        "timetable.csv");
 
         assertEquals(display.getCallingRoutes(), display.callingRoutes);
     }
 
     @Test
     public void getDepartureTimes() {
-        BusStopDisplay display = null;
-        try {
-            display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BusStopDisplay display = new BusStopDisplay()
+                .create("stop_info.csv",
+                        "routes.csv",
+                        "timetable.csv");
         String[] route3Departures = {"08:11", "09:11", "10:11", "11:11", "12:11",
                 "13:11", "14:11", "15:11", "16:11",
                 "17:11", "18:11", "19:11", "20:11", "21:11"};
@@ -105,33 +90,23 @@ public class BusStopDisplayTest {
 
     @Test
     public void getTimeOfNextBus() {
-        BusStopDisplay display = null;
-        try {
-            display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BusStopDisplay display = new BusStopDisplay()
+                .create("stop_info.csv",
+                        "routes.csv",
+                        "timetable.csv");
 
         assertEquals(display.getTimeOfNextBus(3, LocalTime.of(6, 0)), LocalTime.of(8, 11));
     }
 
     @Test
     public void testRemovePassedBus() {
-        BusStopDisplay display = null;
-        try {
-            display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BusStopDisplay display = new BusStopDisplay()
+                .create("stop_info.csv",
+                        "routes.csv",
+                        "timetable.csv");
         ExpectedBus firstBus = display.expectedBuses.get(0);
         assertTrue(display.expectedBuses.contains(firstBus));
-        display.display(LocalTime.of(7, 10));
+        display.display(LocalTime.of(9, 10));
         assertFalse(display.expectedBuses.contains(firstBus));
     }
 }

@@ -2,18 +2,14 @@ package BusDisplay;
 
 import javafx.util.Pair;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RoutesAndStopInfoParserTest extends RoutesAndStopInfoParser {
+public class RoutesAndStopInfoParserTest  {
 
     @Test
     void parseRouteTest() {
@@ -32,35 +28,25 @@ public class RoutesAndStopInfoParserTest extends RoutesAndStopInfoParser {
     }
 
     @Test
-    void pasreRoutesTest() {
-        try {
-            ArrayList<Route> testRoutesParsed = RoutesAndStopInfoParser.parseRoutes("../routes_test.csv", "../timetable_test.csv");
-            ArrayList<Route> testRoutes = new ArrayList<>(Arrays.asList(new Route(3,
-                    "Vila Nova", "Centennial park",
-                    new ArrayList<LocalTime>(Arrays.asList(LocalTime.of(8, 11),
-                            LocalTime.of(9, 11),
-                            LocalTime.of(10, 11),
-                            LocalTime.of(11, 11),
-                            LocalTime.of(12, 11))))));
+    void parseRoutesAndTimetableTest() {
+        ArrayList<Route> testRoutesParsed = RoutesAndStopInfoParser.parseRoutes("routes_test.csv", "timetable_test.csv");
+        ArrayList<Route> testRoutes = new ArrayList<>(Arrays.asList(new Route(3,
+                "Vila Nova", "Centennial park",
+                new ArrayList<LocalTime>(Arrays.asList(LocalTime.of(8, 11),
+                        LocalTime.of(9, 11),
+                        LocalTime.of(10, 11),
+                        LocalTime.of(11, 11),
+                        LocalTime.of(12, 11))))));
 
-            assertTrue(testRoutesParsed.equals(testRoutes));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        assertTrue(testRoutesParsed.equals(testRoutes));
 
     }
 
     @Test
     void parseBusInfo() {
+        String[] testStopInfo = RoutesAndStopInfoParser.parseStopInfo("stop_info.csv");
+        String[] testStop = {"BS05", "Sweetspot"};
+        assertTrue(Arrays.equals(testStopInfo, testStop));
 
-        Pair<String, String> testStopInfo;
-        try{
-            testStopInfo = parseBusInfo("../stop_info.csv");
-
-            assertEquals(testStopInfo, new Pair<>("BS05", "Sweetspot"));
-
-        } catch (IOException e){
-            fail();
-        }
     }
 }
