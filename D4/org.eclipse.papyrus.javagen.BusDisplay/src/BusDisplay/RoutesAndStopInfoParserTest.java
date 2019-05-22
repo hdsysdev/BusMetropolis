@@ -52,22 +52,13 @@ public class RoutesAndStopInfoParserTest extends RoutesAndStopInfoParser {
 
     @Test
     void parseBusInfo() {
+
         Pair<String, String> testStopInfo;
         try{
-            BufferedReader file = new BufferedReader(
-                    new FileReader("../stop_info.csv"));
+            testStopInfo = parseBusInfo("../stop_info.csv");
 
-            String line = file.readLine();
+            assertEquals(testStopInfo, new Pair<>("BS05", "Sweetspot"));
 
-            if(line == null) {
-                file.close();
-            } else {
-                String[] parts = line.split(",");
-                file.close();
-                testStopInfo = new Pair<>(parts[0], parts[1]);
-
-                assertEquals(testStopInfo, new Pair<>("BS05", "Sweetspot"));
-            }
         } catch (IOException e){
             fail();
         }
