@@ -1,8 +1,6 @@
 package BusDisplay;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,9 +12,9 @@ public class BusInfoSim {
         BusStopDisplay display = null;
         try {
             display = new BusStopDisplay()
-                        .create("..\\stop_info.csv",
-                                "..\\routes.csv",
-                                "..\\timetable.csv");
+                        .create("..\\routes.csv",
+                                "..\\timetable.csv",
+                                "..\\stop_info.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -28,24 +26,25 @@ public class BusInfoSim {
         System.out.println(Arrays.toString(display.display));
         simulate(display);
         System.out.println(display.getTimeOfNextBus(3, LocalTime.of(6, 0)));
-        //Testing set bus status, set delay and observer design pattern using parsed bus objects in expectedBuses array
+
+        //Testing set bus status, set delay and observer design pattern using parsed bus objects in expectedBusList array
         System.out.println("\nThis is a test for the observer design checking that the object is updated in the observer");
         System.out.println("Bus info before updating bus status: " + Arrays.toString(display.display[0]));
-        display.expectedBuses.get(0).setStatus(BusStatus.delayed);
-        display.expectedBuses.get(0).setDelay(15);
+        display.expectedBusList.get(0).setStatus(BusStatus.delayed);
+        display.expectedBusList.get(0).setDelay(15);
         display.display(LocalTime.of(6, 0));
         System.out.println("Bus info after updating bus status: " + Arrays.toString(display.display[0]));
 
         System.out.println("Bus info before updating bus delay: " + Arrays.toString(display.display[1]));
-        display.expectedBuses.get(1).setDelay(15);
+        display.expectedBusList.get(1).setDelay(15);
         display.display(LocalTime.of(6, 0));
         System.out.println("Bus info after updating bus delay: " + Arrays.toString(display.display[1]));
 
         //Testing observer design pattern by wiping expected buses array and using new manually created buses
-        display.expectedBuses = new ArrayList<>();
+        display.expectedBusList = new ArrayList<>();
         ExpectedBus testBus = new ExpectedBus(21, BusStatus.delayed,
                 15, "Test Destination", 1, LocalTime.of(7, 00), display);
-        display.expectedBuses.add(testBus);
+        display.expectedBusList.add(testBus);
         //Printing all fields of the newly created bus
         display.display(LocalTime.of(6, 0));
         System.out.println("\nFresh bus before updating bus status & delay: " + Arrays.toString(display.display[0]));

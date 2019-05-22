@@ -72,20 +72,24 @@ public class RoutesAndStopInfoParser {
         return routes;
     }
 
-    //Parses a pair containing a bus stop id and stop name, takes a filename string
-    public static Pair<String, String> parseBusInfo(String filename) throws IOException {
+    //Parses a 2 item array containing a bus stop busId and stop name, takes a filename string
+    public static String[] parseStopInfo(String name) throws IOException {
+        String[] parsedStop = new String[2];
+
         BufferedReader file = new BufferedReader(
-                new FileReader(filename));
+                new FileReader(name));
 
-        String line = file.readLine();
+        String currentRow = file.readLine();
 
-        if(line == null) {
-            file.close();
+        if(currentRow == null) {
             return null;
         } else {
-            String[] parts = line.split(",");
-            file.close();
-            return new Pair<>(parts[0], parts[1]);
+            String[] splitRow = currentRow.split(",");
+
+            parsedStop[0] = splitRow[0];
+            parsedStop[1] = splitRow[1];
+
+            return parsedStop;
         }
 
     }

@@ -7,12 +7,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.lang.String;
 import java.time.LocalTime;
-import java.util.Arrays;
 
 
 public class BusStopDisplayTest {
@@ -56,13 +54,13 @@ public class BusStopDisplayTest {
         BusStopDisplay display = new BusStopDisplay();
 
 
-        display.callingRoutes = RoutesAndStopInfoParser.parseRoutes("../routes.csv", "../timetable.csv");
-        assertNotNull(display.callingRoutes);
+        display.routeList = RoutesAndStopInfoParser.parseRoutes("../routes.csv", "../timetable.csv");
+        assertNotNull(display.routeList);
 
-        assertNull(display.expectedBuses);
+        assertNull(display.expectedBusList);
 
         display.addScheduledToExpected();
-        assertFalse(display.expectedBuses.isEmpty());
+        assertFalse(display.expectedBusList.isEmpty());
 
     }
 
@@ -78,7 +76,7 @@ public class BusStopDisplayTest {
             e.printStackTrace();
         }
 
-        assertEquals(display.getCallingRoutes(), display.callingRoutes);
+        assertEquals(display.getRouteList(), display.routeList);
     }
 
     @Test
@@ -129,9 +127,9 @@ public class BusStopDisplayTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ExpectedBus firstBus = display.expectedBuses.get(0);
-        assertTrue(display.expectedBuses.contains(firstBus));
+        ExpectedBus firstBus = display.expectedBusList.get(0);
+        assertTrue(display.expectedBusList.contains(firstBus));
         display.display(LocalTime.of(7, 10));
-        assertFalse(display.expectedBuses.contains(firstBus));
+        assertFalse(display.expectedBusList.contains(firstBus));
     }
 }
