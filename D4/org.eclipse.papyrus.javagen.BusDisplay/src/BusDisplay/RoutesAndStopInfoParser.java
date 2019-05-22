@@ -16,7 +16,7 @@ public class RoutesAndStopInfoParser {
 
 
     //Function to parse single route object out of a route
-    private static Route parseRoute(String route_info, String timetable_info){
+    static Route parseRoute(String route_info, String timetable_info){
         String[] parts = route_info.split(",");
         String[] timetableParts = timetable_info.split(",");
 
