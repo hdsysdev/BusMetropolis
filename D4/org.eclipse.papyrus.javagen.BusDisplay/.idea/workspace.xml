@@ -15,80 +15,39 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusInfoSim.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="256">
-                    <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParser.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="446">
-                    <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParserTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="38" column="51" lean-forward="true" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+            <state relative-caret-position="418">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1081#1082#0" expanded="true" />
+                <element signature="e#1139#1140#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BusDisplay/Route.java">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/Data.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#0#274#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BusDisplay/TimetableParser.java">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusInfoSim.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="209">
+              <caret line="11" column="84" selection-start-line="11" selection-start-column="84" selection-end-line="11" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,24 +58,67 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStatus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+            <state>
+              <caret column="59" selection-start-column="59" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/Route.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
-                <element signature="e#0#354#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="741">
+              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/TimetableParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="24" column="53" lean-forward="true" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-456">
-              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+            <state relative-caret-position="396">
+              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1736#1737#0" expanded="true" />
-                <element signature="e#1798#1799#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,22 +141,24 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/BusDisplay/TimetableParser.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/Tests/Tests.java" />
-        <option value="$PROJECT_DIR$/src/BusDisplay/ExpectedBus.java" />
-        <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java" />
+        <option value="$PROJECT_DIR$/src/BusDisplay/BusStatus.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/Route.java" />
-        <option value="$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParserTest.java" />
+        <option value="$PROJECT_DIR$/src/BusDisplay/ExpectedBus.java" />
+        <option value="$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParser.java" />
+        <option value="$PROJECT_DIR$/src/BusDisplay/TimetableParser.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/BusInfoSim.java" />
-        <option value="$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParser.java" />
+        <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java" />
+        <option value="$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParserTest.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1934" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -275,7 +279,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="BusDisplay.RoutesAndStopInfoParser" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ReadingList" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../MyBusMetropolis/D4" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -305,7 +309,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BusInfoSim">
+  <component name="RunManager" selected="JUnit.RoutesAndStopInfoParserTest">
     <configuration name="BusInfoSim" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BusDisplay.BusInfoSim" />
       <module name="org.eclipse.papyrus.javagen.BusDisplay" />
@@ -421,20 +425,11 @@
       <workItem from="1558442472467" duration="11434000" />
       <workItem from="1558477007256" duration="1024000" />
       <workItem from="1558479342572" duration="1717000" />
-      <workItem from="1558517354926" duration="5684000" />
+      <workItem from="1558517354926" duration="25009000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RoutesAndStopInfoParserTest - 2019.05.21 at 15h 58m 21s.xml">
-      <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoutesAndStopInfoParserTest - 2019.05.21 at 15h 58m 26s.xml">
-      <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RoutesAndStopInfoParserTest - 2019.05.22 at 11h 37m 50s.xml">
-      <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RoutesAndStopInfoParserTest - 2019.05.22 at 11h 43m 40s.xml">
       <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
     </history-entry>
@@ -456,25 +451,35 @@
     <history-entry file="RoutesAndStopInfoParserTest - 2019.05.22 at 11h 52m 46s.xml">
       <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RoutesAndStopInfoParserTest - 2019.05.22 at 18h 05m 48s.xml">
+      <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoutesAndStopInfoParserTest - 2019.05.22 at 18h 07m 58s.xml">
+      <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoutesAndStopInfoParserTest - 2019.05.22 at 18h 08m 38s.xml">
+      <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80111000" />
+    <option name="totallyTimeSpent" value="99436000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1934" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18463181" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18443497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32829374" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32824427" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3402399" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.39476553" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32721382" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.3401728" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39416847" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -502,13 +507,56 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <condition expression="i==140" language="JAVA" />
           <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>93</line>
+          <line>148</line>
           <properties />
-          <option name="timeStamp" value="49" />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
+          <line>123</line>
+          <properties />
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="i==140" language="JAVA" />
+          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
+          <line>142</line>
+          <properties />
+          <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>i==140</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>i==155</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>i==144</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>i=140</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>i=140;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/Name.java" />
@@ -517,23 +565,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/RouteId.java" />
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#279#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/Notification.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/Observer.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -583,73 +614,48 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/Tests/Tests.java" />
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/EventRegistration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/ExpectedBus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
-            <element signature="e#759#760#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#965#966#0" expanded="true" />
-            <element signature="e#1004#1005#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="665">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java">
+    <entry file="file://$PROJECT_DIR$/org.eclipse.papyrus.javagen.BusDisplay.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="49" />
+        <state relative-caret-position="152">
+          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/TimetableParser.java">
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopId.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="190">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#279#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#354#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="59" selection-start-column="59" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/Route.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="38" column="51" lean-forward="true" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusInfoSim.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="14" column="49" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+        <state relative-caret-position="589">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -658,22 +664,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
+        <state relative-caret-position="741">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java">
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/TimetableParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-456">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        <state relative-caret-position="422">
+          <caret line="24" column="53" lean-forward="true" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1736#1737#0" expanded="true" />
-            <element signature="e#1798#1799#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#0#274#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1081#1082#0" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusInfoSim.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="84" selection-start-line="11" selection-start-column="84" selection-end-line="11" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParserTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,6 @@ package BusDisplay;
 
 import javafx.util.Pair;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,24 +16,42 @@ public class RoutesAndStopInfoParserTest extends RoutesAndStopInfoParser {
     
     @Test
     void parseRouteTest() {
-        String routeInfo = "21,Test Road,Other Test Road";
-        String timetableInfo = "3,08:11,09:11,10:11";
+        String testRouteConfig = "3,Vila Nova,Centennial park";
+
+        ArrayList<LocalTime> testTimeList = new ArrayList<>();
+        testTimeList.add(LocalTime.parse("08:11"));
+        testTimeList.add(LocalTime.parse("09:11"));
+        testTimeList.add(LocalTime.parse("10:11"));
+        testTimeList.add(LocalTime.parse("11:11"));
+        testTimeList.add(LocalTime.parse("12:11"));
+        testTimeList.add(LocalTime.parse("13:11"));
+        testTimeList.add(LocalTime.parse("14:11"));
+        testTimeList.add(LocalTime.parse("15:11"));
+        testTimeList.add(LocalTime.parse("16:11"));
+        testTimeList.add(LocalTime.parse("17:11"));
+        testTimeList.add(LocalTime.parse("18:11"));
+        testTimeList.add(LocalTime.parse("19:11"));
+        testTimeList.add(LocalTime.parse("20:11"));
+        testTimeList.add(LocalTime.parse("21:11"));
 
 
-        Route parsedRoute = RoutesAndStopInfoParser.parseRoute(routeInfo, timetableInfo);
-        Route testRoute = new Route(21, "Test Road", "Other Test Road",
-                new ArrayList<LocalTime>(
-                        Arrays.asList(LocalTime.of(8, 11),
-                                LocalTime.of(9, 11),
-                                LocalTime.of(10, 11))));
+        Route testRoute = new Route(3, "Vila Nova", "Centennial park", testTimeList);
 
-        assertTrue(parsedRoute.equals(testRoute));
+        Route parsedRoute = null;
+        try {
+            parsedRoute = RoutesAndStopInfoParser.parseRoute(testRouteConfig);
+        } catch (IOException e) {
+            fail();
+        }
+
+        assertEquals();
+        assertEquals(parsedRoute.schedule, testRoute.schedule);
     }
 
     @Test
     void pasreRoutesTest() {
         try {
-            ArrayList<Route> testRoutesParsed = RoutesAndStopInfoParser.parseRoutes("../routes_test.csv", "../timetable_test.csv");
+            ArrayList<Route> testRoutesParsed = RoutesAndStopInfoParser.parseRouteList("../routes_test.csv");
             ArrayList<Route> testRoutes = new ArrayList<>(Arrays.asList(new Route(3,
                     "Vila Nova", "Centennial park",
                     new ArrayList<LocalTime>(Arrays.asList(LocalTime.of(8, 11),

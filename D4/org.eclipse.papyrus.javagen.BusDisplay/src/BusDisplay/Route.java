@@ -6,7 +6,6 @@ package BusDisplay;
 
 /************************************************************/
 
-import java.lang.reflect.Array;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -26,9 +25,9 @@ public class Route {
 	/**
 	 * 
 	 */
-	public String origin = "";
+	public String origin;
+
 	/**
-	 * 
 	 */
 	public ArrayList<LocalTime> schedule;
 
@@ -38,20 +37,4 @@ public class Route {
 		this.origin = origin;
 		this.schedule = schedule;
 	}
-	//Equals method for testing
-	@Override
-	public boolean equals(Object obj) {
-		if( obj == this){
-			return true;
-		}
-
-		if (!(obj instanceof Route)) {
-			return false;
-		}
-
-		return this.routeNo.equals(((Route) obj).routeNo)
-				&& this.destination.equals(((Route) obj).destination)
-				&& this.origin.equals(((Route) obj).origin)
-				&& this.schedule.equals(((Route) obj).schedule);
-	}
-};
+}

@@ -21,17 +21,14 @@ public class BusStopDisplayTest {
     @Test
     public void createWithBadPaths() {
         assertThrows(IOException.class,
-                () -> new BusStopDisplay().create("bad.path", "bad.path", "bad.path"));
+                () -> new BusStopDisplay().create("bad.path", "bad.path"));
     }
 
     @Test
     void createWithCorrectPaths()  {
         BusStopDisplay display = null;
         try {
-            display = new BusStopDisplay()
-                        .create("..\\stop_info.csv",
-                                "..\\routes.csv",
-                                "..\\timetable.csv");
+            display = new BusStopDisplay().create("..\\stop_info.csv", "..\\routes.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,7 +51,7 @@ public class BusStopDisplayTest {
         BusStopDisplay display = new BusStopDisplay();
 
 
-        display.routeList = RoutesAndStopInfoParser.parseRoutes("../routes.csv", "../timetable.csv");
+        display.routeList = RoutesAndStopInfoParser.parseRouteList("../routes.csv");
         assertNotNull(display.routeList);
 
         assertNull(display.expectedBusList);
@@ -68,25 +65,19 @@ public class BusStopDisplayTest {
     public void getCallingRoutes() {
         BusStopDisplay display = null;
         try {
-            display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
+            display = new BusStopDisplay().create("..\\stop_info.csv","..\\routes.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        assertEquals(display.getRouteList(), display.routeList);
+        assertEquals(display.getCallingRoutes(), display.routeList);
     }
 
     @Test
     public void getDepartureTimes() {
         BusStopDisplay display = null;
         try {
-            display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
+            display = new BusStopDisplay().create("..\\stop_info.csv","..\\routes.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -105,10 +96,7 @@ public class BusStopDisplayTest {
     public void getTimeOfNextBus() {
         BusStopDisplay display = null;
         try {
-            display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
+            display = new BusStopDisplay().create("..\\stop_info.csv","..\\routes.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -120,16 +108,13 @@ public class BusStopDisplayTest {
     public void testRemovePassedBus() {
         BusStopDisplay display = null;
         try {
-            display = new BusStopDisplay()
-                    .create("..\\stop_info.csv",
-                            "..\\routes.csv",
-                            "..\\timetable.csv");
+            display = new BusStopDisplay().create("..\\stop_info.csv","..\\routes.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
         ExpectedBus firstBus = display.expectedBusList.get(0);
         assertTrue(display.expectedBusList.contains(firstBus));
-        display.display(LocalTime.of(7, 10));
+        display.disp(LocalTime.of(7, 10));
         assertFalse(display.expectedBusList.contains(firstBus));
     }
 }

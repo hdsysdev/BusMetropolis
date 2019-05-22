@@ -1,128 +1,161 @@
 package BusDisplay;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.lang.String;
 
 /**
  * 
  */
-public class BusStopDisplay implements Observer {
-	private String busName;
-	private String busId;
+public class BusStopDisplay {
+    //Changed
+	private String name;
+	private String id;
 	ArrayList<ExpectedBus> expectedBusList;
 	ArrayList<Route> routeList;
 
     String[][] display = new String[10][5];
 
-//	create is the constructor for the BusStopDisplay, it creates an example state of the system so it involves
-//	creating routes and their timetables and involves parsing the given configuration files
-	public BusStopDisplay create(String routesInfo, String timetableInfo, String stopInfo) throws IOException {
-	    BusStopDisplay busStopDisplay = new BusStopDisplay();
-
-        busStopDisplay.busId = RoutesAndStopInfoParser.parseStopInfo(stopInfo)[0];
-        busStopDisplay.busName = RoutesAndStopInfoParser.parseStopInfo(stopInfo)[1];
-
-        busStopDisplay.routeList = RoutesAndStopInfoParser.parseRoutes(routesInfo, timetableInfo);
-        busStopDisplay.addScheduledToExpected();
-
-
-        return busStopDisplay;
+	public BusStopDisplay(String name, String id, ArrayList<Route> routeList) {
+		this.name = name;
+		this.id = id;
+		this.routeList = routeList;
 	}
 
+	public BusStopDisplay() {
+
+	}
+
+
+	//	create is the constructor for the BusStopDisplay, it creates an example state of the system so it involves
+//	creating routes and their timetables and involves parsing the given configuration files
+	public BusStopDisplay create(String routesInfo, String stopInfo) throws IOException {
+
+		String name = RoutesAndStopInfoParser.parseBusStopInfo(stopInfo)[1];
+		String id = RoutesAndStopInfoParser.parseBusStopInfo(stopInfo)[0];
+		ArrayList<Route> routeList = RoutesAndStopInfoParser.parseRouteList(routesInfo);
+
+	    BusStopDisplay stopDisplay = new BusStopDisplay(name, id, routeList);
+
+        stopDisplay.addScheduledToExpected();
+
+        return stopDisplay;
+	}
+
+	//Changed
+    List<Route> getCallingRoutes() {
+        return Collections.unmodifiableList(this.routeList);
+    }
+
+    /**
+     *Gets departure times for the route with the routeNo passed as a parameter and returns them as unmodifiable list
+     */
+    //Changed
+
+    public List<LocalTime> getDepartureTimes(Integer routeNumber) {
+        List<LocalTime> departuresList = new ArrayList<>();
+        List<Route> callingRouteList = getCallingRoutes();
+
+        for (int i = 0; i < callingRouteList.size(); i += 1){
+            if (callingRouteList.get(i).routeNo == routeNumber){
+                departuresList = callingRouteList.get(i).schedule;
+            }
+        }
+
+        return Collections.unmodifiableList(departuresList);
+    }
+
 	//Adds scheduled buses from each route calling at the bus stop to the expected buses list sorting them in ascending time
-	public void addScheduledToExpected (){
+	//Changed
+    public void addScheduledToExpected (){
 		ArrayList<ExpectedBus> expectedBusList = new ArrayList<>();
-		List<Route> callingRoutes = getRouteList();
+		List<Route> callingRoutes = getCallingRoutes();
 
-		for(Route r: callingRoutes){
-			for(LocalTime t: r.schedule) {
-				ExpectedBus currentBus = new ExpectedBus(r.routeNo,
-						BusStatus.onTime,
-						0,
-						r.destination,
-						r.schedule.indexOf(t) + 1,
-						t, this);
-
-				expectedBusList.add(currentBus);
-			}
+		//Changed
+		for (int routeNum = 0; routeNum < callingRoutes.size(); routeNum += 1){
+			for (int timeNum = 0; timeNum < callingRoutes.get(routeNum).schedule.size(); timeNum += 1){
+			    expectedBusList.add(new ExpectedBus(callingRoutes.get(routeNum).routeNo, BusStatus.onTime, 0,
+                        callingRoutes.get(routeNum).destination, routeNum, callingRoutes.get(routeNum).schedule.get(timeNum)));
+            }
 		}
 
-		Collections.sort(expectedBusList);
 		this.expectedBusList = expectedBusList;
 	}
 
 
-	public List<Route> getRouteList() {
-		return Collections.unmodifiableList(this.routeList);
-	}
-
-	/**
-	 *Gets departure times for the route with the routeNo passed as a parameter and returns them as unmodifiable list
-	 */
-	public List<LocalTime> getDepartureTimes(Integer routeNo) {
-		List<LocalTime> departureTimes = new ArrayList<>();
-		for(Route r: getRouteList()) {
-			if (r.routeNo.equals(routeNo)){
-				departureTimes = r.schedule;
-			}
-		}
-		return Collections.unmodifiableList(departureTimes);
-	}
-
 	/**
 	 *Gets time of the next scheduled bus after the passed time for the route with the passed route number
 	 */
-	public LocalTime getTimeOfNextBus(Integer routeNo, LocalTime time) {
-		LocalTime nextBusTime = time;
-		for (Route r: getRouteList()){
-			if(r.routeNo.equals(routeNo)){
-				nextBusTime = r.schedule.stream().filter(x -> x.isAfter(time)).findFirst().get();
-			}
-		}
+	//Changed
+	public LocalTime getTimeOfNextBus(Integer routeNumber, LocalTime afterTime) {
+		LocalTime nextBusTime = afterTime;
+		List<Route> callingRoutes = getCallingRoutes();
+
+		//Iterate over all calling routes to find route matching the route number passed
+		for (int i = 0; i < callingRoutes.size(); i++){
+		    if (callingRoutes.get(i).routeNo == routeNumber)
+                //Finds first time in the schedule list which is after the time passed
+                for (int x = 0; x < callingRoutes.get(i).schedule.size(); x += 1){
+                    if (callingRoutes.get(i).schedule.get(x).isAfter(afterTime)){
+                        nextBusTime = callingRoutes.get(i).schedule.get(x);
+                    }
+                }
+        }
+
 		return nextBusTime;
 	}
 
 	/**
-	 * Function to display bus times
+	 * Function to display bus times, does checks listed in Table 9 of D4 problem description PDF
 	 */
-	public void display(LocalTime time) {
-		ArrayList<ExpectedBus> tempBusList = new ArrayList<>();
-		tempBusList.addAll(this.expectedBusList);
-		for (ExpectedBus expectedBus: this.expectedBusList){
-			if(expectedBus.status == BusStatus.cancelled && expectedBus.time.isBefore(time)){
-				tempBusList.remove(expectedBus);
-			} else if (expectedBus.time.plusMinutes(expectedBus.delay + 3).isBefore(time)) {
-				tempBusList.remove(expectedBus);
-			} else if (this.expectedBusList.size() < 10){
-				addScheduledToExpected();
-			}
-		}
-		this.expectedBusList = tempBusList;
+	//Changed
+	public void disp(LocalTime currentTime) {
+		List<ExpectedBus> busArrayList = new ArrayList<>(this.expectedBusList);
+        Integer busListSize = this.expectedBusList.size();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+		for (int i = 0; i < busListSize; i += 1){
+		    ExpectedBus currentBus = this.expectedBusList.get(i);
+
+            if (currentBus.time.plus(Duration.ofMinutes(currentBus.delay + 3)).isBefore(currentTime)){
+                busArrayList.remove(currentBus);
+            }
+		    else if (currentBus.status == BusStatus.canceled && currentBus.time.isBefore(currentTime)){
+                busArrayList.remove(i);
+            }
+		    else if (busListSize.compareTo(10) == -1){
+		        addScheduledToExpected();
+            }
+        }
+
+		this.expectedBusList = (ArrayList<ExpectedBus>) busArrayList;
 
         /*Display is represented as a grid of cells with rows and columns, the display can show up to 10 rows of buses
         * and information about the bus like it's time and route number is each assigned to it's own column
         * (represented by the second dimension of the 'display' array). The for loop fills these rows and columns in
         * with variables from this BusStopDisplay object
         */
-		for (int i = 0; i >= 0 && i < 10 && i < this.expectedBusList.size(); i++){
-		    ExpectedBus thisBus = this.expectedBusList.get(i);
+        //Changed
+		for (Integer i = 0; i.compareTo(0) == 1 && i.compareTo(10) == -1 && i.compareTo(busListSize) == -1 || i.compareTo(0) == 0; i++){
+            busListSize = this.expectedBusList.size();
+		    ExpectedBus currentBus = this.expectedBusList.get(i);
 
-			display[i][0] = Integer.toString(i + 1);
-            display[i][1] = Integer.toString(thisBus.routeNo);
-            display[i][2] = thisBus.destination;
-            display[i][3] = thisBus.time.toString();
-            display[i][4] = thisBus.status == BusStatus.onTime ?
-                    thisBus.delay + " minutes delay" : thisBus.status.toString();
+		    //Loops over 4 columns in
+		    for (int x = 0; x <= 4; x += 1){
+		        if (x == 0)
+                    display[i][x] = String.valueOf(i + 1);
+		        else if (x == 1)
+                    display[i][x] = String.valueOf(currentBus.routeNo);
+		        else if (x == 2)
+                    display[i][2] = currentBus.destination;
+		        else if (x == 3)
+                    display[i][x] = currentBus.time.format(dateTimeFormatter);
+		        else
+                    display[i][x] = currentBus.status + " " + currentBus.delay + " minute delay";
+            }
 		}
 	}
-
-	//Update function replaces
-    @Override
-    public void update(Observable o, Object arg) {
-	    //expectedBusList.set(expectedBusList.indexOf(o), (ExpectedBus) o);
-	    expectedBusList.get(expectedBusList.indexOf(o)).delay = ((ExpectedBus) o).delay;
-		expectedBusList.get(expectedBusList.indexOf(o)).status = ((ExpectedBus) o).status;
-    }
 }
