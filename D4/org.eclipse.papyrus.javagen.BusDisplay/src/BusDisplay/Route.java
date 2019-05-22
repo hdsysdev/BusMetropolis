@@ -38,4 +38,20 @@ public class Route {
 		this.origin = origin;
 		this.schedule = schedule;
 	}
+	//Equals method for testing
+	@Override
+	public boolean equals(Object obj) {
+		if( obj == this){
+			return true;
+		}
+
+		if (!(obj instanceof Route)) {
+			return false;
+		}
+
+		return this.routeNo.equals(((Route) obj).routeNo)
+				&& this.destination.equals(((Route) obj).destination)
+				&& this.origin.equals(((Route) obj).origin)
+				&& this.schedule.equals(((Route) obj).schedule);
+	}
 };
