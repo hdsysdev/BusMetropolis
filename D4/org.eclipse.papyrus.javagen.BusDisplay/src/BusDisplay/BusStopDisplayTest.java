@@ -47,13 +47,10 @@ public class BusStopDisplayTest {
     }
 
     @Test
-    public void addScheduledToExpected() throws IOException {
+    public void addScheduledToExpected() {
         BusStopDisplay display = new BusStopDisplay();
-
-
         display.callingRoutes = RoutesAndStopInfoParser.parseRoutes("routes.csv", "timetable.csv");
         assertNotNull(display.callingRoutes);
-
         assertNull(display.expectedBuses);
 
         display.addScheduledToExpected();
