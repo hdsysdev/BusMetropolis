@@ -17,7 +17,6 @@ public class BusStopDisplay {
 	ArrayList<ExpectedBus> expectedBusList;
 	ArrayList<Route> routeList;
 
-    String[][] display = new String[10][5];
 
 	public BusStopDisplay(String name, String id, ArrayList<Route> routeList) {
 		this.name = name;
@@ -112,9 +111,9 @@ public class BusStopDisplay {
 	 * Function to display bus times, does checks listed in Table 9 of D4 problem description PDF
 	 */
 	//Changed
-	public void disp(LocalTime currentTime) {
+	public void display(LocalTime currentTime) {
 		List<ExpectedBus> busArrayList = new ArrayList<>(this.expectedBusList);
-        Integer busListSize = this.expectedBusList.size();
+        int busListSize = this.expectedBusList.size();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
 		for (int i = 0; i < busListSize; i += 1){
@@ -126,13 +125,31 @@ public class BusStopDisplay {
 		    else if (currentBus.status == BusStatus.canceled && currentBus.time.isBefore(currentTime)){
                 busArrayList.remove(i);
             }
-		    else if (busListSize.compareTo(10) == -1){
+		    else if (busListSize < 10){
 		        addScheduledToExpected();
             }
         }
 
-		this.expectedBusList = (ArrayList<ExpectedBus>) busArrayList;
+		//Sorts busArrayList based on the time in each expected bus. Overrides compare method to show the program
+		//how to compare buses in order to sort the list. Buses are compared based on their time and the time of other
+		//buses
+		Collections.sort(busArrayList, new Comparator<ExpectedBus>() {
+			@Override
+			public int compare(ExpectedBus o1, ExpectedBus o2) {
+				int compareResult;
 
+				if (o1.time.isAfter(o2.time)){
+					compareResult = 1;
+				} else if (o1.time.isBefore(o2.time)){
+					compareResult = -1;
+				} else {
+					compareResult = 0;
+				}
+				return compareResult;
+			}
+		});
+
+		this.expectedBusList = (ArrayList<ExpectedBus>) busArrayList;
         /*Display is represented as a grid of cells with rows and columns, the display can show up to 10 rows of buses
         * and information about the bus like it's time and route number is each assigned to it's own column
         * (represented by the second dimension of the 'display' array). The for loop fills these rows and columns in
@@ -143,19 +160,14 @@ public class BusStopDisplay {
             busListSize = this.expectedBusList.size();
 		    ExpectedBus currentBus = this.expectedBusList.get(i);
 
-		    //Loops over 4 columns in
-		    for (int x = 0; x <= 4; x += 1){
-		        if (x == 0)
-                    display[i][x] = String.valueOf(i + 1);
-		        else if (x == 1)
-                    display[i][x] = String.valueOf(currentBus.routeNo);
-		        else if (x == 2)
-                    display[i][2] = currentBus.destination;
-		        else if (x == 3)
-                    display[i][x] = currentBus.time.format(dateTimeFormatter);
-		        else
-                    display[i][x] = currentBus.status + " " + currentBus.delay + " minute delay";
-            }
+		    String number = String.valueOf(i + 1);
+		    String routeNo = String.valueOf(currentBus.routeNo);
+		    String destination = currentBus.destination;
+		    String dueAt = currentBus.time.format(dateTimeFormatter);
+		    String status = currentBus.status + " " + currentBus.delay + " minute delay";
+
+			System.out.printf("%s    %s    %s    %s    %s\n", number, routeNo, destination, dueAt, status);
+
 		}
 	}
 }
