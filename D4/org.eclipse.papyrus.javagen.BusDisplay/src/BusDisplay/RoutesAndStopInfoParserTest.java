@@ -3,8 +3,6 @@ package BusDisplay;
 
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class RoutesAndStopInfoParserTest extends RoutesAndStopInfoParser {
 
     @Test
-    void pasreRoutes() {
+    public void pasreRoutes() {
         try {
             ArrayList<LocalTime> testTimeList = new ArrayList<>();
             testTimeList.add(LocalTime.parse("08:11"));
@@ -33,7 +31,7 @@ public class RoutesAndStopInfoParserTest extends RoutesAndStopInfoParser {
             testTimeList.add(LocalTime.parse("20:11"));
             testTimeList.add(LocalTime.parse("21:11"));
 
-            ArrayList<Route> testRoutesParsed = RoutesAndStopInfoParser.parseRouteList("../routes_test.csv");
+            ArrayList<Route> testRoutesParsed = RoutesAndStopInfoParser.parseRouteList("../routes.csv");
             ArrayList<Route> testRoutes = new ArrayList<>(Arrays.asList(new Route(3,
                     "Vila Nova", "Centennial park", testTimeList)));
 
@@ -47,7 +45,7 @@ public class RoutesAndStopInfoParserTest extends RoutesAndStopInfoParser {
     }
 
     @Test
-    void parseOneRoute() {
+    public void parseOneRoute() {
         String testRouteConfig = "3,Vila Nova,Centennial park";
 
         ArrayList<LocalTime> testTimeList = new ArrayList<>();

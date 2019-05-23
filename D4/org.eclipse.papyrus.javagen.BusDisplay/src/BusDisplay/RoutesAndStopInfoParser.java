@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 
 public class RoutesAndStopInfoParser {
-    //Parses a 2 item array containing a bus stop busId and stop name, takes a filename string
-    public static String[] parseBusStopInfo(String name) throws IOException {
+
+    public static String[] parseBusStop(String name) throws IOException {
         String[] parsedStop = new String[2];
 
         BufferedReader stopfile = new BufferedReader(new FileReader(name));
@@ -28,8 +28,6 @@ public class RoutesAndStopInfoParser {
         }
     }
 
-    //Function to parse single route object out of a route
-    //Changed
     public static Route parseRoute(String route_info) throws IOException {
         String[] parts = route_info.split(",");
 
@@ -39,20 +37,13 @@ public class RoutesAndStopInfoParser {
         return parsedRoute;
     }
 
-    //Going to parse an array list of routes from a given file
-    //Changed
     public static ArrayList<Route> parseRouteList(String file) throws IOException {
         BufferedReader fileReader = new BufferedReader(new FileReader(file));
 
         boolean endOf = false;
         ArrayList<Route> routeList = new ArrayList<>();
 
-        //Loop reads each line of the file one by one, checking if the next line of the file is not empty
-        //which would mean the end of the file, if the end is reached the file is closed and loop is escaped
-        //by closing the file and setting endOf to true, if the next line is not empty, route object r is parsed from
-        //the line string before being added to the array and the array being returned at the end
 
-        //Skip first line
         fileReader.readLine();
         while (endOf == false) {
             String routeRow = fileReader.readLine();

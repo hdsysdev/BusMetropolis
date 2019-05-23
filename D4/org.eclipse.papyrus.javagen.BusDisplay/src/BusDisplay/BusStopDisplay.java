@@ -7,11 +7,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.lang.String;
 
-/**
- * 
- */
+
 public class BusStopDisplay {
-    //Changed
+
 	private String name;
 	private String id;
 	ArrayList<ExpectedBus> expectedBusList;
@@ -28,13 +26,10 @@ public class BusStopDisplay {
 
 	}
 
-
-	//	create is the constructor for the BusStopDisplay, it creates an example state of the system so it involves
-//	creating routes and their timetables and involves parsing the given configuration files
 	public BusStopDisplay create(String routesInfo, String stopInfo) throws IOException {
 
-		String name = RoutesAndStopInfoParser.parseBusStopInfo(stopInfo)[1];
-		String id = RoutesAndStopInfoParser.parseBusStopInfo(stopInfo)[0];
+		String name = RoutesAndStopInfoParser.parseBusStop(stopInfo)[1];
+		String id = RoutesAndStopInfoParser.parseBusStop(stopInfo)[0];
 		ArrayList<Route> routeList = RoutesAndStopInfoParser.parseRouteList(routesInfo);
 
 	    BusStopDisplay stopDisplay = new BusStopDisplay(name, id, routeList);
@@ -44,15 +39,11 @@ public class BusStopDisplay {
         return stopDisplay;
 	}
 
-	//Changed
+
     List<Route> getCallingRoutes() {
         return Collections.unmodifiableList(this.routeList);
     }
 
-    /**
-     *Gets departure times for the route with the routeNo passed as a parameter and returns them as unmodifiable list
-     */
-    //Changed
 
     public List<LocalTime> getDepartureTimes(Integer routeNumber) {
         List<LocalTime> departuresList = new ArrayList<>();
@@ -67,36 +58,29 @@ public class BusStopDisplay {
         return Collections.unmodifiableList(departuresList);
     }
 
-	//Adds scheduled buses from each route calling at the bus stop to the expected buses list sorting them in ascending time
-	//Changed
     public void addScheduledToExpected (){
-		ArrayList<ExpectedBus> expectedBusList = new ArrayList<>();
+		ArrayList<ExpectedBus> busArrayList = new ArrayList<>();
 		List<Route> callingRoutes = getCallingRoutes();
 
-		//Changed
+
 		for (int routeNum = 0; routeNum < callingRoutes.size(); routeNum += 1){
 			for (int timeNum = 0; timeNum < callingRoutes.get(routeNum).schedule.size(); timeNum += 1){
-			    expectedBusList.add(new ExpectedBus(callingRoutes.get(routeNum).routeNo, BusStatus.onTime, 0,
+			    busArrayList.add(new ExpectedBus(callingRoutes.get(routeNum).routeNo, BusStatus.onTime, 0,
                         callingRoutes.get(routeNum).destination, routeNum, callingRoutes.get(routeNum).schedule.get(timeNum)));
             }
 		}
 
-		this.expectedBusList = expectedBusList;
+		this.expectedBusList = busArrayList;
 	}
 
-
-	/**
-	 *Gets time of the next scheduled bus after the passed time for the route with the passed route number
-	 */
-	//Changed
-	public LocalTime getTimeOfNextBus(Integer routeNumber, LocalTime afterTime) {
+	public LocalTime getTimeOfNextBus(LocalTime afterTime, Integer routeNumber) {
 		LocalTime nextBusTime = afterTime;
 		List<Route> callingRoutes = getCallingRoutes();
 
-		//Iterate over all calling routes to find route matching the route number passed
+
 		for (int i = 0; i < callingRoutes.size(); i++){
 		    if (callingRoutes.get(i).routeNo == routeNumber)
-                //Finds first time in the schedule list which is after the time passed
+
                 for (int x = 0; x < callingRoutes.get(i).schedule.size(); x += 1){
                     if (callingRoutes.get(i).schedule.get(x).isAfter(afterTime)){
                         nextBusTime = callingRoutes.get(i).schedule.get(x);
@@ -107,10 +91,6 @@ public class BusStopDisplay {
 		return nextBusTime;
 	}
 
-	/**
-	 * Function to display bus times, does checks listed in Table 9 of D4 problem description PDF
-	 */
-	//Changed
 	public void display(LocalTime currentTime) {
 		List<ExpectedBus> busArrayList = new ArrayList<>(this.expectedBusList);
         int busListSize = this.expectedBusList.size();
@@ -130,9 +110,6 @@ public class BusStopDisplay {
             }
         }
 
-		//Sorts busArrayList based on the time in each expected bus. Overrides compare method to show the program
-		//how to compare buses in order to sort the list. Buses are compared based on their time and the time of other
-		//buses
 		Collections.sort(busArrayList, new Comparator<ExpectedBus>() {
 			@Override
 			public int compare(ExpectedBus o1, ExpectedBus o2) {
@@ -150,12 +127,7 @@ public class BusStopDisplay {
 		});
 
 		this.expectedBusList = (ArrayList<ExpectedBus>) busArrayList;
-        /*Display is represented as a grid of cells with rows and columns, the display can show up to 10 rows of buses
-        * and information about the bus like it's time and route number is each assigned to it's own column
-        * (represented by the second dimension of the 'display' array). The for loop fills these rows and columns in
-        * with variables from this BusStopDisplay object
-        */
-        //Changed
+
 		for (Integer i = 0; i.compareTo(0) == 1 && i.compareTo(10) == -1 && i.compareTo(busListSize) == -1 || i.compareTo(0) == 0; i++){
             busListSize = this.expectedBusList.size();
 		    ExpectedBus currentBus = this.expectedBusList.get(i);
