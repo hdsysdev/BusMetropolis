@@ -7,10 +7,14 @@
     <body>Invariants&#xD;
 Time: hours &lt; 24 &amp;&amp; minutes&lt;60</body>
   </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_3vFRgH30EemrpsIJx0QGKA">
+    <body>has many subjects&#xD;
+</body>
+  </ownedComment>
   <packageImport xmi:type="uml:PackageImport" xmi:id="_TLJHoD3DEemh8bFxZDDVyw">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
-  <packagedElement xmi:type="uml:Class" xmi:id="_UNTvQD3DEemh8bFxZDDVyw" name="BusStopDisplay">
+  <packagedElement xmi:type="uml:Class" xmi:id="_UNTvQD3DEemh8bFxZDDVyw" name="BusStopDisplay (Observer)">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_a_T8oD3FEemh8bFxZDDVyw" name="expectedbuses" type="_CtRxkD3EEemh8bFxZDDVyw" aggregation="composite" association="_a_Q5UD3FEemh8bFxZDDVyw">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a_Vx0D3FEemh8bFxZDDVyw"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a_XnAD3FEemh8bFxZDDVyw" value="*"/>
@@ -44,6 +48,13 @@ Time: hours &lt; 24 &amp;&amp; minutes&lt;60</body>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_Rs38EGskEemsmrjkoD0qJg" name="r" type="_UNTvQD3DEemh8bFxZDDVyw" direction="return"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_4WyKoG2hEemgQrqz8WU1Sg" name="ttInfo" type="_UIAEQG2hEemgQrqz8WU1Sg"/>
     </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_T0ocYH30EemrpsIJx0QGKA" name="addScheduledToExpected"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_YISp8H30EemrpsIJx0QGKA" name="update">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_fDorcH30EemrpsIJx0QGKA" name="subject" type="_CtRxkD3EEemh8bFxZDDVyw"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_kiAYoH30EemrpsIJx0QGKA" name="arg">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EJavaObject"/>
+      </ownedParameter>
+    </ownedOperation>
   </packagedElement>
   <packagedElement xmi:type="uml:Enumeration" xmi:id="_U7yl4D3DEemh8bFxZDDVyw" name="BusStatus">
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Y-rzkD3DEemh8bFxZDDVyw" name="onTime"/>
@@ -51,7 +62,7 @@ Time: hours &lt; 24 &amp;&amp; minutes&lt;60</body>
     <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_fJFgUD3DEemh8bFxZDDVyw" name="cancelled"/>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_BcCMID3EEemh8bFxZDDVyw" name="RouteId"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_CtRxkD3EEemh8bFxZDDVyw" name="ExpectedBus">
+  <packagedElement xmi:type="uml:Class" xmi:id="_CtRxkD3EEemh8bFxZDDVyw" name="ExpectedBus (Subject)" visibility="private">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_D999YD3EEemh8bFxZDDVyw" name="routeNo" visibility="public" type="_BcCMID3EEemh8bFxZDDVyw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_GoQZYD3EEemh8bFxZDDVyw" name="status" visibility="public" type="_U7yl4D3DEemh8bFxZDDVyw"/>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_L4CQ8D3EEemh8bFxZDDVyw" name="delay" visibility="public">
@@ -62,8 +73,19 @@ Time: hours &lt; 24 &amp;&amp; minutes&lt;60</body>
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#UnlimitedNatural"/>
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_eaWoMG19Eem-6scoWXvVNw" name="time" visibility="public" type="_s6YJID3HEemh8bFxZDDVyw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_FivrIH30EemrpsIJx0QGKA" name="observers" visibility="private" type="_UNTvQD3DEemh8bFxZDDVyw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LkRIsH30EemrpsIJx0QGKA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LkXPUH30EemrpsIJx0QGKA" value="*"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_jLOoYH3zEemrpsIJx0QGKA" name="addObserver">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_oUiEgH3zEemrpsIJx0QGKA" name="observer" type="_UNTvQD3DEemh8bFxZDDVyw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_qOiTEH3zEemrpsIJx0QGKA" name="deleteObserver">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xY9SYH3zEemrpsIJx0QGKA" name="observer" type="_UNTvQD3DEemh8bFxZDDVyw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_yxMQoH3zEemrpsIJx0QGKA" name="notifyObservers"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_a_Q5UD3FEemh8bFxZDDVyw" name="HasExpectedBuses" visibility="package" memberEnd="_a_T8oD3FEemh8bFxZDDVyw _a_Y1ID3FEemh8bFxZDDVyw">
+  <packagedElement xmi:type="uml:Association" xmi:id="_a_Q5UD3FEemh8bFxZDDVyw" name="HasExpectedBuses" visibility="package" memberEnd="_a_T8oD3FEemh8bFxZDDVyw _a_Y1ID3FEemh8bFxZDDVyw" navigableOwnedEnd="_a_Y1ID3FEemh8bFxZDDVyw">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_a_SugD3FEemh8bFxZDDVyw" source="org.eclipse.papyrus">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_a_TVkD3FEemh8bFxZDDVyw" key="nature" value="UML_Nature"/>
     </eAnnotations>
@@ -100,17 +122,10 @@ Time: hours &lt; 24 &amp;&amp; minutes&lt;60</body>
     <ownedEnd xmi:type="uml:Property" xmi:id="_KeqGYD3IEemh8bFxZDDVyw" name="controller" type="_UNTvQD3DEemh8bFxZDDVyw" association="_Kel08D3IEemh8bFxZDDVyw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_jYRQkGpEEemjPL9_6Jtd4Q" name="EventRegistration">
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_mlwgQGpEEemjPL9_6Jtd4Q" name=":ConcreteObserverA" coveredBy="_2LHrkGpEEemjPL9_6Jtd4Q _2LHEgGpEEemjPL9_6Jtd4Q _3YHDIGpEEemjPL9_6Jtd4Q _2LISoGpEEemjPL9_6Jtd4Q"/>
-    <lifeline xmi:type="uml:Lifeline" xmi:id="_m7rs8GpEEemjPL9_6Jtd4Q" name=":ConcreteSubject" coveredBy="_sOGBwGpEEemjPL9_6Jtd4Q _sOFasGpEEemjPL9_6Jtd4Q _3YHDIWpEEemjPL9_6Jtd4Q _sOGo0GpEEemjPL9_6Jtd4Q"/>
-    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_2LHrkGpEEemjPL9_6Jtd4Q" name="ActionExecutionSpecification6Start" covered="_mlwgQGpEEemjPL9_6Jtd4Q" execution="_2LHEgGpEEemjPL9_6Jtd4Q"/>
-    <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_2LHEgGpEEemjPL9_6Jtd4Q" name="ActionExecutionSpecification6" covered="_mlwgQGpEEemjPL9_6Jtd4Q" finish="_2LISoGpEEemjPL9_6Jtd4Q" start="_2LHrkGpEEemjPL9_6Jtd4Q"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_m7rs8GpEEemjPL9_6Jtd4Q" name=":ConcreteSubject" coveredBy="_sOGBwGpEEemjPL9_6Jtd4Q _sOFasGpEEemjPL9_6Jtd4Q _sOGo0GpEEemjPL9_6Jtd4Q"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_sOGBwGpEEemjPL9_6Jtd4Q" name="ActionExecutionSpecification6Start" covered="_m7rs8GpEEemjPL9_6Jtd4Q" execution="_sOFasGpEEemjPL9_6Jtd4Q"/>
     <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_sOFasGpEEemjPL9_6Jtd4Q" name="ActionExecutionSpecification6" covered="_m7rs8GpEEemjPL9_6Jtd4Q" finish="_sOGo0GpEEemjPL9_6Jtd4Q" start="_sOGBwGpEEemjPL9_6Jtd4Q"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3YHDIGpEEemjPL9_6Jtd4Q" name="Message9SendEvent" covered="_mlwgQGpEEemjPL9_6Jtd4Q" message="_3YGcEGpEEemjPL9_6Jtd4Q"/>
-    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3YHDIWpEEemjPL9_6Jtd4Q" name="Message9ReceiveEvent" covered="_m7rs8GpEEemjPL9_6Jtd4Q" message="_3YGcEGpEEemjPL9_6Jtd4Q"/>
-    <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_2LISoGpEEemjPL9_6Jtd4Q" name="ActionExecutionSpecification6Finish" covered="_mlwgQGpEEemjPL9_6Jtd4Q" execution="_2LHEgGpEEemjPL9_6Jtd4Q"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_sOGo0GpEEemjPL9_6Jtd4Q" name="ActionExecutionSpecification6Finish" covered="_m7rs8GpEEemjPL9_6Jtd4Q" execution="_sOFasGpEEemjPL9_6Jtd4Q"/>
-    <message xmi:type="uml:Message" xmi:id="_3YGcEGpEEemjPL9_6Jtd4Q" name="attach(self)" messageSort="asynchCall" receiveEvent="_3YHDIWpEEemjPL9_6Jtd4Q" sendEvent="_3YHDIGpEEemjPL9_6Jtd4Q"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_EU6QwGpFEemjPL9_6Jtd4Q" name="Notification">
     <lifeline xmi:type="uml:Lifeline" xmi:id="_I_ESwGpFEemjPL9_6Jtd4Q" name=":ConcreteSubject" coveredBy="_aRigIGpFEemjPL9_6Jtd4Q _aRh5EGpFEemjPL9_6Jtd4Q _b2tuMGpFEemjPL9_6Jtd4Q _b2uVQGpFEemjPL9_6Jtd4Q _de4l4GpFEemjPL9_6Jtd4Q _edsXgGpFEemjPL9_6Jtd4Q"/>
@@ -135,4 +150,30 @@ Time: hours &lt; 24 &amp;&amp; minutes&lt;60</body>
     <message xmi:type="uml:Message" xmi:id="_edrwcGpFEemjPL9_6Jtd4Q" name="update" messageSort="asynchCall" receiveEvent="_eds-kGpFEemjPL9_6Jtd4Q" sendEvent="_edsXgGpFEemjPL9_6Jtd4Q"/>
   </packagedElement>
   <packagedElement xmi:type="uml:DataType" xmi:id="_UIAEQG2hEemgQrqz8WU1Sg" name="Data"/>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_ZdV74H31EemrpsIJx0QGKA" name="Interaction18">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_2BmmkH31EemrpsIJx0QGKA" name="" type="_ZdV74H31EemrpsIJx0QGKA"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_nftN8H32EemrpsIJx0QGKA" name="" type="_UNTvQD3DEemh8bFxZDDVyw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ybJAwH32EemrpsIJx0QGKA" name="" type="_CtRxkD3EEemh8bFxZDDVyw"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_2Bl_gH31EemrpsIJx0QGKA" name="" represents="_2BmmkH31EemrpsIJx0QGKA"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_nfr_0H32EemrpsIJx0QGKA" name="" represents="_nftN8H32EemrpsIJx0QGKA" coveredBy="_A-92kH33EemrpsIJx0QGKA _jch28X33EemrpsIJx0QGKA _3LmpoH33EemrpsIJx0QGKA"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_ybHyoH32EemrpsIJx0QGKA" name="" represents="_ybJAwH32EemrpsIJx0QGKA" coveredBy="_A-92kX33EemrpsIJx0QGKA _jch28H33EemrpsIJx0QGKA _3LmCkH33EemrpsIJx0QGKA _LHz5YH34EemrpsIJx0QGKA _LHz5YX34EemrpsIJx0QGKA"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_A-92kH33EemrpsIJx0QGKA" name="Message7SendEvent" covered="_nfr_0H32EemrpsIJx0QGKA" message="_A-4-EH33EemrpsIJx0QGKA"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_A-92kX33EemrpsIJx0QGKA" name="Message7ReceiveEvent" covered="_ybHyoH32EemrpsIJx0QGKA" message="_A-4-EH33EemrpsIJx0QGKA"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_jch28H33EemrpsIJx0QGKA" name="Message11SendEvent" covered="_ybHyoH32EemrpsIJx0QGKA" message="_jcgo0H33EemrpsIJx0QGKA"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_jch28X33EemrpsIJx0QGKA" name="Message11ReceiveEvent" covered="_nfr_0H32EemrpsIJx0QGKA" message="_jcgo0H33EemrpsIJx0QGKA"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3LmCkH33EemrpsIJx0QGKA" name="Message14SendEvent" covered="_ybHyoH32EemrpsIJx0QGKA"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_3LmpoH33EemrpsIJx0QGKA" name="Message14ReceiveEvent" covered="_nfr_0H32EemrpsIJx0QGKA"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_LHz5YH34EemrpsIJx0QGKA" name="Message16SendEvent" covered="_ybHyoH32EemrpsIJx0QGKA" message="_LHyrQH34EemrpsIJx0QGKA"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_LHz5YX34EemrpsIJx0QGKA" name="Message16ReceiveEvent" covered="_ybHyoH32EemrpsIJx0QGKA" message="_LHyrQH34EemrpsIJx0QGKA"/>
+    <message xmi:type="uml:Message" xmi:id="_A-4-EH33EemrpsIJx0QGKA" name="addObserver(Observer o)" messageSort="asynchCall" receiveEvent="_A-92kX33EemrpsIJx0QGKA" sendEvent="_A-92kH33EemrpsIJx0QGKA"/>
+    <message xmi:type="uml:Message" xmi:id="_jcgo0H33EemrpsIJx0QGKA" name="update()" messageSort="asynchCall" receiveEvent="_jch28X33EemrpsIJx0QGKA" sendEvent="_jch28H33EemrpsIJx0QGKA"/>
+    <message xmi:type="uml:Message" xmi:id="_r4nScH33EemrpsIJx0QGKA" name="deleteObserver(Observer o)"/>
+    <message xmi:type="uml:Message" xmi:id="_LHyrQH34EemrpsIJx0QGKA" name="notifyObservers)_" messageSort="asynchCall" receiveEvent="_LHz5YX34EemrpsIJx0QGKA" sendEvent="_LHz5YH34EemrpsIJx0QGKA"/>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HhnrQH33EemrpsIJx0QGKA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HhqHgH33EemrpsIJx0QGKA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
 </uml:Model>

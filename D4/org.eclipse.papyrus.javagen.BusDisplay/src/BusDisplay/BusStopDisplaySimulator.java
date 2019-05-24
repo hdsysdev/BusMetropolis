@@ -13,7 +13,7 @@ public class BusStopDisplaySimulator {
         BusStopDisplay display = new BusStopDisplay()
                     .create("stop_info.csv",
                             "routes.csv",
-                            "timetable_wrongOrder.csv");
+                            "timetable.csv");
 
         //Demo loop
         while (true){

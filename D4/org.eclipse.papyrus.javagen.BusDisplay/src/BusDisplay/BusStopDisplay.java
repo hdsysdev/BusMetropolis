@@ -8,15 +8,14 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class BusStopDisplay implements Observer {
-	public ArrayList<ExpectedBus> expectedBuses = new ArrayList<>();
+	ArrayList<ExpectedBus> expectedBuses = new ArrayList<>();
 	ArrayList<ExpectedBus> removedBuses = new ArrayList<>();
-	public ArrayList<Route> callingRoutes;
-	public String id;
-	public String name;
+	ArrayList<Route> callingRoutes;
+	private String id;
+	private String name;
 
-//	create is the constructor for the BusStopDisplay, it creates an example state of the system so it involves
-//	creating routes and their timetables and involves parsing the given configuration files
-	public BusStopDisplay create(String stopInfo, String rsInfo, String ttInfo) {
+
+	BusStopDisplay create(String stopInfo, String rsInfo, String ttInfo) {
 	    BusStopDisplay busStopDisplay = new BusStopDisplay();
 
         busStopDisplay.id = RoutesAndStopInfoParser.parseStopInfo(stopInfo)[0];
@@ -29,8 +28,7 @@ public class BusStopDisplay implements Observer {
         return busStopDisplay;
 	}
 
-	//Adds scheduled buses from each route calling at the bus stop to the expected buses list sorting them in ascending time
-	public void addScheduledToExpected (){
+	void addScheduledToExpected(){
 		ArrayList<ExpectedBus> expectedBusList = new ArrayList<>();
 		List<Route> callingRoutes = getCallingRoutes();
 
@@ -136,7 +134,6 @@ public class BusStopDisplay implements Observer {
 	//Update function replaces
     @Override
     public void update(Observable o, Object arg) {
-	    //expectedBuses.set(expectedBuses.indexOf(o), (ExpectedBus) o);
 	    expectedBuses.get(expectedBuses.indexOf(o)).delay = ((ExpectedBus) o).delay;
 		expectedBuses.get(expectedBuses.indexOf(o)).status = ((ExpectedBus) o).status;
     }
