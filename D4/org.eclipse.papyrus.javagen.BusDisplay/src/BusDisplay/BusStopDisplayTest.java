@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.lang.String;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
@@ -51,7 +52,7 @@ public class BusStopDisplayTest {
         BusStopDisplay display = new BusStopDisplay();
         display.callingRoutes = RoutesAndStopInfoParser.parseRoutes("routes.csv", "timetable.csv");
         assertNotNull(display.callingRoutes);
-        assertNull(display.expectedBuses);
+        assertEquals(display.expectedBuses, new ArrayList<>());
 
         display.addScheduledToExpected();
         assertFalse(display.expectedBuses.isEmpty());

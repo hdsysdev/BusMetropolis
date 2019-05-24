@@ -28,25 +28,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="96" column="59" lean-forward="true" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+            <state relative-caret-position="228">
+              <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1942#1943#0" expanded="true" />
-                <element signature="e#2021#2022#0" expanded="true" />
+                <element signature="e#2353#2354#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="171">
+              <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,23 +155,23 @@
         <option value="$PROJECT_DIR$/src/BusDisplay/Tests/Tests.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/Route.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/TimetableParser.java" />
-        <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParserTest.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/BusInfoSim.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySim.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParser.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/BusStatus.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/ExpectedBus.java" />
-        <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java" />
         <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java" />
+        <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java" />
+        <option value="$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-1928" />
+    <option name="y" value="2" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1046" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -397,8 +408,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BusStopDisplayTest.createWithBadPaths" />
         <item itemvalue="JUnit.BusStopDisplayTest" />
+        <item itemvalue="JUnit.BusStopDisplayTest.createWithBadPaths" />
         <item itemvalue="JUnit.BusStopDisplayTest.create_badPaths" />
       </list>
     </recent_temporary>
@@ -421,23 +432,11 @@
       <workItem from="1558271165669" duration="904000" />
       <workItem from="1558272095537" duration="46810000" />
       <workItem from="1558525657954" duration="36693000" />
-      <workItem from="1558664151474" duration="12185000" />
+      <workItem from="1558664151474" duration="19352000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BusStopDisplayTest - 2019.05.22 at 18h 52m 15s.xml">
-      <configuration name="BusStopDisplayTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BusStopDisplayTest - 2019.05.22 at 18h 52m 46s.xml">
-      <configuration name="BusStopDisplayTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BusStopDisplayTest - 2019.05.22 at 18h 55m 29s.xml">
-      <configuration name="BusStopDisplayTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BusStopDisplayTest - 2019.05.22 at 18h 56m 23s.xml">
-      <configuration name="BusStopDisplayTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BusStopDisplayTest - 2019.05.22 at 18h 56m 31s.xml">
       <configuration name="BusStopDisplayTest" configurationId="JUnit" />
     </history-entry>
@@ -456,9 +455,21 @@
     <history-entry file="BusStopDisplayTest_createWithBadPaths - 2019.05.23 at 23h 38m 36s.xml">
       <configuration name="BusStopDisplayTest.createWithBadPaths" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RoutesAndStopInfoParserTest - 2019.05.24 at 08h 46m 50s.xml">
+      <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BusStopDisplayTest - 2019.05.24 at 08h 46m 57s.xml">
+      <configuration name="BusStopDisplayTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BusStopDisplayTest - 2019.05.24 at 08h 47m 59s.xml">
+      <configuration name="BusStopDisplayTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RoutesAndStopInfoParserTest - 2019.05.24 at 08h 48m 15s.xml">
+      <configuration name="RoutesAndStopInfoParserTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105065000" />
+    <option name="totallyTimeSpent" value="112232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -474,8 +485,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32829374" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32827735" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49946696" weight="0.35313174" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.39848813" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49946696" visible="true" weight="0.35313174" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39848813" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -505,99 +516,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>51</line>
+          <line>129</line>
           <properties />
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java</url>
-          <line>89</line>
-          <properties />
-          <option name="timeStamp" value="137" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>153</line>
-          <properties />
-          <option name="timeStamp" value="139" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>154</line>
-          <properties />
-          <option name="timeStamp" value="140" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java</url>
-          <line>84</line>
-          <properties />
-          <option name="timeStamp" value="141" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>97</line>
-          <properties />
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="155" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>101</line>
-          <properties />
-          <option name="timeStamp" value="156" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>100</line>
-          <properties />
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="158" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>113</line>
-          <properties />
-          <option name="timeStamp" value="159" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>90</line>
-          <properties />
-          <option name="timeStamp" value="162" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>92</line>
-          <properties />
-          <option name="timeStamp" value="164" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>52</line>
-          <properties />
-          <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="170" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java</url>
-          <line>104</line>
-          <properties />
-          <option name="timeStamp" value="171" />
+          <option name="timeStamp" value="195" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -649,13 +570,6 @@
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/Tests/Tests.java" />
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/Data.java" />
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/TimetableParser.java" />
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1236">
-          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/RoutesAndStopInfoParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
@@ -740,24 +654,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java">
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="228">
+          <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2353#2354#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplayTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplay.java">
+    <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="96" column="59" lean-forward="true" selection-start-line="96" selection-start-column="59" selection-end-line="96" selection-end-column="59" />
+        <state relative-caret-position="171">
+          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1942#1943#0" expanded="true" />
-            <element signature="e#2021#2022#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -34,6 +34,12 @@ public class BusStopDisplay implements Observer {
 		ArrayList<ExpectedBus> expectedBusList = new ArrayList<>();
 		List<Route> callingRoutes = getCallingRoutes();
 
+		for (ExpectedBus expectedBus: expectedBuses){
+			if (expectedBus.status == BusStatus.delayed){
+				expectedBusList.add(expectedBus);
+				break;
+			}
+		}
 		for(Route r: callingRoutes){
 			for(LocalTime t: r.schedule) {
 				ExpectedBus currentBus = new ExpectedBus(r.routeNo,
@@ -43,9 +49,10 @@ public class BusStopDisplay implements Observer {
 						r.schedule.indexOf(t) + 1,
 						t, this);
 
-				if (!removedBuses.contains(currentBus)){
+				if (!removedBuses.contains(currentBus) && !expectedBusList.contains(currentBus)){
 					expectedBusList.add(currentBus);
 				}
+
 			}
 		}
 		//Sort expectedBusList using compareTo method in expected bus
@@ -113,7 +120,8 @@ public class BusStopDisplay implements Observer {
 			} else if (expectedBus.status == BusStatus.departed){
 				expectedBuses.remove(expectedBus);
 				removedBuses.add(expectedBus);
-			} else if (expectedBus.time.plusMinutes(expectedBus.delay + 3).isBefore(time)) {
+			} else if (time.isAfter(expectedBus.time.plusMinutes(expectedBus.delay + 3))) {
+				expectedBus.setStatus(BusStatus.departed);
 				expectedBuses.remove(expectedBus);
 				removedBuses.add(expectedBus);
 			}
@@ -123,26 +131,6 @@ public class BusStopDisplay implements Observer {
 			addScheduledToExpected();
 		}
 
-
-
-		//while(iterator.hasNext()){
-		//
-		//	ExpectedBus iteratedBus = iterator.next();
-		//
-		//	if(iteratedBus.status == BusStatus.cancelled && iteratedBus.time.isBefore(time.plusMinutes(1))){
-		//		iterator.remove();
-		//		removedBuses.add(iteratedBus);
-		//	} else if (iteratedBus.status == BusStatus.departed){
-		//		iterator.remove();
-		//		removedBuses.add(iteratedBus);
-		//	} else if (iteratedBus.time.plusMinutes(iteratedBus.delay + 3).isBefore(time)) {
-		//		iterator.remove();
-		//		removedBuses.add(iteratedBus);
-		//	}
-		//}
-
-
-
 	}
 
 	//Update function replaces
@@ -151,9 +139,5 @@ public class BusStopDisplay implements Observer {
 	    //expectedBuses.set(expectedBuses.indexOf(o), (ExpectedBus) o);
 	    expectedBuses.get(expectedBuses.indexOf(o)).delay = ((ExpectedBus) o).delay;
 		expectedBuses.get(expectedBuses.indexOf(o)).status = ((ExpectedBus) o).status;
-		//if (((ExpectedBus) o).status == BusStatus.delayed){
-		//	removedBuses.add((ExpectedBus) o);
-		//	expectedBuses.remove(o);
-		//}
     }
 }
