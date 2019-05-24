@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 public class BusStopDisplay implements Observer {
 	public ArrayList<ExpectedBus> expectedBuses = new ArrayList<>();
+	ArrayList<ExpectedBus> removedBuses = new ArrayList<>();
 	public ArrayList<Route> callingRoutes;
 	public String id;
 	public String name;
@@ -41,12 +42,15 @@ public class BusStopDisplay implements Observer {
 						r.destination,
 						r.schedule.indexOf(t) + 1,
 						t, this);
-				expectedBusList.add(currentBus);
+
+				if (!removedBuses.contains(currentBus)){
+					expectedBusList.add(currentBus);
+				}
 			}
 		}
 		//Sort expectedBusList using compareTo method in expected bus
 		Collections.sort(expectedBusList);
-		expectedBuses = expectedBusList;
+		expectedBuses = expectedBusList.stream().limit(10).collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	//Returning new array list with the same objects as the old one because the old one is still modifiable
@@ -84,24 +88,10 @@ public class BusStopDisplay implements Observer {
 	 * Function to display bus times
 	 */
 	public void display(LocalTime time) {
-		ArrayList<ExpectedBus> tempBusList = new ArrayList<>();
-		tempBusList.addAll(expectedBuses);
-		for (ExpectedBus expectedBus: expectedBuses){
-			if(expectedBus.status == BusStatus.cancelled && expectedBus.time.isBefore(time)){
-				tempBusList.remove(expectedBus);
-			} else if (expectedBus.time.plusMinutes(expectedBus.delay + 3).isBefore(time)) {
-				tempBusList.remove(expectedBus);
-			} else if (this.expectedBuses.size() < 10){
-				addScheduledToExpected();
-			}
-		}
-
-		//Use stream and limit to only get first 10 items of list
-		expectedBuses = tempBusList.stream().limit(10).collect(Collectors.toCollection(ArrayList::new));
 
 		for(ExpectedBus bus: expectedBuses){
 			String busStatus = bus.status == BusStatus.onTime ? "On Time" :
-						(bus.status == BusStatus.delayed ? bus.delay + " Minutes Delay" : bus.status.toString());
+					(bus.status == BusStatus.delayed ? bus.delay + " Minutes Delay" : bus.status.toString());
 
 			System.out.printf("| %2d | %2d | %18s | %5s | %16s |\n",
 					expectedBuses.indexOf(bus) + 1,
@@ -111,21 +101,48 @@ public class BusStopDisplay implements Observer {
 					busStatus);
 		}
 
-        /*Display is represented as a grid of cells with rows and columns, the display can show up to 10 rows of buses
-        * and information about the bus like it's time and route number is each assigned to it's own column
-        * (represented by the second dimension of the 'display' array). The for loop fills these rows and columns in
-        * with variables from this BusStopDisplay object
-        */
-		//for (int i = 0; i >= 0 && i < 10 && i < this.expectedBuses.size(); i++){
-		//    ExpectedBus thisBus = this.expectedBuses.get(i);
+		ArrayList<ExpectedBus> tempBusList = expectedBuses.stream().limit(10).collect(Collectors.toCollection(ArrayList::new));
+		//Use stream and limit to only get first 10 items of list
+		expectedBuses = tempBusList;
+
+		for (ExpectedBus expectedBus: new ArrayList<>(tempBusList)){
+			//&& expectedBus.time.isBefore(time.plusMinutes(1))
+			if(expectedBus.status == BusStatus.cancelled && expectedBus.time.isAfter(time.plusMinutes(1))){
+				expectedBuses.remove(expectedBus);
+				removedBuses.add(expectedBus);
+			} else if (expectedBus.status == BusStatus.departed){
+				expectedBuses.remove(expectedBus);
+				removedBuses.add(expectedBus);
+			} else if (expectedBus.time.plusMinutes(expectedBus.delay + 3).isBefore(time)) {
+				expectedBuses.remove(expectedBus);
+				removedBuses.add(expectedBus);
+			}
+		}
+
+		if (expectedBuses.size() < 10){
+			addScheduledToExpected();
+		}
+
+
+
+		//while(iterator.hasNext()){
 		//
-		//	display[i][0] = Integer.toString(i + 1);
-        //    display[i][1] = Integer.toString(thisBus.routeNo);
-        //    display[i][2] = thisBus.destination;
-        //    display[i][3] = thisBus.time.toString();
-        //    display[i][4] = thisBus.status == BusStatus.onTime ?
-        //            thisBus.delay + " minutes delay" : thisBus.status.toString();
+		//	ExpectedBus iteratedBus = iterator.next();
+		//
+		//	if(iteratedBus.status == BusStatus.cancelled && iteratedBus.time.isBefore(time.plusMinutes(1))){
+		//		iterator.remove();
+		//		removedBuses.add(iteratedBus);
+		//	} else if (iteratedBus.status == BusStatus.departed){
+		//		iterator.remove();
+		//		removedBuses.add(iteratedBus);
+		//	} else if (iteratedBus.time.plusMinutes(iteratedBus.delay + 3).isBefore(time)) {
+		//		iterator.remove();
+		//		removedBuses.add(iteratedBus);
+		//	}
 		//}
+
+
+
 	}
 
 	//Update function replaces
@@ -134,5 +151,9 @@ public class BusStopDisplay implements Observer {
 	    //expectedBuses.set(expectedBuses.indexOf(o), (ExpectedBus) o);
 	    expectedBuses.get(expectedBuses.indexOf(o)).delay = ((ExpectedBus) o).delay;
 		expectedBuses.get(expectedBuses.indexOf(o)).status = ((ExpectedBus) o).status;
+		//if (((ExpectedBus) o).status == BusStatus.delayed){
+		//	removedBuses.add((ExpectedBus) o);
+		//	expectedBuses.remove(o);
+		//}
     }
 }

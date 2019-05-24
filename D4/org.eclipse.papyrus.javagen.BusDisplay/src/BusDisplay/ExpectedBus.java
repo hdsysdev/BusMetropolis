@@ -3,6 +3,7 @@ package BusDisplay;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -56,7 +57,29 @@ public class ExpectedBus extends Observable implements Comparable<ExpectedBus> {
         notifyObservers();
     }
 
-    @Override
+	@Override
+	public boolean equals(Object obj) {
+		if(this == obj){
+			return true;
+		}
+		if(obj == null){
+			return false;
+		}
+		if (getClass() != obj.getClass()){
+			return false;
+		}
+
+		final ExpectedBus passedObj = (ExpectedBus) obj;
+
+		return this.routeNo == passedObj.routeNo && this.destination.equals(passedObj.destination) && this.time == passedObj.time;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(routeNo, destination, time);
+	}
+
+	@Override
 	public int compareTo(ExpectedBus bus) {
 		return this.time.compareTo(bus.time);
 	}

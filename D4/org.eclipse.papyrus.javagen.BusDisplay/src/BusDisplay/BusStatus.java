@@ -20,5 +20,7 @@ public enum BusStatus {
 	/**
 	 * 
 	 */
-	cancelled;
+	cancelled,
+
+	departed;
 };

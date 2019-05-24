@@ -77,7 +77,7 @@ public class BusStopDisplaySimulator {
         //}
         Random random = new Random();
 
-        int randomEvent = random.nextInt(3);
+        int randomEvent = random.nextInt(2);
         ExpectedBus randomBus = display.expectedBuses.get(random.nextInt(9));
 
         switch (randomEvent){
@@ -90,15 +90,15 @@ public class BusStopDisplaySimulator {
                 randomBus.setStatus(BusStatus.delayed);
                 System.out.printf("%s route %s bus delayed by %s minutes\n", randomBus.time, randomBus.routeNo, randomBus.delay);
                 break;
-            case 2:
-                for (ExpectedBus bus: display.expectedBuses){
-                    if(bus.status == BusStatus.delayed || bus.status == BusStatus.cancelled){
-                        bus.status = BusStatus.onTime;
-                        bus.delay = 0;
-                        break;
-                    }
-                }
-                break;
+            //case 2:
+            //    for (ExpectedBus bus: display.expectedBuses){
+            //        if(bus.status == BusStatus.delayed || bus.status == BusStatus.cancelled){
+            //            bus.status = BusStatus.onTime;
+            //            bus.delay = 0;
+            //            break;
+            //        }
+            //    }
+            //    break;
             //case 3:
             //    break;
             //case 4:
