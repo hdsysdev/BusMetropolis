@@ -51,15 +51,25 @@ public class RoutesAndStopInfoParser {
             file.readLine();
             while (true) {
                 String route_data = file.readLine();
+                String line = timetableFile.readLine();
                 String timetable_data = "";
 
                 if(route_data == null) {
                     file.close();
                     break;
                 } else {
-                    for (String line = timetableFile.readLine(); line != null; line = timetableFile.readLine()){
-                        if (line.split(",")[0].equals(route_data.split(",")[0])){
-                            timetable_data = line;
+
+                    if (line.split(",")[0].equals(route_data.split(",")[0])){
+                        timetable_data = line;
+                    } else {
+                        //If lines in timetable file don't line up with the order in routes.csv, the right row will be found and used
+                        BufferedReader tempTimetableFile = new BufferedReader(new FileReader(ttFilename));
+
+                        for (String timetableLine = tempTimetableFile.readLine(); timetableLine != null; timetableLine = tempTimetableFile.readLine()){
+                            if (timetableLine.split(",")[0].equals(route_data.split(",")[0])){
+                                timetable_data = timetableLine;
+                                break;
+                            }
                         }
                     }
                     routes.add(parseRoute(route_data, timetable_data));

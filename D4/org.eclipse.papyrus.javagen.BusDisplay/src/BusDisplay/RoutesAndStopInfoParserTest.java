@@ -1,6 +1,5 @@
 package BusDisplay;
 
-import javafx.util.Pair;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
@@ -39,7 +38,6 @@ public class RoutesAndStopInfoParserTest  {
                         LocalTime.of(12, 11))))));
 
         assertTrue(testRoutesParsed.equals(testRoutes));
-
     }
 
     @Test
@@ -47,6 +45,5 @@ public class RoutesAndStopInfoParserTest  {
         String[] testStopInfo = RoutesAndStopInfoParser.parseStopInfo("stop_info.csv");
         String[] testStop = {"BS05", "Sweetspot"};
         assertTrue(Arrays.equals(testStopInfo, testStop));
-
     }
 }

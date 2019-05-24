@@ -1,11 +1,14 @@
 package BusDisplay;
 
+import java.lang.reflect.Array;
 import java.time.LocalTime;
 import java.util.*;
 import java.lang.String;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class BusStopDisplay implements Observer {
-	public ArrayList<ExpectedBus> expectedBuses;
+	public ArrayList<ExpectedBus> expectedBuses = new ArrayList<>();
 	public ArrayList<Route> callingRoutes;
 	public String id;
 	public String name;
@@ -39,13 +42,12 @@ public class BusStopDisplay implements Observer {
 						r.destination,
 						r.schedule.indexOf(t) + 1,
 						t, this);
-
 				expectedBusList.add(currentBus);
 			}
 		}
-
+		//Sort expectedBusList using compareTo method in expected bus
 		Collections.sort(expectedBusList);
-		this.expectedBuses = expectedBusList;
+		expectedBuses = expectedBusList;
 	}
 
 	//Returning new array list with the same objects as the old one because the old one is still modifiable
@@ -84,8 +86,8 @@ public class BusStopDisplay implements Observer {
 	 */
 	public void display(LocalTime time) {
 		ArrayList<ExpectedBus> tempBusList = new ArrayList<>();
-		tempBusList.addAll(this.expectedBuses);
-		for (ExpectedBus expectedBus: this.expectedBuses){
+		tempBusList.addAll(expectedBuses);
+		for (ExpectedBus expectedBus: expectedBuses){
 			if(expectedBus.status == BusStatus.cancelled && expectedBus.time.isBefore(time)){
 				tempBusList.remove(expectedBus);
 			} else if (expectedBus.time.plusMinutes(expectedBus.delay + 3).isBefore(time)) {
@@ -94,23 +96,37 @@ public class BusStopDisplay implements Observer {
 				addScheduledToExpected();
 			}
 		}
-		this.expectedBuses = tempBusList;
+
+		//Use stream and limit to only get first 10 items of list
+		expectedBuses = tempBusList.stream().limit(10).collect(Collectors.toCollection(ArrayList::new));
+
+		for(ExpectedBus bus: expectedBuses){
+			String busStatus = bus.status == BusStatus.onTime ?
+					bus.delay + " minutes delay" : bus.status.toString();
+
+			System.out.printf("| %2d | %2d | %18s | %5s | %15s |\n",
+					expectedBuses.indexOf(bus) + 1,
+					bus.routeNo,
+					bus.destination,
+					bus.time.toString(),
+					busStatus);
+		}
 
         /*Display is represented as a grid of cells with rows and columns, the display can show up to 10 rows of buses
         * and information about the bus like it's time and route number is each assigned to it's own column
         * (represented by the second dimension of the 'display' array). The for loop fills these rows and columns in
         * with variables from this BusStopDisplay object
         */
-		for (int i = 0; i >= 0 && i < 10 && i < this.expectedBuses.size(); i++){
-		    ExpectedBus thisBus = this.expectedBuses.get(i);
-
-			display[i][0] = Integer.toString(i + 1);
-            display[i][1] = Integer.toString(thisBus.routeNo);
-            display[i][2] = thisBus.destination;
-            display[i][3] = thisBus.time.toString();
-            display[i][4] = thisBus.status == BusStatus.onTime ?
-                    thisBus.delay + " minutes delay" : thisBus.status.toString();
-		}
+		//for (int i = 0; i >= 0 && i < 10 && i < this.expectedBuses.size(); i++){
+		//    ExpectedBus thisBus = this.expectedBuses.get(i);
+		//
+		//	display[i][0] = Integer.toString(i + 1);
+        //    display[i][1] = Integer.toString(thisBus.routeNo);
+        //    display[i][2] = thisBus.destination;
+        //    display[i][3] = thisBus.time.toString();
+        //    display[i][4] = thisBus.status == BusStatus.onTime ?
+        //            thisBus.delay + " minutes delay" : thisBus.status.toString();
+		//}
 	}
 
 	//Update function replaces

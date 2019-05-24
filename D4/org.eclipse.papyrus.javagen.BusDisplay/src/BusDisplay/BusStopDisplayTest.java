@@ -55,7 +55,6 @@ public class BusStopDisplayTest {
 
         display.addScheduledToExpected();
         assertFalse(display.expectedBuses.isEmpty());
-
     }
 
     @Test
