@@ -12,7 +12,6 @@ public class BusStopDisplay implements Observer {
 	public ArrayList<Route> callingRoutes;
 	public String id;
 	public String name;
-    String[][] display = new String[10][5];
 
 //	create is the constructor for the BusStopDisplay, it creates an example state of the system so it involves
 //	creating routes and their timetables and involves parsing the given configuration files
@@ -101,10 +100,10 @@ public class BusStopDisplay implements Observer {
 		expectedBuses = tempBusList.stream().limit(10).collect(Collectors.toCollection(ArrayList::new));
 
 		for(ExpectedBus bus: expectedBuses){
-			String busStatus = bus.status == BusStatus.onTime ?
-					bus.delay + " minutes delay" : bus.status.toString();
+			String busStatus = bus.status == BusStatus.onTime ? "On Time" :
+						(bus.status == BusStatus.delayed ? bus.delay + " Minutes Delay" : bus.status.toString());
 
-			System.out.printf("| %2d | %2d | %18s | %5s | %15s |\n",
+			System.out.printf("| %2d | %2d | %18s | %5s | %16s |\n",
 					expectedBuses.indexOf(bus) + 1,
 					bus.routeNo,
 					bus.destination,

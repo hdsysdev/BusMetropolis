@@ -58,7 +58,7 @@ public class BusStopDisplaySimulator {
             display.display(LocalTime.of(8, 0));
             simulate(display);
             try {
-                TimeUnit.SECONDS.sleep(15);
+                TimeUnit.SECONDS.sleep(4);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -77,23 +77,34 @@ public class BusStopDisplaySimulator {
         //}
         Random random = new Random();
 
-        int randomEvent = random.nextInt(5);
-        int randomBus = random.nextInt(10);
+        int randomEvent = random.nextInt(3);
+        ExpectedBus randomBus = display.expectedBuses.get(random.nextInt(9));
 
         switch (randomEvent){
             case 0:
-                display.expectedBuses.get(randomBus).setStatus(BusStatus.cancelled);
+                randomBus.setStatus(BusStatus.cancelled);
+                System.out.printf("%s route %s bus canceled\n", randomBus.time, randomBus.routeNo);
                 break;
             case 1:
-                display.expectedBuses.get(randomBus).setDelay(random.nextInt(30));
-                display.expectedBuses.get(randomBus).setStatus(BusStatus.delayed);
+                randomBus.setDelay(random.nextInt(30));
+                randomBus.setStatus(BusStatus.delayed);
+                System.out.printf("%s route %s bus delayed by %s minutes\n", randomBus.time, randomBus.routeNo, randomBus.delay);
                 break;
             case 2:
-                display.expectedBuses.get(randomBus).setStatus(BusStatus.onTime);
-                display.expectedBuses.get(randomBus).setDelay(0);
-            case 3:
+                for (ExpectedBus bus: display.expectedBuses){
+                    if(bus.status == BusStatus.delayed || bus.status == BusStatus.cancelled){
+                        bus.status = BusStatus.onTime;
+                        bus.delay = 0;
+                        break;
+                    }
+                }
+                break;
+            //case 3:
+            //    break;
+            //case 4:
+            //    break;
+            //case 5:
+            //    break;
         }
-
     }
-
 }
