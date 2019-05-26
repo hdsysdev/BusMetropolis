@@ -27,7 +27,7 @@ public class BusStopDisplaySimulator {
     }
 
 
-    public static void simulate(BusStopDisplay display){
+    private static void simulate(BusStopDisplay display){
         System.out.println();
         //Used to randomly generate a number
         Random random = new Random();
