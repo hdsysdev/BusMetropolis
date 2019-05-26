@@ -20,7 +20,7 @@ public class BusStopDisplaySimulator {
             display.display(time);
             simulate(display);
             try {
-                TimeUnit.SECONDS.sleep(15);
+                TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
