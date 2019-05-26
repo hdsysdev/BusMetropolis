@@ -1,7 +1,6 @@
 package BusDisplay;
 
 import java.time.LocalTime;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +19,7 @@ public class BusStopDisplaySimulator {
             display.display(time);
             simulate(display);
             try {
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -45,12 +44,12 @@ public class BusStopDisplaySimulator {
         switch (randomEvent){
             case 0:
                 randomBus.setStatus(BusStatus.cancelled);
-                System.out.printf("%s route %s bus canceled\n", randomBus.time, randomBus.routeNo);
+                System.out.printf("%s route %s bus to %s canceled\n", randomBus.time, randomBus.routeNo, randomBus.destination);
                 break;
             case 1:
                 randomBus.setDelay(random.nextInt(29) + 1);
                 randomBus.setStatus(BusStatus.delayed);
-                System.out.printf("%s route %s bus delayed by %s minutes\n", randomBus.time, randomBus.routeNo, randomBus.delay);
+                System.out.printf("%s route %s bus to %s delayed by %s minutes\n", randomBus.time, randomBus.routeNo, randomBus.destination, randomBus.delay);
                 break;
         }
 
