@@ -571,7 +571,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_clsSjn_aEemXB-pRjS2mDw"/>
       </children>
       <element xmi:type="uml:Class" href="BusDisplay.uml#_clmL4H_aEemXB-pRjS2mDw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_clrEYX_aEemXB-pRjS2mDw" x="1200" y="460"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_clrEYX_aEemXB-pRjS2mDw" x="1180" y="460"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_TDKQUT3DEemh8bFxZDDVyw" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_TDKQUj3DEemh8bFxZDDVyw"/>
@@ -723,7 +723,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ab5O1n31EemrpsIJx0QGKA"/>
       </children>
       <element xmi:type="uml:Interaction" href="BusDisplay.uml#_ZdV74H31EemrpsIJx0QGKA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ab5O1331EemrpsIJx0QGKA" x="100" y="40" width="1001" height="961"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ab5O1331EemrpsIJx0QGKA" x="100" y="40" width="1001" height="541"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_ab5O2H31EemrpsIJx0QGKA" name="diagram_compatibility_version" stringValue="1.4.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_ab5O2X31EemrpsIJx0QGKA"/>
