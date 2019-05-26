@@ -9,7 +9,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 
-public class RoutesAndStopInfoParser {
+public class RoutesStopTimetableParser {
     //ArrayList going to contain many route objects
     private ArrayList<Route> routes = new ArrayList<>();
 
@@ -35,10 +35,7 @@ public class RoutesAndStopInfoParser {
 
     //Going to parse an array list of routes from a given file
     public static ArrayList<Route> parseRoutes (String filename, String ttFilename)  {
-        //Loop reads each line of the file one by one, checking if the next line of the file is not empty
-        //which would mean the end of the file, if the end is reached the file is closed and loop is escaped
-        //by closing the file and setting endOf to true, if the next line is not empty, route object r is parsed from
-        //the line string before being added to the array and the array being returned at the end
+
         ArrayList<Route> routes = new ArrayList<>();
 
         try {

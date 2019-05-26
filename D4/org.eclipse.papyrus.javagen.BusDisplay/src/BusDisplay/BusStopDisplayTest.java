@@ -7,13 +7,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.lang.String;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class BusStopDisplayTest {
@@ -50,7 +47,7 @@ public class BusStopDisplayTest {
     @Test
     public void addScheduledToExpected() {
         BusStopDisplay display = new BusStopDisplay();
-        display.callingRoutes = RoutesAndStopInfoParser.parseRoutes("routes.csv", "timetable.csv");
+        display.callingRoutes = RoutesStopTimetableParser.parseRoutes("routes.csv", "timetable.csv");
         assertNotNull(display.callingRoutes);
         assertEquals(display.expectedBuses, new ArrayList<>());
 

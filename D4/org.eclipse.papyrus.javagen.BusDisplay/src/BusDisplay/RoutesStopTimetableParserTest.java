@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class RoutesAndStopInfoParserTest  {
+public class RoutesStopTimetableParserTest {
 
     @Test
     void parseRouteTest() {
@@ -16,7 +16,7 @@ public class RoutesAndStopInfoParserTest  {
         String timetableInfo = "3,08:11,09:11,10:11";
 
 
-        Route parsedRoute = RoutesAndStopInfoParser.parseRoute(routeInfo, timetableInfo);
+        Route parsedRoute = RoutesStopTimetableParser.parseRoute(routeInfo, timetableInfo);
         Route testRoute = new Route(21, "Test Road", "Other Test Road",
                 new ArrayList<LocalTime>(
                         Arrays.asList(LocalTime.of(8, 11),
@@ -28,7 +28,7 @@ public class RoutesAndStopInfoParserTest  {
 
     @Test
     void parseRoutesAndTimetableTest() {
-        ArrayList<Route> testRoutesParsed = RoutesAndStopInfoParser.parseRoutes("routes_test.csv", "timetable_test.csv");
+        ArrayList<Route> testRoutesParsed = RoutesStopTimetableParser.parseRoutes("routes_test.csv", "timetable_test.csv");
         ArrayList<Route> testRoutes = new ArrayList<>(Arrays.asList(new Route(3,
                 "Vila Nova", "Centennial park",
                 new ArrayList<LocalTime>(Arrays.asList(LocalTime.of(8, 11),
@@ -42,7 +42,7 @@ public class RoutesAndStopInfoParserTest  {
 
     @Test
     void parseBusInfo() {
-        String[] testStopInfo = RoutesAndStopInfoParser.parseStopInfo("stop_info.csv");
+        String[] testStopInfo = RoutesStopTimetableParser.parseStopInfo("stop_info.csv");
         String[] testStop = {"BS05", "Sweetspot"};
         assertTrue(Arrays.equals(testStopInfo, testStop));
     }

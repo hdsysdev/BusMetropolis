@@ -1,10 +1,8 @@
 package BusDisplay;
 
-import java.lang.reflect.Array;
 import java.time.LocalTime;
 import java.util.*;
 import java.lang.String;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class BusStopDisplay implements Observer {
@@ -18,10 +16,10 @@ public class BusStopDisplay implements Observer {
 	BusStopDisplay create(String stopInfo, String rsInfo, String ttInfo) {
 	    BusStopDisplay busStopDisplay = new BusStopDisplay();
 
-        busStopDisplay.id = RoutesAndStopInfoParser.parseStopInfo(stopInfo)[0];
-        busStopDisplay.name = RoutesAndStopInfoParser.parseStopInfo(stopInfo)[1];
+        busStopDisplay.id = RoutesStopTimetableParser.parseStopInfo(stopInfo)[0];
+        busStopDisplay.name = RoutesStopTimetableParser.parseStopInfo(stopInfo)[1];
 
-        busStopDisplay.callingRoutes = RoutesAndStopInfoParser.parseRoutes(rsInfo, ttInfo);
+        busStopDisplay.callingRoutes = RoutesStopTimetableParser.parseRoutes(rsInfo, ttInfo);
         busStopDisplay.addScheduledToExpected();
 
 
