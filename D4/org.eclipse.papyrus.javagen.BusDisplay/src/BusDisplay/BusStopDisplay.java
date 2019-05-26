@@ -95,21 +95,29 @@ public class BusStopDisplay implements Observer {
 		}
 
 		for (ExpectedBus expectedBus: new ArrayList<>(expectedBuses)){
-			if(expectedBus.status == BusStatus.cancelled){
+			//Buses removed if they've been canceled and it is over 1 minute past their due time
+			if(expectedBus.status == BusStatus.cancelled && time.isAfter(expectedBus.time.plusMinutes(1))){
 				expectedBuses.remove(expectedBus);
 				removedBuses.add(expectedBus);
-			} else if (expectedBus.status == BusStatus.departed){
+			}
+			//Buses removed if they are marked as departed
+			else if (expectedBus.status == BusStatus.departed){
 				expectedBuses.remove(expectedBus);
 				removedBuses.add(expectedBus);
-			} else if (time.isAfter(expectedBus.time.plusMinutes(expectedBus.delay + 3))) {
+			}
+			//Buses marked as departed and removed if the current time is past the bus due time + delay time + 3 minutes
+			else if (time.isAfter(expectedBus.time.plusMinutes(expectedBus.delay + 3))) {
 				expectedBus.setStatus(BusStatus.departed);
 				expectedBuses.remove(expectedBus);
 				removedBuses.add(expectedBus);
-			} else if (expectedBus.status == BusStatus.delayed){
+			}
+			//If the bus is marked as delayed, add it to delayedBuses to be carried over to the next iteration
+			else if (expectedBus.status == BusStatus.delayed){
 				if (!delayedBuses.contains(expectedBus)){
 					delayedBuses.add(expectedBus);
 				}
 			}
+			//Loads new buses if the number of buses on the display drops below 10
 			else if (expectedBuses.size() < 10){
 				addScheduledToExpected();
 			}
