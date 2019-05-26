@@ -44,7 +44,7 @@ public class RoutesStopTimetableParser {
             BufferedReader timetableFile = new BufferedReader(
                     new FileReader(ttFilename));
 
-            //Skip first line
+            //Skip first line containing column headers
             file.readLine();
             while (true) {
                 String route_data = file.readLine();
@@ -70,7 +70,6 @@ public class RoutesStopTimetableParser {
                         }
                     }
                     routes.add(parseRoute(route_data, timetable_data));
-
                 }
             }
         } catch (IOException e) {
@@ -79,7 +78,7 @@ public class RoutesStopTimetableParser {
         return routes;
     }
 
-    //Parses a pair containing a bus stop id and stop name, takes a filename string
+    //Parses a two item array containing a bus stop id and stop name, takes a filename string
     public static String[] parseStopInfo(String filename) {
         try {
             BufferedReader file = new BufferedReader(

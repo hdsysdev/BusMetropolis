@@ -5,8 +5,9 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class BusStopDisplaySimulator {
-    //Time the simulation is being run at
+    //Time the simulation is being run at, if running the simulation after ~9pm, not enough buses are running to fill the display
     private static LocalTime time = LocalTime.now();
+
 
     public static void main(String[] args) {
         BusStopDisplay display = new BusStopDisplay()
@@ -14,7 +15,14 @@ public class BusStopDisplaySimulator {
                             "routes.csv",
                             "timetable.csv");
 
-        //Demo loop
+        //Checks if it's early enough to fill the display with scheduled buses.
+        if (time.isAfter(LocalTime.of(21, 0))){
+            System.out.println("You're running the simulation after 9pm. There is not enough buses running to populate the display. \n" +
+                    "The time will be automatically reassigned to 8:00am.");
+            time = LocalTime.of(8, 0);
+        }
+
+        //Demo loop running display function then simulate every 15 seconds
         while (true){
             display.display(time);
             simulate(display);
@@ -33,7 +41,7 @@ public class BusStopDisplaySimulator {
         Random random = new Random();
 
 
-        ExpectedBus randomBus = display.expectedBuses.get(random.nextInt(9));
+        ExpectedBus randomBus = display.expectedBuses.get(random.nextInt(10));
 
         if (time.isAfter(randomBus.time.plusMinutes(randomBus.delay + 3))){
             randomBus.setStatus(BusStatus.departed);
