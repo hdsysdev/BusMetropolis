@@ -19,16 +19,17 @@ public class BusStopDisplaySimulator {
             display.display(time);
             simulate(display);
             try {
-                TimeUnit.SECONDS.sleep(15);
+                TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
+
     public static void simulate(BusStopDisplay display){
         System.out.println();
-
+        //Used to randomly generate a number
         Random random = new Random();
 
 
@@ -39,7 +40,7 @@ public class BusStopDisplaySimulator {
         }
 
 
-        int randomEvent = random.nextInt(2);
+        int randomEvent = random.nextInt(3);
 
         switch (randomEvent){
             case 0:
@@ -50,6 +51,8 @@ public class BusStopDisplaySimulator {
                 randomBus.setDelay(random.nextInt(29) + 1);
                 randomBus.setStatus(BusStatus.delayed);
                 System.out.printf("%s route %s bus to %s delayed by %s minutes\n", randomBus.time, randomBus.routeNo, randomBus.destination, randomBus.delay);
+                break;
+            case 3:
                 break;
         }
 

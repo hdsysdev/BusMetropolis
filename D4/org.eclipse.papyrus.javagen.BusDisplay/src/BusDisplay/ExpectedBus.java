@@ -57,6 +57,8 @@ public class ExpectedBus extends Observable implements Comparable<ExpectedBus> {
         notifyObservers();
     }
 
+    //Equals, hashCode and compareTo overrides from the Comparable interface for easily comparing buses when trying to find if buses are
+	//present in the removed buses list of bus stop display.
 	@Override
 	public boolean equals(Object obj) {
 		if(this == obj){
@@ -84,6 +86,7 @@ public class ExpectedBus extends Observable implements Comparable<ExpectedBus> {
 		return this.time.compareTo(bus.time);
 	}
 
+	//Function overrides to implement the observer design pattern allowing to add and delete observers as well as notify of changes
     @Override
     public synchronized void addObserver(Observer o) {
         observers.add(o);

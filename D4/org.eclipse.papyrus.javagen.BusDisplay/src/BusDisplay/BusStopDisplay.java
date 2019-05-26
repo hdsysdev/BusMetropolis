@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class BusStopDisplay implements Observer {
 	ArrayList<ExpectedBus> expectedBuses = new ArrayList<>();
 	ArrayList<ExpectedBus> removedBuses = new ArrayList<>();
+	ArrayList<ExpectedBus> delayedBuses = new ArrayList<>();
 	ArrayList<Route> callingRoutes;
 	private String id;
 	private String name;
@@ -39,12 +40,13 @@ public class BusStopDisplay implements Observer {
 						r.schedule.indexOf(t) + 1,
 						t, this);
 
-				if (!removedBuses.contains(currentBus)){
+				if (!removedBuses.contains(currentBus) && !delayedBuses.contains(currentBus)){
 					expectedBusList.add(currentBus);
 				}
 
 			}
 		}
+		expectedBusList.addAll(delayedBuses);
 		//Sort expectedBusList using compareTo method in expected bus
 		Collections.sort(expectedBusList);
 		expectedBuses = expectedBusList;
@@ -52,7 +54,7 @@ public class BusStopDisplay implements Observer {
 
 	//Returning new array list with the same objects as the old one because the old one is still modifiable
 	List<Route> getCallingRoutes() {
-		return Collections.unmodifiableList(new ArrayList<>(this.callingRoutes));
+		return Collections.unmodifiableList(new ArrayList<>(callingRoutes));
 	}
 
 	/**
@@ -85,9 +87,15 @@ public class BusStopDisplay implements Observer {
 	 * Function to display bus times
 	 */
 	public void display(LocalTime time) {
+		for (ExpectedBus delayedBus: new ArrayList<>(delayedBuses)){
+			if (delayedBus.status == BusStatus.cancelled){
+				delayedBuses.remove(delayedBus);
+				removedBuses.add(delayedBus);
+			}
+		}
+
 		for (ExpectedBus expectedBus: new ArrayList<>(expectedBuses)){
-			//&& expectedBus.time.isBefore(time.plusMinutes(1))
-			if(expectedBus.status == BusStatus.cancelled ){
+			if(expectedBus.status == BusStatus.cancelled){
 				expectedBuses.remove(expectedBus);
 				removedBuses.add(expectedBus);
 			} else if (expectedBus.status == BusStatus.departed){
@@ -97,7 +105,12 @@ public class BusStopDisplay implements Observer {
 				expectedBus.setStatus(BusStatus.departed);
 				expectedBuses.remove(expectedBus);
 				removedBuses.add(expectedBus);
-			} else if (expectedBuses.size() < 10){
+			} else if (expectedBus.status == BusStatus.delayed){
+				if (!delayedBuses.contains(expectedBus)){
+					delayedBuses.add(expectedBus);
+				}
+			}
+			else if (expectedBuses.size() < 10){
 				addScheduledToExpected();
 			}
 		}
