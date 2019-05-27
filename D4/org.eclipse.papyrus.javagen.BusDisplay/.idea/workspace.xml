@@ -84,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="61" column="80" lean-forward="true" selection-start-line="61" selection-start-column="80" selection-end-line="61" selection-end-column="80" />
+            <state relative-caret-position="228">
+              <caret line="24" column="75" lean-forward="true" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -460,7 +460,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130630000" />
+    <option name="totallyTimeSpent" value="130708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -659,8 +659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BusDisplay/BusStopDisplaySimulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="61" column="80" lean-forward="true" selection-start-line="61" selection-start-column="80" selection-end-line="61" selection-end-column="80" />
+        <state relative-caret-position="228">
+          <caret line="24" column="75" lean-forward="true" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

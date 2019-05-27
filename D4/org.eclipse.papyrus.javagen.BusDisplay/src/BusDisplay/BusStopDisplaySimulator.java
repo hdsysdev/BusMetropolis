@@ -27,7 +27,7 @@ public class BusStopDisplaySimulator {
             display.display(time);
             simulate(display);
             try {
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -55,11 +55,11 @@ public class BusStopDisplaySimulator {
             }
         }
         //Chance of a bus being randomly delayed or canceled, default is 6 which is a 33% chance every iteration
-        int randomEvent = random.nextInt(2);
+        int randomEvent = random.nextInt(6);
 
         switch (randomEvent){
             case 0:
-                //Limits max canceled buses on the screen to 4 max delayed to 3 
+                //Limits max canceled buses on the screen to 4 max delayed to 3
                 if (randomBus.status != BusStatus.cancelled && canceledBuses < 4) {
                     randomBus.setStatus(BusStatus.cancelled);
                     System.out.printf("%s route %s bus to %s canceled\n", randomBus.time, randomBus.routeNo, randomBus.destination);
